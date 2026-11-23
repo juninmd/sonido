@@ -46,6 +46,7 @@ const preview: Preview = {
           "Navegação",
           "Dados",
           "Widgets",
+          "Ilhas",
           "Assistente",
           "Movimento",
           "Temas",

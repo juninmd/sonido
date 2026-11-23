@@ -11,6 +11,10 @@
   --sn-sp-1: var(--sn-color-aqua);
   --sn-sp-2: var(--sn-color-aqua);
 }
+.sn-spark--success {
+  --sn-sp-1: var(--sn-color-success);
+  --sn-sp-2: var(--sn-color-success);
+}
 .sn-spark--danger {
   --sn-sp-1: var(--sn-color-danger);
   --sn-sp-2: var(--sn-color-danger);

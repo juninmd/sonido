@@ -10,7 +10,7 @@ export interface SparklineProps {
   area?: boolean;
   /** Rótulo acessível; sem ele o gráfico é decorativo. */
   label?: string;
-  tone?: "signature" | "accent" | "aqua" | "danger";
+  tone?: "signature" | "accent" | "aqua" | "success" | "danger";
   className?: string;
 }
 

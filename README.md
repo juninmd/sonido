@@ -23,7 +23,7 @@ Escuro por padrão, vidro sobre um fundo atmosférico, cor com função e movime
 
 |                             |                                                                                                   |
 | --------------------------- | ------------------------------------------------------------------------------------------------- |
-| 🧩 **67 componentes**       | De botão a céu animado do clima, todos com tipos, teclado e ARIA.                                 |
+| 🧩 **78 componentes**       | De botão a céu animado do clima, todos com tipos, teclado e ARIA.                                 |
 | 🎨 **8 temas**              | Troque com um atributo: `data-theme="hueco-mundo"`. Tokens `--sn-*` em CSS e em JS.               |
 | ✨ **Movimento com motivo** | Mola tátil, confete, cenas em canvas. Tudo desliga com `prefers-reduced-motion`.                  |
 | ♿ **Acessível**            | Contraste AA nos 8 temas, auditado com axe. Alvos de 44px e foco visível.                         |
@@ -73,6 +73,18 @@ Coloque `class="sn-body"` no `<body>` para herdar fonte, cor e fundo do tema.
 | **Movimento e temas** | Motion, ThemeSwitcher                                                                                                                         |
 
 Utilitários: `burst` (confete), `accentStyle(hue)` (cor por seção), `useReducedMotion`, `useCanvasLoop`, `hueFrom`, `initials`, `cx`.
+
+## Ilhas vivas
+
+Pílulas escuras para atividades em andamento: chamada, timer, música, gravação, rota, cotação, clima e bateria. Ficam escuras em qualquer tema e usam a cor de destaque dele.
+
+<img src=".github/assets/islands.png" alt="Galeria de ilhas vivas: cotação, chamada, timer, navegação, player, gravação, clima por hora, progresso e bateria" width="100%" />
+
+```tsx
+<IslandCall name="Ana Lima" subtitle="celular" onAccept={atender} onDecline={recusar} />
+<IslandTimer duration={25 * 60} label="Foco" onDone={tocar} />
+<IslandChip icon={<Bike />} value="2,0 km" tone="gold" label="Pedalada: 2 km" />
+```
 
 ## Temas
 
@@ -127,7 +139,7 @@ Os testes montam **todos os exemplos da documentação**, então o código que v
 Em `.claude/skills/` há três skills para o Claude Code:
 
 - **sonido-audit**: roda `npm run audit:ds`, lint, tipos e testes e corrige o que falhar.
-- **sonido-a11y**: axe-core nos 67 exemplos em todos os temas.
+- **sonido-a11y**: axe-core nos 78 exemplos em todos os temas.
 - **sonido-component**: passo a passo para criar ou portar um componente.
 
 ## Releases

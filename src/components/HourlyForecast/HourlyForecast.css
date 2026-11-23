@@ -1,0 +1,33 @@
+.sn-hourly {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(48px, 1fr);
+  gap: var(--sn-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sn-hourly__item {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 6px;
+  padding: 8px 4px;
+  border-radius: var(--sn-radius);
+  font-variant-numeric: tabular-nums;
+}
+.sn-hourly__item[data-now] {
+  background: color-mix(in oklab, var(--sn-color-text) 7%, transparent);
+}
+.sn-hourly__time {
+  font: 600 12px / 1 var(--sn-font);
+  color: var(--sn-color-text-dim);
+}
+.sn-hourly__rain {
+  font: 600 11px / 1 var(--sn-font);
+  color: var(--sn-color-info);
+}
+.sn-hourly__temp {
+  font: 700 14px / 1 var(--sn-font);
+  color: var(--sn-color-text);
+}
