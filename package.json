@@ -1,0 +1,102 @@
+{
+  "name": "@juninmd/sonido",
+  "version": "0.0.0-development",
+  "description": "Design system e biblioteca de componentes React do juninmd: 67 componentes, 8 temas e animações.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juninmd/sonido.git"
+  },
+  "homepage": "https://juninmd.github.io/sonido/",
+  "bugs": "https://github.com/juninmd/sonido/issues",
+  "keywords": [
+    "react",
+    "design-system",
+    "components",
+    "ui",
+    "tokens",
+    "storybook",
+    "themes",
+    "animation"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/sonido.css",
+    "./tokens.css": "./dist/tokens.css",
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "vite build && tsc -p tsconfig.build.json && cp src/tokens/tokens.css dist/tokens.css",
+    "build:docs": "storybook build -o storybook-static",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "audit:ds": "node scripts/audit.mjs",
+    "check": "npm run lint && npm run typecheck && npm run audit:ds && npm run test",
+    "prepare": "husky || true",
+    "release": "semantic-release"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.8",
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "@semantic-release/changelog": "^7.0.0",
+    "@semantic-release/git": "^11.0.1",
+    "@storybook/addon-a11y": "^10.6.8",
+    "@storybook/addon-docs": "^10.6.8",
+    "@storybook/react-vite": "^10.6.8",
+    "@testing-library/jest-dom": "^8.0.0",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.13",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "husky": "^9.1.7",
+    "jsdom": "^31.0.1",
+    "prettier": "^3.10.1",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-live": "^4.1.8",
+    "semantic-release": "^25.0.9",
+    "storybook": "^10.6.8",
+    "sucrase": "^3.35.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  },
+  "author": "juninmd"
+}

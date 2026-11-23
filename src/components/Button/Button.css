@@ -1,0 +1,118 @@
+.sn-button {
+  --sn-btn-bg: var(--sn-color-surface-2);
+  --sn-btn-fg: var(--sn-color-text);
+  --sn-btn-press: var(--sn-color-surface-hover);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sn-space-2);
+  min-height: 40px;
+  padding: 0 var(--sn-space-4);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: var(--sn-btn-bg);
+  color: var(--sn-btn-fg);
+  font: 600 var(--sn-text-sm) / 1 var(--sn-font);
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform var(--sn-dur-fast) var(--sn-ease),
+    box-shadow var(--sn-dur) var(--sn-ease),
+    background-color var(--sn-dur) var(--sn-ease),
+    border-color var(--sn-dur) var(--sn-ease);
+}
+.sn-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.sn-button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+.sn-button:focus-visible {
+  outline: none;
+  box-shadow: var(--sn-ring);
+}
+.sn-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.sn-button--primary {
+  --sn-btn-bg: var(--sn-gradient);
+  --sn-btn-fg: var(--sn-color-on-accent);
+  --sn-btn-press: #8a1c3f;
+}
+.sn-button--primary:hover:not(:disabled) {
+  box-shadow: var(--sn-shadow-glow);
+}
+/* Brilho que atravessa o botão (nerd-watch) */
+.sn-button--primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.28) 50%, transparent 65%);
+  transform: translateX(-120%);
+}
+.sn-button--primary:hover:not(:disabled)::after {
+  transform: translateX(120%);
+  transition: transform 700ms var(--sn-ease);
+}
+
+.sn-button--secondary {
+  --sn-btn-bg: var(--sn-color-surface-2);
+  border-color: var(--sn-color-border);
+}
+.sn-button--secondary:hover:not(:disabled) {
+  --sn-btn-bg: var(--sn-color-surface-hover);
+}
+.sn-button--ghost {
+  --sn-btn-bg: transparent;
+}
+.sn-button--ghost:hover:not(:disabled) {
+  --sn-btn-bg: var(--sn-color-surface-hover);
+}
+.sn-button--danger {
+  --sn-btn-bg: var(--sn-color-danger);
+  --sn-btn-fg: var(--sn-color-on-danger);
+  --sn-btn-press: #9f1239;
+}
+.sn-button--link {
+  --sn-btn-bg: transparent;
+  --sn-btn-fg: var(--sn-color-accent-2);
+  min-height: auto;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sn-button--link:hover:not(:disabled) {
+  transform: none;
+}
+
+.sn-button--sm {
+  min-height: 32px;
+  padding: 0 var(--sn-space-3);
+  font-size: var(--sn-text-xs);
+  border-radius: var(--sn-radius-sm);
+}
+.sn-button--lg {
+  min-height: 48px;
+  padding: 0 var(--sn-space-5);
+  font-size: var(--sn-text-md);
+  border-radius: var(--sn-radius);
+}
+.sn-button--icon {
+  width: 40px;
+  padding: 0;
+  border-radius: var(--sn-radius-pill);
+}
+
+/* Sombra tátil (pobre-lingo) */
+.sn-button--press {
+  box-shadow: 0 var(--sn-press-depth) 0 var(--sn-btn-press);
+}
+.sn-button--press:active:not(:disabled) {
+  transform: translateY(var(--sn-press-depth));
+  box-shadow: 0 0 0 var(--sn-btn-press);
+}

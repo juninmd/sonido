@@ -1,0 +1,220 @@
+:root {
+  --sn-traffic-free: #22c55e;
+  --sn-traffic-slow: #facc15;
+  --sn-traffic-jam: #f97316;
+  --sn-traffic-stop: #dc2626;
+}
+:root:is([data-theme="light"], [data-theme="canto-claro"]) {
+  --sn-traffic-free: #16a34a;
+  --sn-traffic-slow: #ca8a04;
+  --sn-traffic-jam: #ea580c;
+  --sn-traffic-stop: #b91c1c;
+}
+.sn-map {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--sn-color-border);
+  border-radius: var(--sn-radius-lg);
+  background: var(--sn-color-surface-2);
+}
+.sn-map svg {
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.sn-map__grid {
+  fill: none;
+  stroke: var(--sn-color-border-soft);
+  stroke-width: 0.15;
+}
+.sn-map__road {
+  fill: none;
+  stroke: var(--sn-color-surface-hover);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+.sn-map__road--minor {
+  stroke-width: 1.2;
+}
+.sn-map__glow {
+  fill: none;
+  stroke: var(--sn-color-accent);
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.25;
+}
+.sn-map__route {
+  --sn-t: var(--sn-traffic-free);
+  fill: none;
+  stroke: var(--sn-t);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sn-map__route[data-traffic="slow"] {
+  --sn-t: var(--sn-traffic-slow);
+}
+.sn-map__route[data-traffic="jam"] {
+  --sn-t: var(--sn-traffic-jam);
+}
+.sn-map__route[data-traffic="stop"] {
+  --sn-t: var(--sn-traffic-stop);
+}
+.sn-map__pin {
+  cursor: pointer;
+  outline: none;
+}
+.sn-map__pin > path {
+  fill: var(--sn-color-accent-2);
+  stroke: var(--sn-color-bg);
+  stroke-width: 0.5;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition: transform var(--sn-dur-fast) var(--sn-ease);
+}
+.sn-map__pin[data-kind="incident"] > path {
+  fill: var(--sn-color-danger);
+}
+.sn-map__pin[data-kind="home"] > path {
+  fill: var(--sn-color-aqua);
+}
+.sn-map__pin > text {
+  fill: #fff;
+  font: 700 3px / 1 var(--sn-font);
+  pointer-events: none;
+}
+.sn-map__pin:hover > path,
+.sn-map__pin.is-on > path {
+  transform: scale(1.25);
+}
+.sn-map__pin:focus-visible > path {
+  stroke: var(--sn-color-text);
+  stroke-width: 0.8;
+}
+.sn-map__me {
+  fill: var(--sn-color-accent);
+  stroke: #fff;
+  stroke-width: 0.6;
+}
+.sn-map__me-ring {
+  fill: var(--sn-color-accent);
+  opacity: 0.3;
+}
+.sn-map__live {
+  position: absolute;
+  top: var(--sn-space-2);
+  left: var(--sn-space-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border: 1px solid var(--sn-color-border);
+  border-radius: var(--sn-radius-pill);
+  background: color-mix(in srgb, var(--sn-color-surface) 84%, transparent);
+  backdrop-filter: blur(8px);
+  font: 700 var(--sn-text-xs) / 1 var(--sn-font);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.sn-map__live > i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--sn-traffic-free);
+}
+.sn-gauge {
+  --sn-t: var(--sn-traffic-free);
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+}
+.sn-gauge[data-traffic="slow"] {
+  --sn-t: var(--sn-traffic-slow);
+}
+.sn-gauge[data-traffic="jam"] {
+  --sn-t: var(--sn-traffic-jam);
+}
+.sn-gauge[data-traffic="stop"] {
+  --sn-t: var(--sn-traffic-stop);
+}
+.sn-gauge svg {
+  rotate: 135deg;
+}
+.sn-gauge circle {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+.sn-gauge__track {
+  stroke: var(--sn-color-surface-hover);
+}
+.sn-gauge__fill {
+  stroke: var(--sn-t);
+  stroke-dasharray: var(--a) 999;
+  transition:
+    stroke-dasharray 900ms var(--sn-ease),
+    stroke 600ms;
+}
+.sn-gauge__value {
+  position: absolute;
+  display: grid;
+  text-align: center;
+  line-height: 1.1;
+}
+.sn-gauge__value strong {
+  font: 800 var(--sn-text-md) / 1 var(--sn-font-display);
+}
+.sn-gauge__value small {
+  font-size: 11px;
+  color: var(--sn-t);
+  font-weight: 700;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-map__me-ring {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: sn-map-ping 2.2s ease-out infinite;
+  }
+  .sn-map__live > i {
+    animation: sn-blink 1.6s ease-in-out infinite;
+  }
+  .sn-map__route,
+  .sn-map__glow {
+    stroke-dasharray: 1;
+    animation: sn-map-draw 1.2s var(--sn-ease) both;
+  }
+  .sn-gauge__fill {
+    animation: sn-gauge-in 900ms var(--sn-ease) backwards;
+  }
+}
+@keyframes sn-map-ping {
+  from {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+@keyframes sn-blink {
+  50% {
+    opacity: 0.3;
+  }
+}
+@keyframes sn-map-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes sn-gauge-in {
+  from {
+    stroke-dasharray: 0 999;
+  }
+}

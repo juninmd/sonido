@@ -1,0 +1,90 @@
+.sn-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sn-space-3);
+  border-radius: var(--sn-radius-lg);
+  color: var(--sn-color-text);
+  transition:
+    transform var(--sn-dur-slow) var(--sn-ease),
+    box-shadow var(--sn-dur-slow) var(--sn-ease);
+}
+.sn-card--glass {
+  background: var(--sn-glass-fill), var(--sn-glass);
+  border: 1px solid var(--sn-glass-edge);
+  backdrop-filter: blur(var(--sn-blur)) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.06),
+    var(--sn-shadow-card);
+}
+.sn-card--solid {
+  background: var(--sn-color-surface);
+  border: 1px solid var(--sn-color-border);
+  box-shadow: var(--sn-shadow-card);
+}
+.sn-card--pad-none {
+  padding: 0;
+}
+.sn-card--pad-sm {
+  padding: var(--sn-space-3);
+}
+.sn-card--pad-md {
+  padding: var(--sn-space-5);
+}
+.sn-card--pad-lg {
+  padding: var(--sn-space-6);
+}
+
+@media (hover: hover) {
+  .sn-card--interactive:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sn-shadow-lift);
+  }
+}
+.sn-card--tilt {
+  transform-style: preserve-3d;
+}
+@media (hover: hover) and (pointer: fine) {
+  .sn-card--tilt:hover {
+    transform: perspective(800px) translateY(-4px) rotateX(var(--sn-rx, 0deg)) rotateY(var(--sn-ry, 0deg));
+    transition-duration: var(--sn-dur-fast);
+  }
+  .sn-card--tilt::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+      260px circle at var(--sn-mx, 50%) var(--sn-my, 0%),
+      rgb(255 255 255 / 0.18),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity var(--sn-dur) var(--sn-ease);
+  }
+  .sn-card--tilt:hover::after {
+    opacity: 1;
+  }
+}
+
+.sn-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sn-space-3);
+}
+.sn-card__title {
+  margin: 0;
+  font: 700 var(--sn-text-lg) / 1.2 var(--sn-font-display);
+  letter-spacing: -0.02em;
+}
+.sn-card__body {
+  color: var(--sn-color-text-dim);
+  font-size: var(--sn-text-sm);
+}
+.sn-card__footer {
+  display: flex;
+  gap: var(--sn-space-2);
+  justify-content: flex-end;
+}

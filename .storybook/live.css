@@ -1,0 +1,88 @@
+.sb-live {
+  border: 1px solid var(--sn-color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--sn-color-surface);
+  margin: 12px 0 32px;
+}
+.sb-live__preview {
+  padding: 24px;
+  background: var(--sn-color-bg);
+  color: var(--sn-color-text);
+  font-family: var(--sn-font);
+  min-height: 80px;
+}
+.sb-live__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--sn-color-border);
+  border-bottom: 1px solid var(--sn-color-border);
+  background: var(--sn-color-surface-2);
+}
+.sb-live__hint {
+  font: 500 12px / 1.4 var(--sn-font);
+  color: var(--sn-color-text-dim);
+}
+.sb-live__actions {
+  display: flex;
+  gap: 8px;
+}
+.sb-live__btn {
+  font: 600 12px / 1 var(--sn-font);
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--sn-color-border);
+  background: transparent;
+  color: var(--sn-color-text);
+  cursor: pointer;
+}
+.sb-live__btn--primary {
+  border-color: transparent;
+  background: var(--sn-gradient);
+  color: var(--sn-color-on-accent);
+}
+.sb-live__btn:focus-visible {
+  outline: 2px solid var(--sn-color-accent-2);
+  outline-offset: 2px;
+}
+.sb-live__editor {
+  font:
+    13px / 1.55 "JetBrains Mono",
+    ui-monospace,
+    monospace !important;
+  max-height: 520px;
+  overflow: auto;
+}
+.sb-live__editor pre {
+  padding: 16px !important;
+}
+.sb-live__error {
+  margin: 12px 0 0;
+  padding: 12px;
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--sn-color-danger) 14%, transparent);
+  color: var(--sn-color-text);
+  font:
+    12px / 1.5 ui-monospace,
+    monospace;
+  white-space: pre-wrap;
+}
+.sb-live__h {
+  margin-top: 40px !important;
+}
+
+/* As docs seguem o tema escolhido na barra. */
+.sbdocs-wrapper {
+  background: var(--sn-color-bg) !important;
+}
+.sbdocs-content,
+.sbdocs-content p,
+.sbdocs-content li,
+.sbdocs-content h1,
+.sbdocs-content h2,
+.sbdocs-content h3 {
+  color: var(--sn-color-text);
+}

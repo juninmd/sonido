@@ -1,0 +1,51 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Começar/Temas e tokens" />
+
+# Temas e tokens
+
+Todos os componentes leem variáveis CSS `--sn-*`. Trocar de tema é trocar o atributo `data-theme` da raiz. Use o seletor **Tema** na barra de cima para ver qualquer página em cada um deles.
+
+| Tema | Como ativar |
+| --- | --- |
+| Sonido escuro (padrão) | nada, é o `:root` |
+| Sonido claro | `data-theme="light"` |
+| Hueco Mundo | `data-theme="hueco-mundo"` |
+| Canto | `data-theme="canto"` |
+| Canto claro | `data-theme="canto-claro"` |
+| Drácula | `data-theme="dracula"` |
+| Glass | `data-theme="glass"` |
+| Aurora | `data-theme="aurora"` |
+
+```tsx
+document.documentElement.dataset.theme = "hueco-mundo";
+```
+
+Ou use o componente `ThemeSwitcher`, que troca com uma lavada circular a partir do clique.
+
+## Tokens principais
+
+| Token | Função |
+| --- | --- |
+| `--sn-color-bg`, `--sn-color-surface`, `--sn-color-surface-2` | Fundo e superfícies |
+| `--sn-color-text`, `--sn-color-text-dim`, `--sn-color-text-faint` | Texto |
+| `--sn-color-accent` | Ação principal |
+| `--sn-color-accent-2` | Foco e seleção |
+| `--sn-color-aqua`, `--sn-color-gold` | Progresso e destaque |
+| `--sn-color-success`, `--sn-color-warning`, `--sn-color-danger`, `--sn-color-info` | Estados |
+| `--sn-gradient`, `--sn-ring`, `--sn-glow` | Assinatura visual |
+| `--sn-radius-*`, `--sn-space-*`, `--sn-dur-*`, `--sn-ease-*` | Forma, espaço e movimento |
+
+Em JS, os mesmos tokens estão em `@juninmd/sonido/tokens`:
+
+```ts
+import { color, space, duration } from "@juninmd/sonido/tokens";
+```
+
+## Cor por seção
+
+`accentStyle(hue)` recolore um pedaço da tela sem mudar o tema:
+
+```tsx
+<section style={accentStyle(190)}>...</section>
+```

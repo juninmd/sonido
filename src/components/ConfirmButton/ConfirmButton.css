@@ -1,0 +1,20 @@
+.sn-confirm {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sn-space-2);
+  padding: 4px 4px 4px var(--sn-space-3);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--sn-color-danger) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sn-color-danger) 35%, transparent);
+  animation: sn-confirm-in var(--sn-dur) var(--sn-ease-spring);
+}
+.sn-confirm__ask {
+  font: 600 var(--sn-text-sm) / 1.2 var(--sn-font);
+  color: var(--sn-color-text);
+}
+@keyframes sn-confirm-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}

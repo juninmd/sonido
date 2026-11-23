@@ -1,0 +1,15 @@
+.sn-select__control {
+  appearance: none;
+  padding-right: 40px;
+  cursor: pointer;
+}
+.sn-select__control option {
+  background: var(--sn-color-surface);
+  color: var(--sn-color-text);
+}
+.sn-select__chev {
+  position: absolute;
+  right: 12px;
+  color: var(--sn-color-text-dim);
+  pointer-events: none;
+}

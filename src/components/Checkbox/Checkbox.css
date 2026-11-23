@@ -1,0 +1,73 @@
+.sn-check,
+.sn-radio {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--sn-space-3);
+  cursor: pointer;
+}
+.sn-check__input,
+.sn-radio__input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.sn-check__box {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border: 1.5px solid var(--sn-color-border);
+  border-radius: 7px;
+  background: var(--sn-color-surface-2);
+  color: var(--sn-color-on-accent);
+  transition:
+    background var(--sn-dur) var(--sn-ease),
+    border-color var(--sn-dur) var(--sn-ease),
+    transform var(--sn-dur-fast) var(--sn-ease-spring);
+}
+.sn-check__mark {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 16;
+  stroke-dashoffset: 16;
+  transition: stroke-dashoffset var(--sn-dur) var(--sn-ease) 60ms;
+}
+.sn-check__input:checked + .sn-check__box,
+.sn-check__input:indeterminate + .sn-check__box {
+  background: var(--sn-gradient);
+  border-color: transparent;
+}
+.sn-check__input:checked + .sn-check__box .sn-check__mark,
+.sn-check__input:indeterminate + .sn-check__box .sn-check__mark {
+  stroke-dashoffset: 0;
+}
+.sn-check:active .sn-check__box {
+  transform: scale(0.9);
+}
+.sn-check__input:focus-visible + .sn-check__box,
+.sn-radio__input:focus-visible + .sn-radio__dot {
+  box-shadow: var(--sn-ring);
+}
+.sn-check__input:disabled + .sn-check__box {
+  opacity: 0.5;
+}
+.sn-check__text,
+.sn-radio__text {
+  display: grid;
+}
+.sn-check__label,
+.sn-radio__label {
+  font: 600 var(--sn-text-sm) / 1.5 var(--sn-font);
+  color: var(--sn-color-text);
+}
+.sn-check__desc,
+.sn-radio__desc {
+  font-size: var(--sn-text-xs);
+  color: var(--sn-color-text-dim);
+}

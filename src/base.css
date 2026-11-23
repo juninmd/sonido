@@ -1,0 +1,27 @@
+/* Base opcional: aplica fonte, fundo e anel de foco consistentes. */
+.sn-root,
+:where(body.sn-body) {
+  background: var(--sn-color-bg);
+  color: var(--sn-color-text);
+  font-family: var(--sn-font);
+  font-size: var(--sn-text-md);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+:where([class^="sn-"], [class*=" sn-"]):focus-visible {
+  outline: 2px solid var(--sn-color-accent-2);
+  outline-offset: 2px;
+}
+
+.sn-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

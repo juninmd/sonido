@@ -1,0 +1,397 @@
+/*
+ * Sonido design tokens.
+ * Origem: nerd-watch (cores funcionais, gradiente coral→violeta),
+ * pobre-lingo (aqua/gold, curvas de "lift"), canto-widget (acessibilidade, alvos mínimos).
+ * Regra: cor tem função (coral = ação, violeta = foco, aqua = progresso, gold = destaque).
+ */
+:root {
+  color-scheme: dark;
+  /* Superfícies */
+  --sn-color-bg: #0a0b12;
+  --sn-color-surface: #12141f;
+  --sn-color-surface-2: #171a28;
+  --sn-color-surface-hover: #1e2233;
+  --sn-color-border: #262a3d;
+  --sn-color-border-soft: #1c1f2e;
+  /* Texto */
+  --sn-color-text: #f1f2f8;
+  --sn-color-text-dim: #9aa0b8;
+  --sn-color-text-faint: #8a90aa;
+  --sn-color-on-accent: #ffffff;
+  --sn-color-on-danger: #1a0508;
+  /* Marca e função */
+  --sn-color-accent: #ff3d6e;
+  --sn-color-accent-2: #7c5cff;
+  --sn-color-aqua: #3fe3d3;
+  --sn-color-gold: #f5b73d;
+  --sn-color-success: #34d399;
+  --sn-color-warning: #fbbf24;
+  --sn-color-danger: #f87171;
+  --sn-color-info: #60a5fa;
+  --sn-gradient: linear-gradient(135deg, #d92a5c, #6d4ef5);
+  /* Assinatura do games-gallery: ember → rose → orchid */
+  --sn-sig-1: #ff8a4c;
+  --sn-sig-2: #ff4d8d;
+  --sn-sig-3: #a56bff;
+  --sn-gradient-signature: linear-gradient(115deg, var(--sn-sig-1) 0%, var(--sn-sig-2) 52%, var(--sn-sig-3) 100%);
+  --sn-amb-1: #7c5cff;
+  --sn-amb-2: #ff3d6e;
+  --sn-gradient-soft: linear-gradient(135deg, rgb(255 61 110 / 0.18), rgb(124 92 255 / 0.18));
+  --sn-glass: rgb(18 20 31 / 0.55);
+  --sn-glass-strong: rgb(18 20 31 / 0.92);
+  --sn-scrim: rgb(5 4 15 / 0.55);
+  --sn-glass-fill: linear-gradient(160deg, rgb(255 255 255 / 0.07), rgb(255 255 255 / 0.025));
+  --sn-glass-edge: rgb(255 255 255 / 0.08);
+
+  /* Tipografia */
+  --sn-font: "Inter Variable", Inter, ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --sn-font-display: "Bricolage Grotesque Variable", "Bricolage Grotesque", var(--sn-font);
+  --sn-font-mono: ui-monospace, "JetBrains Mono", SFMono-Regular, monospace;
+  --sn-text-xs: 0.75rem;
+  --sn-text-sm: 0.875rem;
+  --sn-text-md: 0.9375rem;
+  --sn-text-lg: 1.125rem;
+  --sn-text-xl: clamp(1.5rem, 3.2vw, 2rem);
+  --sn-text-display: clamp(1.875rem, 4.4vw, 2.875rem);
+
+  /* Espaço (escala 4px) */
+  --sn-space-1: 4px;
+  --sn-space-2: 8px;
+  --sn-space-3: 12px;
+  --sn-space-4: 16px;
+  --sn-space-5: 24px;
+  --sn-space-6: 40px;
+
+  /* Forma */
+  --sn-radius-sm: 8px;
+  --sn-radius: 14px;
+  --sn-radius-lg: 20px;
+  --sn-radius-pill: 999px;
+
+  /* Elevação */
+  --sn-shadow-card: 0 8px 24px -8px rgb(0 0 0 / 0.55);
+  --sn-shadow-pop: 0 20px 50px -12px rgb(0 0 0 / 0.65);
+  --sn-shadow-lift: 0 10px 24px -8px rgb(124 92 255 / 0.35);
+  --sn-shadow-glow: 0 10px 40px -10px rgb(255 77 141 / 0.55);
+  --sn-ring: 0 0 0 4px rgb(124 92 255 / 0.28);
+  --sn-blur: 18px;
+  --sn-press-depth: 4px;
+
+  /* Movimento */
+  --sn-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --sn-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --sn-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --sn-dur-fast: 140ms;
+  --sn-dur: 220ms;
+  --sn-dur-slow: 420ms;
+
+  /* Acessibilidade */
+  --sn-hit-min: 24px;
+}
+
+:root[data-theme="light"],
+.sn-theme-light {
+  color-scheme: light;
+  --sn-color-bg: #eeedf6;
+  --sn-color-surface: #ffffff;
+  --sn-color-surface-2: #e4e2f0;
+  --sn-color-surface-hover: #d9d6ea;
+  --sn-color-border: #cfcce2;
+  --sn-color-border-soft: #e0deee;
+  --sn-color-text: #14122b;
+  --sn-color-text-dim: #4a4770;
+  --sn-color-text-faint: #5c5980;
+  --sn-color-on-danger: #ffffff;
+  --sn-color-accent: #c81e45;
+  --sn-color-accent-2: #5b3fd9;
+  --sn-color-aqua: #0b766c;
+  --sn-color-gold: #8f5c12;
+  --sn-color-success: #166534;
+  --sn-color-warning: #9a4508;
+  --sn-color-danger: #b91c1c;
+  --sn-color-info: #2563eb;
+  --sn-gradient: linear-gradient(135deg, #c81e45, #5b3fd9);
+  --sn-glass: rgb(255 255 255 / 0.65);
+  --sn-glass-strong: rgb(255 255 255 / 0.92);
+  --sn-scrim: rgb(20 18 43 / 0.35);
+  --sn-glass-fill: linear-gradient(160deg, rgb(255 255 255 / 0.9), rgb(255 255 255 / 0.7));
+  --sn-glass-edge: rgb(20 18 43 / 0.08);
+  --sn-shadow-card: 0 1px 1px rgb(20 18 43 / 0.04), 0 2px 6px -1px rgb(20 18 43 / 0.06);
+  --sn-shadow-pop: 0 20px 50px -12px rgb(20 18 43 / 0.25);
+  --sn-shadow-lift: 0 10px 24px -8px rgb(91 63 217 / 0.25);
+  --sn-ring: 0 0 0 4px rgb(91 63 217 / 0.25);
+  --sn-color-on-tint: #ffffff;
+}
+
+/*
+ * Hueco Mundo (canto-widget): céu negro, areia de osso, vermelho de cero.
+ * O vermelho da marca em texto pequeno ficava em 4,1:1; o accent-text chega a 5,8:1.
+ */
+:root[data-theme="hueco-mundo"],
+.sn-theme-hueco-mundo {
+  color-scheme: dark;
+  --sn-color-bg: #050506;
+  --sn-color-surface: #0e0e11;
+  --sn-color-surface-2: #151518;
+  --sn-color-surface-hover: #1f1f24;
+  --sn-color-border: #2c2c33;
+  --sn-color-border-soft: #1a1a1f;
+  --sn-color-text: #ede9e0;
+  --sn-color-text-dim: #a8a29e;
+  --sn-color-text-faint: #948e86;
+  --sn-color-on-accent: #ffffff;
+  --sn-color-accent: #f6506d;
+  --sn-color-accent-2: #d6d0c4;
+  --sn-color-aqua: #86efac;
+  --sn-color-gold: #fcd34d;
+  --sn-color-success: #86efac;
+  --sn-color-warning: #fbbf24;
+  --sn-color-danger: #f87171;
+  --sn-color-info: #7dd3fc;
+  --sn-gradient: linear-gradient(135deg, #be123c, #7f1d1d);
+  --sn-gradient-soft: linear-gradient(135deg, rgb(225 29 72 / 0.2), rgb(237 233 224 / 0.06));
+  --sn-sig-1: #7f1d1d;
+  --sn-sig-2: #e11d48;
+  --sn-sig-3: #ede9e0;
+  --sn-amb-1: #e11d48;
+  --sn-amb-2: #ede9e0;
+  --sn-glass: rgb(14 14 17 / 0.6);
+  --sn-glass-strong: rgb(14 14 17 / 0.94);
+  --sn-glass-fill: linear-gradient(160deg, rgb(237 233 224 / 0.06), rgb(237 233 224 / 0.015));
+  --sn-glass-edge: rgb(237 233 224 / 0.1);
+  --sn-scrim: rgb(0 0 0 / 0.7);
+  --sn-shadow-card: 0 8px 24px -8px rgb(0 0 0 / 0.8);
+  --sn-shadow-pop: 0 20px 50px -12px rgb(0 0 0 / 0.9);
+  --sn-shadow-lift: 0 10px 28px -8px rgb(225 29 72 / 0.35);
+  --sn-shadow-glow: 0 10px 40px -10px rgb(225 29 72 / 0.6);
+  --sn-ring: 0 0 0 4px rgb(237 233 224 / 0.22);
+}
+
+/* Canto (canto-widget) */
+:root[data-theme="canto"],
+.sn-theme-canto {
+  color-scheme: dark;
+  --sn-color-bg: #0b0f16;
+  --sn-color-surface: #111826;
+  --sn-color-surface-2: #19202e;
+  --sn-color-surface-hover: #222936;
+  --sn-color-border: #1f2a3c;
+  --sn-color-border-soft: #182131;
+  --sn-color-text: #e2e8f0;
+  --sn-color-text-dim: #94a3b8;
+  --sn-color-text-faint: #8491a7;
+  --sn-color-on-accent: #071206;
+  --sn-color-accent: #4ade80;
+  --sn-color-accent-2: #38bdf8;
+  --sn-color-aqua: #2dd4bf;
+  --sn-color-gold: #fbbf24;
+  --sn-color-success: #4ade80;
+  --sn-color-warning: #fbbf24;
+  --sn-color-danger: #fb7185;
+  --sn-color-info: #38bdf8;
+  --sn-sig-1: #22c55e;
+  --sn-sig-2: #2dd4bf;
+  --sn-sig-3: #38bdf8;
+  --sn-amb-1: #4ade80;
+  --sn-amb-2: #38bdf8;
+  --sn-gradient: linear-gradient(135deg, #4ade80, #22c55e);
+  --sn-gradient-soft: linear-gradient(135deg, rgb(74 222 128 / 0.18), rgb(56 189 248 / 0.12));
+  --sn-glass: rgb(17 24 38 / 0.55);
+  --sn-glass-strong: rgb(17 24 38 / 0.94);
+  --sn-glass-fill: linear-gradient(160deg, rgb(226 232 240 / 0.06), rgb(226 232 240 / 0.015));
+  --sn-glass-edge: rgb(226 232 240 / 0.09);
+  --sn-scrim: rgb(11 15 22 / 0.6);
+  --sn-shadow-card: 0 8px 24px -8px rgb(0 0 0 / 0.55);
+  --sn-shadow-pop: 0 20px 50px -12px rgb(0 0 0 / 0.65);
+  --sn-shadow-lift: 0 10px 24px -8px rgb(74 222 128 / 0.35);
+  --sn-shadow-glow: 0 10px 40px -10px rgb(74 222 128 / 0.5);
+  --sn-ring: 0 0 0 4px rgb(74 222 128 / 0.3);
+}
+
+/* Canto claro (canto-widget) */
+:root[data-theme="canto-claro"],
+.sn-theme-canto-claro {
+  color-scheme: light;
+  --sn-color-bg: #f1f5f9;
+  --sn-color-surface: #ffffff;
+  --sn-color-surface-2: #f5f6f6;
+  --sn-color-surface-hover: #ececee;
+  --sn-color-border: #e2e8f0;
+  --sn-color-border-soft: #f0f4f8;
+  --sn-color-text: #0f172a;
+  --sn-color-text-dim: #475569;
+  --sn-color-text-faint: #556173;
+  --sn-color-on-accent: #ffffff;
+  --sn-color-on-danger: #ffffff;
+  --sn-color-accent: #166534;
+  --sn-color-accent-2: #0369a1;
+  --sn-color-aqua: #0f766e;
+  --sn-color-gold: #92400e;
+  --sn-color-success: #166534;
+  --sn-color-warning: #9a4508;
+  --sn-color-danger: #be123c;
+  --sn-color-info: #0369a1;
+  --sn-sig-1: #15803d;
+  --sn-sig-2: #0f766e;
+  --sn-sig-3: #0369a1;
+  --sn-amb-1: #4ade80;
+  --sn-amb-2: #38bdf8;
+  --sn-gradient: linear-gradient(135deg, #15803d, #0f766e);
+  --sn-gradient-soft: linear-gradient(135deg, rgb(21 128 61 / 0.18), rgb(3 105 161 / 0.12));
+  --sn-glass: rgb(255 255 255 / 0.7);
+  --sn-glass-strong: rgb(255 255 255 / 0.94);
+  --sn-glass-fill: linear-gradient(160deg, rgb(15 23 42 / 0.03), rgb(15 23 42 / 0.015));
+  --sn-glass-edge: rgb(15 23 42 / 0.08);
+  --sn-scrim: rgb(241 245 249 / 0.4);
+  --sn-shadow-card: 0 1px 2px rgb(15 23 42 / 0.06), 0 4px 12px -4px rgb(15 23 42 / 0.08);
+  --sn-shadow-pop: 0 20px 50px -12px rgb(15 23 42 / 0.25);
+  --sn-shadow-lift: 0 10px 24px -8px rgb(21 128 61 / 0.35);
+  --sn-shadow-glow: 0 10px 40px -10px rgb(21 128 61 / 0.5);
+  --sn-ring: 0 0 0 4px rgb(21 128 61 / 0.3);
+  --sn-color-on-tint: #ffffff;
+}
+
+/* Drácula (canto-widget) */
+:root[data-theme="dracula"],
+.sn-theme-dracula {
+  color-scheme: dark;
+  --sn-color-bg: #21222c;
+  --sn-color-surface: #282a36;
+  --sn-color-surface-2: #30323e;
+  --sn-color-surface-hover: #393a45;
+  --sn-color-border: #44475a;
+  --sn-color-border-soft: #363848;
+  --sn-color-text: #f8f8f2;
+  --sn-color-text-dim: #b6b8c8;
+  --sn-color-text-faint: #9ba6cf;
+  --sn-color-on-accent: #21222c;
+  --sn-color-accent: #bd93f9;
+  --sn-color-accent-2: #ff79c6;
+  --sn-color-aqua: #8be9fd;
+  --sn-color-gold: #ffb86c;
+  --sn-color-success: #50fa7b;
+  --sn-color-warning: #f1fa8c;
+  --sn-color-danger: #ff5555;
+  --sn-color-info: #8be9fd;
+  --sn-sig-1: #ff79c6;
+  --sn-sig-2: #bd93f9;
+  --sn-sig-3: #8be9fd;
+  --sn-amb-1: #bd93f9;
+  --sn-amb-2: #ff79c6;
+  --sn-gradient: linear-gradient(135deg, #bd93f9, #ff79c6);
+  --sn-gradient-soft: linear-gradient(135deg, rgb(189 147 249 / 0.18), rgb(255 121 198 / 0.12));
+  --sn-glass: rgb(40 42 54 / 0.55);
+  --sn-glass-strong: rgb(40 42 54 / 0.94);
+  --sn-glass-fill: linear-gradient(160deg, rgb(248 248 242 / 0.06), rgb(248 248 242 / 0.015));
+  --sn-glass-edge: rgb(248 248 242 / 0.09);
+  --sn-scrim: rgb(33 34 44 / 0.6);
+  --sn-shadow-card: 0 8px 24px -8px rgb(0 0 0 / 0.55);
+  --sn-shadow-pop: 0 20px 50px -12px rgb(0 0 0 / 0.65);
+  --sn-shadow-lift: 0 10px 24px -8px rgb(189 147 249 / 0.35);
+  --sn-shadow-glow: 0 10px 40px -10px rgb(189 147 249 / 0.5);
+  --sn-ring: 0 0 0 4px rgb(189 147 249 / 0.3);
+}
+
+/* Glass (canto-widget) */
+:root[data-theme="glass"],
+.sn-theme-glass {
+  color-scheme: dark;
+  --sn-color-bg: #0c1017;
+  --sn-color-surface: #161b26;
+  --sn-color-surface-2: #1f242e;
+  --sn-color-surface-hover: #282c37;
+  --sn-color-border: #273142;
+  --sn-color-border-soft: #1e2634;
+  --sn-color-text: #f5f5f7;
+  --sn-color-text-dim: #a1abbc;
+  --sn-color-text-faint: #8894a8;
+  --sn-color-on-accent: #001026;
+  --sn-color-accent: #409cff;
+  --sn-color-accent-2: #64d2ff;
+  --sn-color-aqua: #64d2ff;
+  --sn-color-gold: #ffd60a;
+  --sn-color-success: #32d74b;
+  --sn-color-warning: #ffd60a;
+  --sn-color-danger: #ff453a;
+  --sn-color-info: #64d2ff;
+  --sn-sig-1: #0a84ff;
+  --sn-sig-2: #5e5ce6;
+  --sn-sig-3: #bf5af2;
+  --sn-amb-1: #0a84ff;
+  --sn-amb-2: #bf5af2;
+  --sn-gradient: linear-gradient(135deg, #409cff, #64d2ff);
+  --sn-gradient-soft: linear-gradient(135deg, rgb(64 156 255 / 0.18), rgb(100 210 255 / 0.12));
+  --sn-glass: rgb(22 27 38 / 0.55);
+  --sn-glass-strong: rgb(22 27 38 / 0.94);
+  --sn-glass-fill: linear-gradient(160deg, rgb(245 245 247 / 0.06), rgb(245 245 247 / 0.015));
+  --sn-glass-edge: rgb(245 245 247 / 0.09);
+  --sn-scrim: rgb(12 16 23 / 0.6);
+  --sn-shadow-card: 0 8px 24px -8px rgb(0 0 0 / 0.55);
+  --sn-shadow-pop: 0 20px 50px -12px rgb(0 0 0 / 0.65);
+  --sn-shadow-lift: 0 10px 24px -8px rgb(64 156 255 / 0.35);
+  --sn-shadow-glow: 0 10px 40px -10px rgb(64 156 255 / 0.5);
+  --sn-ring: 0 0 0 4px rgb(64 156 255 / 0.3);
+}
+
+/* Aurora (canto-widget) */
+:root[data-theme="aurora"],
+.sn-theme-aurora {
+  color-scheme: dark;
+  --sn-color-bg: #0c0a1e;
+  --sn-color-surface: #120f2a;
+  --sn-color-surface-2: #1b1832;
+  --sn-color-surface-hover: #24213b;
+  --sn-color-border: #2f2866;
+  --sn-color-border-soft: #201c48;
+  --sn-color-text: #f1eefc;
+  --sn-color-text-dim: #b0a9d6;
+  --sn-color-text-faint: #9b94c4;
+  --sn-color-on-accent: #1a0614;
+  --sn-color-accent: #ff9be4;
+  --sn-color-accent-2: #8b7bff;
+  --sn-color-aqua: #5eead4;
+  --sn-color-gold: #fcd34d;
+  --sn-color-success: #5eead4;
+  --sn-color-warning: #fcd34d;
+  --sn-color-danger: #fb7185;
+  --sn-color-info: #8b7bff;
+  --sn-sig-1: #ff7ad9;
+  --sn-sig-2: #8b7bff;
+  --sn-sig-3: #5eead4;
+  --sn-amb-1: #ff7ad9;
+  --sn-amb-2: #5eead4;
+  --sn-gradient: linear-gradient(135deg, #ff9be4, #8b7bff);
+  --sn-gradient-soft: linear-gradient(135deg, rgb(255 155 228 / 0.18), rgb(139 123 255 / 0.12));
+  --sn-glass: rgb(18 15 42 / 0.55);
+  --sn-glass-strong: rgb(18 15 42 / 0.94);
+  --sn-glass-fill: linear-gradient(160deg, rgb(241 238 252 / 0.06), rgb(241 238 252 / 0.015));
+  --sn-glass-edge: rgb(241 238 252 / 0.09);
+  --sn-scrim: rgb(12 10 30 / 0.6);
+  --sn-shadow-card: 0 8px 24px -8px rgb(0 0 0 / 0.55);
+  --sn-shadow-pop: 0 20px 50px -12px rgb(0 0 0 / 0.65);
+  --sn-shadow-lift: 0 10px 24px -8px rgb(255 155 228 / 0.35);
+  --sn-shadow-glow: 0 10px 40px -10px rgb(255 155 228 / 0.5);
+  --sn-ring: 0 0 0 4px rgb(255 155 228 / 0.3);
+}
+
+/* Glass: vidro mais translúcido e borda superior com reflexo (canto-widget). */
+:root[data-theme="glass"],
+.sn-theme-glass {
+  --sn-blur: 28px;
+  --sn-glass: rgb(22 27 38 / 0.42);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --sn-dur-fast: 0ms;
+    --sn-dur: 0ms;
+    --sn-dur-slow: 0ms;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --sn-color-text-faint: var(--sn-color-text-dim);
+    --sn-color-border: var(--sn-color-text-faint);
+  }
+}

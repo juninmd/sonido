@@ -1,0 +1,67 @@
+.sn-rclock {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+.sn-rclock svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  outline: none;
+}
+.sn-rclock svg:focus-visible {
+  border-radius: 50%;
+  box-shadow: var(--sn-ring);
+}
+.sn-rclock__ring {
+  fill: none;
+  stroke: var(--sn-color-border-soft);
+  stroke-width: 0.3;
+}
+.sn-rclock__wedge {
+  fill: var(--sn-color-text-faint);
+  opacity: 0.55;
+  transform-origin: 50px 50px;
+  transition: opacity var(--sn-dur);
+}
+.sn-rclock__wedge[data-night] {
+  fill: var(--sn-color-accent-2);
+  opacity: 1;
+}
+.sn-rclock__wedge[data-peak] {
+  fill: var(--sn-color-danger);
+  opacity: 1;
+}
+.sn-rclock__wedge[data-dim] {
+  opacity: 0.25;
+}
+.sn-rclock__label {
+  fill: var(--sn-color-text-faint);
+  font: 600 3.6px var(--sn-font-mono);
+}
+.sn-rclock__center {
+  fill: var(--sn-color-text);
+  font: 800 9px var(--sn-font-display);
+  letter-spacing: -0.03em;
+}
+.sn-rclock__sub {
+  fill: var(--sn-color-text-dim);
+  font: 500 3.4px var(--sn-font-mono);
+}
+.sn-rclock figcaption {
+  margin-top: var(--sn-space-2);
+  text-align: center;
+  font-size: var(--sn-text-xs);
+  color: var(--sn-color-text-dim);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-rclock__wedge {
+    animation: sn-rc-grow 0.6s var(--sn-ease-spring) calc(var(--i) * 14ms) backwards;
+  }
+}
+@keyframes sn-rc-grow {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}

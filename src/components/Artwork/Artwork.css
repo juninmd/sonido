@@ -1,0 +1,55 @@
+.sn-artwork {
+  --sn-artwork-h: 280;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--sn-radius);
+  background: var(--sn-color-surface-2);
+  box-shadow: 0 18px 36px -20px rgb(0 0 0 / 0.9);
+  isolation: isolate;
+}
+.sn-artwork--poster {
+  aspect-ratio: 2 / 3;
+}
+.sn-artwork--square {
+  aspect-ratio: 1;
+}
+.sn-artwork--wide {
+  aspect-ratio: 16 / 9;
+}
+.sn-artwork__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(120% 80% at 20% 0%, hsl(calc(var(--sn-artwork-h) + 40) 85% 62% / 0.85), transparent 60%),
+    linear-gradient(160deg, hsl(var(--sn-artwork-h) 70% 42%), hsl(calc(var(--sn-artwork-h) - 30) 60% 16%));
+}
+.sn-artwork__initials {
+  font: 800 clamp(24px, 30%, 64px) / 1 var(--sn-font-display);
+  letter-spacing: -0.04em;
+  color: rgb(255 255 255 / 0.92);
+  text-shadow: 0 4px 24px rgb(0 0 0 / 0.35);
+}
+.sn-artwork__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity var(--sn-dur-slow) var(--sn-ease),
+    transform var(--sn-dur-slow) var(--sn-ease);
+}
+.sn-artwork__img--in {
+  opacity: 1;
+  transform: none;
+}
+.sn-artwork__badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+}
