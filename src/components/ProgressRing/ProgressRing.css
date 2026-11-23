@@ -1,0 +1,23 @@
+.sn-ring {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+}
+.sn-ring svg {
+  transform: rotate(-90deg);
+}
+.sn-ring__track {
+  stroke: var(--sn-color-surface-hover);
+}
+.sn-ring__bar {
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--sn-sig-2) 45%, transparent));
+  transition: stroke-dashoffset 1s var(--sn-ease);
+}
+.sn-ring__center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font: 800 var(--sn-text-lg) / 1 var(--sn-font-display);
+  color: var(--sn-color-text);
+}

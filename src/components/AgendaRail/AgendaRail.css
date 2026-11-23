@@ -1,0 +1,191 @@
+.sn-agenda {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sn-agenda__row {
+  --sn-ag-c: var(--sn-color-info);
+  position: relative;
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: var(--sn-space-2);
+  padding-block: 4px;
+}
+.sn-agenda__row::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 7px;
+  width: 2px;
+  background: var(--sn-color-border);
+}
+.sn-agenda__row[data-clash]::before {
+  background: var(--sn-color-danger);
+}
+.sn-agenda__row[data-kind="free"]::before {
+  background: repeating-linear-gradient(var(--sn-color-success) 0 4px, transparent 4px 8px);
+  opacity: 0.6;
+}
+.sn-agenda__row[data-past] {
+  opacity: 0.86;
+}
+.sn-agenda__row[data-past] .sn-agenda__title {
+  text-decoration: line-through;
+  text-decoration-color: var(--sn-color-text-faint);
+}
+.sn-agenda__dot {
+  position: relative;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  margin: 12px 0 0 2px;
+  border: 2px solid var(--sn-ag-c);
+  border-radius: 50%;
+  background: var(--sn-color-surface);
+}
+.sn-agenda__row[data-kind="task"] .sn-agenda__dot {
+  border-style: dashed;
+  border-color: var(--sn-color-accent-2);
+}
+.sn-agenda__row[data-kind="free"] .sn-agenda__dot {
+  visibility: hidden;
+}
+.sn-agenda__row[data-live] .sn-agenda__dot {
+  border-color: var(--sn-color-accent);
+  background: var(--sn-color-accent);
+}
+.sn-agenda__card {
+  display: flex;
+  align-items: center;
+  gap: var(--sn-space-3);
+  padding: 10px 12px;
+  border: 1px solid var(--sn-color-border);
+  border-radius: var(--sn-radius);
+  background: var(--sn-color-surface);
+}
+.sn-agenda__row[data-kind="task"] .sn-agenda__card {
+  border-style: dashed;
+}
+.sn-agenda__row[data-kind="free"] .sn-agenda__card {
+  border: 1px dashed color-mix(in srgb, var(--sn-color-success) 55%, transparent);
+  background: transparent;
+  color: var(--sn-color-success);
+  font-size: var(--sn-text-xs);
+}
+.sn-agenda__row[data-live] .sn-agenda__card {
+  border-color: color-mix(in srgb, var(--sn-color-accent) 50%, transparent);
+  background: color-mix(in srgb, var(--sn-color-accent) 8%, var(--sn-color-surface));
+}
+.sn-agenda__main {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: 2px;
+}
+.sn-agenda__title {
+  overflow: hidden;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sn-agenda__row[data-kind="free"] .sn-agenda__title {
+  font-weight: 600;
+}
+.sn-agenda__time {
+  font: 500 11px / 1.2 var(--sn-font-mono);
+  color: var(--sn-color-text-dim);
+  font-variant-numeric: tabular-nums;
+}
+.sn-agenda__row[data-kind="free"] .sn-agenda__time {
+  display: none;
+}
+.sn-nowline {
+  display: flex;
+  align-items: center;
+  gap: var(--sn-space-2);
+  height: 20px;
+  color: var(--sn-color-danger);
+  font: 700 10px / 1 var(--sn-font-mono);
+}
+.sn-nowline__dot {
+  position: relative;
+  width: 14px;
+  height: 2px;
+  background: var(--sn-color-danger);
+}
+.sn-nowline__dot::before,
+.sn-nowline__dot::after {
+  content: "";
+  position: absolute;
+  top: -2.5px;
+  left: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--sn-color-danger);
+}
+.sn-nowline__bar {
+  flex: 1;
+  height: 2px;
+  background: color-mix(in srgb, var(--sn-color-danger) 70%, transparent);
+}
+.sn-countdown {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.sn-countdown svg {
+  position: absolute;
+  inset: 0;
+  rotate: -90deg;
+}
+.sn-countdown circle {
+  fill: none;
+  stroke-width: 3.5;
+}
+.sn-countdown__track {
+  stroke: var(--sn-color-surface-hover);
+}
+.sn-countdown__fill {
+  stroke: var(--sn-color-accent);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+.sn-countdown b {
+  font: 800 12px / 1 var(--sn-font-display);
+  color: var(--sn-color-accent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-agenda__wrap {
+    animation: sn-rise 420ms var(--sn-ease) calc(var(--i, 0) * 70ms) backwards;
+  }
+  .sn-nowline__dot::after {
+    animation: sn-beat 2s ease-out infinite;
+  }
+  .sn-agenda__row[data-live] .sn-agenda__card {
+    animation: sn-halo 2.4s ease-in-out infinite;
+  }
+}
+@keyframes sn-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@keyframes sn-beat {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--sn-color-danger) 60%, transparent);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+@keyframes sn-halo {
+  50% {
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--sn-color-accent) 22%, transparent);
+  }
+}

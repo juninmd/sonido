@@ -1,0 +1,45 @@
+.sn-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: 500 var(--sn-text-sm) / 1.4 var(--sn-font);
+}
+.sn-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.sn-breadcrumb li + li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin: 0 6px 0 2px;
+  border-top: 1.6px solid var(--sn-color-text-faint);
+  border-right: 1.6px solid var(--sn-color-text-faint);
+  transform: rotate(45deg);
+}
+.sn-breadcrumb a,
+.sn-breadcrumb button {
+  padding: 2px 6px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--sn-color-text-dim);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.sn-breadcrumb a:hover,
+.sn-breadcrumb button:hover {
+  color: var(--sn-color-text);
+  background: var(--sn-color-surface-hover);
+}
+.sn-breadcrumb [aria-current] {
+  padding: 2px 6px;
+  color: var(--sn-color-text);
+  font-weight: 700;
+}

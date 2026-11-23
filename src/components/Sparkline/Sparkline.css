@@ -1,0 +1,55 @@
+.sn-spark {
+  --sn-sp-1: var(--sn-sig-1);
+  --sn-sp-2: var(--sn-sig-3);
+  overflow: visible;
+}
+.sn-spark--accent {
+  --sn-sp-1: var(--sn-color-accent);
+  --sn-sp-2: var(--sn-color-accent);
+}
+.sn-spark--aqua {
+  --sn-sp-1: var(--sn-color-aqua);
+  --sn-sp-2: var(--sn-color-aqua);
+}
+.sn-spark--success {
+  --sn-sp-1: var(--sn-color-success);
+  --sn-sp-2: var(--sn-color-success);
+}
+.sn-spark--danger {
+  --sn-sp-1: var(--sn-color-danger);
+  --sn-sp-2: var(--sn-color-danger);
+}
+.sn-spark__s1 {
+  stop-color: var(--sn-sp-1);
+}
+.sn-spark__s2 {
+  stop-color: var(--sn-sp-2);
+}
+.sn-spark__a1 {
+  stop-color: var(--sn-sp-2);
+  stop-opacity: 0.28;
+}
+.sn-spark__a2 {
+  stop-color: var(--sn-sp-2);
+  stop-opacity: 0;
+}
+.sn-spark__line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: sn-draw 1s var(--sn-ease) forwards;
+}
+.sn-spark__end {
+  fill: var(--sn-sp-2);
+  filter: drop-shadow(0 0 4px var(--sn-sp-2));
+}
+@keyframes sn-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sn-spark__line {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

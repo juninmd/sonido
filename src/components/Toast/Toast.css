@@ -1,0 +1,119 @@
+.sn-toasts {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right, 0px));
+  bottom: max(20px, env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  display: grid;
+  gap: var(--sn-space-2);
+  width: min(380px, calc(100vw - 40px));
+  pointer-events: none;
+}
+.sn-toast {
+  --sn-toast-c: var(--sn-gradient-signature);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sn-space-3);
+  padding: 12px 12px 12px 20px;
+  border-radius: var(--sn-radius);
+  border: 1px solid var(--sn-glass-edge);
+  background: var(--sn-glass-strong);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--sn-shadow-pop);
+  pointer-events: auto;
+  animation: sn-toast-in var(--sn-dur-slow) var(--sn-ease) both;
+}
+.sn-toast::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--sn-toast-c);
+}
+.sn-toast--success {
+  --sn-toast-c: var(--sn-color-success);
+}
+.sn-toast--danger {
+  --sn-toast-c: var(--sn-color-danger);
+}
+.sn-toast__text {
+  flex: 1;
+  min-width: 0;
+}
+.sn-toast__title {
+  margin: 0;
+  font: 700 var(--sn-text-sm) / 1.3 var(--sn-font);
+  color: var(--sn-color-text);
+}
+.sn-toast__desc {
+  margin: 2px 0 0;
+  font-size: var(--sn-text-xs);
+  color: var(--sn-color-text-dim);
+}
+.sn-toast__action {
+  border: 0;
+  background: none;
+  color: var(--sn-color-accent);
+  font: 700 var(--sn-text-sm) / 1 var(--sn-font);
+  cursor: pointer;
+}
+.sn-toast__close {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: var(--sn-radius-pill);
+  background: transparent;
+  color: var(--sn-color-text-dim);
+  font-size: 18px;
+  cursor: pointer;
+}
+.sn-toast__close:hover {
+  background: var(--sn-color-surface-hover);
+}
+@keyframes sn-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+}
+.sn-toast {
+  overflow: hidden;
+}
+.sn-toast__drain {
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--sn-toast-c);
+  transform-origin: left;
+  animation: sn-toast-drain linear forwards;
+}
+.sn-toast:is(:hover, :focus-within) .sn-toast__drain {
+  animation-play-state: paused;
+}
+@keyframes sn-toast-drain {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+/* Sem movimento a barra só esmaece, mas o tempo segue contando. */
+@media (prefers-reduced-motion: reduce) {
+  .sn-toast__drain {
+    animation-name: sn-toast-drain-fade;
+  }
+}
+@keyframes sn-toast-drain-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.35;
+  }
+}

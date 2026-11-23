@@ -1,0 +1,26 @@
+.sn-rating {
+  display: inline-flex;
+  gap: 2px;
+}
+.sn-star__empty {
+  fill: var(--sn-color-surface-hover);
+}
+.sn-star__full {
+  fill: var(--sn-color-gold);
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--sn-color-gold) 50%, transparent));
+}
+.sn-rating--input button {
+  display: grid;
+  padding: 2px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  transition: transform var(--sn-dur-fast) var(--sn-ease-spring);
+}
+.sn-rating--input button:hover {
+  transform: scale(1.18);
+}
+.sn-rating--input button:focus-visible {
+  outline: 2px solid var(--sn-color-accent-2);
+}

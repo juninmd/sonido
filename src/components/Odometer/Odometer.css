@@ -1,0 +1,35 @@
+.sn-odo {
+  display: inline-flex;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.sn-odo__dg {
+  display: inline-block;
+  overflow: hidden;
+  height: 1em;
+}
+.sn-odo__dg > span {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(calc(var(--d) * -1em));
+  transition: transform 900ms cubic-bezier(0.2, 1.1, 0.3, 1);
+}
+.sn-odo__dg i {
+  height: 1em;
+  font-style: normal;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-odo__dg > span {
+    animation: sn-odo-in 900ms cubic-bezier(0.2, 1.1, 0.3, 1) backwards;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sn-odo__dg > span {
+    transition: none;
+  }
+}
+@keyframes sn-odo-in {
+  from {
+    transform: translateY(0);
+  }
+}

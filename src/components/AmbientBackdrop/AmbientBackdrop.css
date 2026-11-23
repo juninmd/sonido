@@ -1,0 +1,44 @@
+.sn-ambient {
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.sn-ambient--fixed {
+  position: fixed;
+}
+.sn-ambient--absolute {
+  position: absolute;
+  border-radius: inherit;
+}
+.sn-ambient::before,
+.sn-ambient::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  filter: blur(70px) saturate(140%);
+  transition: background 1.2s var(--sn-ease);
+}
+.sn-ambient::before {
+  background:
+    radial-gradient(40% 35% at 22% 28%, color-mix(in oklab, var(--sn-amb-1) 55%, transparent), transparent 70%),
+    radial-gradient(35% 30% at 80% 18%, color-mix(in oklab, var(--sn-amb-2) 45%, transparent), transparent 70%);
+}
+.sn-ambient::after {
+  inset: 0;
+  filter: none;
+  background: radial-gradient(120% 90% at 50% 0%, transparent 40%, var(--sn-color-bg) 100%);
+}
+.sn-ambient--animated::before {
+  animation: sn-aurora 28s ease-in-out infinite alternate;
+}
+@keyframes sn-aurora {
+  to {
+    transform: translate3d(4%, 3%, 0) rotate(8deg) scale(1.08);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sn-ambient--animated::before {
+    animation: none;
+  }
+}

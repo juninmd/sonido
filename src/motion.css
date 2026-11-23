@@ -1,0 +1,357 @@
+/*
+ * Camada de movimento do Sonido: as classes genéricas do canto-widget (motion.css + wx-*),
+ * pobre-lingo e games-gallery com prefixo sn-m-. Tudo sob no-preference (WCAG 2.3.3);
+ * sem ele cada classe é só estado parado. Use --i para escalonar.
+ */
+.sn-m-ping {
+  position: relative;
+}
+.sn-m-ping::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border: 1px solid currentColor;
+  border-radius: 9999px;
+  opacity: 0;
+}
+.sn-m-strike {
+  text-decoration: line-through;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sn-m-rise {
+    animation: sn-m-rise 420ms var(--sn-ease) calc(var(--i, 0) * 70ms) backwards;
+  }
+  .sn-m-pop {
+    animation: sn-m-pop 360ms cubic-bezier(0.3, 1.2, 0.5, 1) calc(var(--i, 0) * 50ms) backwards;
+  }
+  .sn-m-stack {
+    animation: sn-m-pop 420ms cubic-bezier(0.3, 1.4, 0.5, 1) calc(var(--i, 0) * 70ms) backwards;
+  }
+  .sn-m-drop {
+    animation: sn-m-drop 320ms cubic-bezier(0.3, 1.2, 0.5, 1) backwards;
+  }
+  .sn-m-slide {
+    animation: sn-m-slide 420ms cubic-bezier(0.3, 1.2, 0.5, 1) backwards;
+  }
+  .sn-m-unfold {
+    transform-origin: top;
+    animation: sn-m-unfold 240ms var(--sn-ease) backwards;
+  }
+  .sn-m-roll {
+    animation: sn-m-roll 320ms cubic-bezier(0.3, 1.2, 0.5, 1) backwards;
+  }
+  .sn-m-grow-x {
+    transform-origin: left;
+    animation: sn-m-grow-x 600ms var(--sn-ease) calc(var(--i, 0) * 60ms) backwards;
+  }
+  .sn-m-grow-y {
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: sn-m-grow-y 600ms var(--sn-ease) calc(var(--i, 0) * 40ms) backwards;
+  }
+  .sn-m-draw {
+    stroke-dasharray: 1;
+    animation: sn-m-draw 1100ms ease-out 200ms backwards;
+  }
+  .sn-m-fade {
+    animation: sn-m-fade 400ms ease-out backwards;
+  }
+  .sn-m-ping::after {
+    animation: sn-m-ping 2.6s ease-out infinite;
+  }
+  .sn-m-blink {
+    animation: sn-m-blink 1.2s ease-in-out infinite;
+  }
+  .sn-m-glow {
+    animation: sn-m-glow 2.4s ease-in-out infinite;
+  }
+  .sn-m-halo {
+    animation: sn-m-halo 2.4s ease-in-out infinite;
+  }
+  .sn-m-float {
+    animation: sn-m-float 3.2s ease-in-out infinite;
+  }
+  .sn-m-wiggle {
+    transform-origin: 50% 80%;
+    animation: sn-m-wiggle 1.8s ease-in-out infinite;
+  }
+  .sn-m-spin {
+    animation: sn-m-spin 0.9s linear infinite;
+  }
+  .sn-m-shake {
+    animation: sn-m-shake 420ms ease-in-out;
+  }
+  .sn-m-pass {
+    animation: sn-m-pass 600ms ease-out;
+  }
+  .sn-m-star {
+    animation: sn-m-star 480ms cubic-bezier(0.3, 1.2, 0.5, 1);
+  }
+  .sn-m-bump {
+    animation: sn-m-bump 380ms cubic-bezier(0.3, 1.2, 0.5, 1);
+  }
+  .sn-m-flash {
+    animation: sn-m-flash 900ms ease-out;
+  }
+  .sn-m-tick-up {
+    animation: sn-m-tick-up 1.6s ease-out;
+  }
+  .sn-m-tick-down {
+    animation: sn-m-tick-down 1.6s ease-out;
+  }
+  .sn-m-strike[data-fresh] {
+    text-decoration-color: transparent;
+    background: linear-gradient(currentColor, currentColor) no-repeat 0 58% / 100% 1px;
+    animation: sn-m-strike 280ms var(--sn-ease) backwards;
+  }
+  .sn-m-exit-swipe {
+    animation: sn-m-swipe 150ms var(--sn-ease-in) forwards;
+  }
+  .sn-m-exit-archive {
+    animation: sn-m-archive 150ms var(--sn-ease-in) forwards;
+  }
+  .sn-m-exit-trash {
+    animation: sn-m-trash 150ms var(--sn-ease-in) forwards;
+  }
+  .sn-m-raise {
+    transition: transform 200ms var(--sn-ease);
+  }
+  .sn-m-raise:hover {
+    transform: translateY(-2px);
+  }
+  .sn-m-lift {
+    transition: transform 200ms var(--sn-ease);
+  }
+  .sn-m-lift:hover {
+    transform: translateX(2px);
+  }
+  .sn-m-tilt {
+    transition:
+      transform 220ms var(--sn-ease),
+      box-shadow 220ms var(--sn-ease);
+  }
+  .sn-m-tilt:hover {
+    transform: perspective(300px) rotateY(-12deg) translateY(-1px) scale(1.04);
+    box-shadow: 0 6px 14px rgb(0 0 0 / 0.35);
+  }
+  .sn-m-shimmer {
+    background-image: linear-gradient(
+      90deg,
+      transparent 0 35%,
+      color-mix(in oklab, var(--sn-color-text) 9%, transparent) 50%,
+      transparent 65% 100%
+    );
+    background-size: 250% 100%;
+    background-repeat: no-repeat;
+    animation: sn-m-shimmer 1.4s linear calc(var(--i, 0) * 120ms) infinite;
+  }
+  /* Troca de tema suave (canto F5): coloque data-theme-fade no <html> por ~400ms. */
+  :root[data-theme-fade] *,
+  :root[data-theme-fade] *::before,
+  :root[data-theme-fade] *::after {
+    transition:
+      background-color 350ms ease,
+      border-color 350ms ease,
+      color 350ms ease,
+      fill 350ms ease,
+      stroke 350ms ease !important;
+  }
+}
+
+/* Aba escondida ou janela na bandeja: pausa tudo (canto F3). */
+:root[data-paused] *,
+:root[data-paused] *::before,
+:root[data-paused] *::after {
+  animation-play-state: paused !important;
+}
+
+@keyframes sn-m-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@keyframes sn-m-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+@keyframes sn-m-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-14px) scale(0.97);
+  }
+}
+@keyframes sn-m-slide {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+}
+@keyframes sn-m-unfold {
+  from {
+    opacity: 0;
+    transform: scaleY(0.85) translateY(-4px);
+  }
+}
+@keyframes sn-m-roll {
+  from {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+}
+@keyframes sn-m-grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes sn-m-grow-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+@keyframes sn-m-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+@keyframes sn-m-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes sn-m-ping {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.6);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+@keyframes sn-m-blink {
+  50% {
+    opacity: 0.3;
+  }
+}
+@keyframes sn-m-glow {
+  50% {
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--sn-color-accent) 30%, transparent);
+  }
+}
+@keyframes sn-m-halo {
+  50% {
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--sn-color-accent) 22%, transparent);
+  }
+}
+@keyframes sn-m-float {
+  50% {
+    transform: translateY(-4px) rotate(-4deg);
+  }
+}
+@keyframes sn-m-wiggle {
+  0%,
+  60%,
+  100% {
+    transform: none;
+  }
+  70% {
+    transform: rotate(-12deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes sn-m-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sn-m-shake {
+  20%,
+  60% {
+    transform: translateX(-2px);
+  }
+  40%,
+  80% {
+    transform: translateX(2px);
+  }
+}
+@keyframes sn-m-pass {
+  0% {
+    box-shadow: 0 0 0 0 currentColor;
+  }
+  100% {
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+@keyframes sn-m-star {
+  0% {
+    transform: rotate(-90deg) scale(0.3);
+  }
+  60% {
+    transform: rotate(12deg) scale(1.35);
+  }
+  100% {
+    transform: none;
+  }
+}
+@keyframes sn-m-bump {
+  50% {
+    transform: scale(1.15);
+  }
+}
+@keyframes sn-m-flash {
+  from {
+    background-color: color-mix(in oklab, var(--sn-color-accent) 22%, transparent);
+  }
+}
+@keyframes sn-m-tick-up {
+  0%,
+  30% {
+    color: var(--sn-color-success);
+    background-color: color-mix(in oklab, var(--sn-color-success) 25%, transparent);
+  }
+}
+@keyframes sn-m-tick-down {
+  0%,
+  30% {
+    color: var(--sn-color-danger);
+    background-color: color-mix(in oklab, var(--sn-color-danger) 25%, transparent);
+  }
+}
+@keyframes sn-m-strike {
+  from {
+    background-size: 0 1px;
+  }
+}
+@keyframes sn-m-swipe {
+  to {
+    opacity: 0;
+    transform: translateX(60%);
+  }
+}
+@keyframes sn-m-archive {
+  to {
+    opacity: 0;
+    transform: translateX(-70%);
+  }
+}
+@keyframes sn-m-trash {
+  to {
+    opacity: 0;
+    transform: translateY(30%) scale(0.85) rotate(-3deg);
+  }
+}
+@keyframes sn-m-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -150% 0;
+  }
+}

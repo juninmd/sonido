@@ -1,0 +1,13 @@
+.sn-kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border: 1px solid var(--sn-color-border);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: var(--sn-color-surface-2);
+  color: var(--sn-color-text-dim);
+  font: 600 11px / 1 var(--sn-font-mono);
+}

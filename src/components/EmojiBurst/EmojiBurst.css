@@ -1,0 +1,56 @@
+.sn-burst {
+  position: relative;
+}
+.sn-burst__at {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.sn-burst__ring {
+  position: absolute;
+  width: 112px;
+  height: 112px;
+  margin: -56px;
+  border: 2px solid var(--sn-color-accent);
+  border-radius: 50%;
+  box-shadow:
+    0 0 18px color-mix(in srgb, var(--sn-color-accent) 40%, transparent),
+    inset 0 0 14px color-mix(in srgb, var(--sn-color-accent) 40%, transparent);
+  animation: sn-burst-ring 0.7s var(--sn-ease) forwards;
+}
+.sn-burst__at b {
+  position: absolute;
+  font-size: 22px;
+  line-height: 1;
+  translate: -50% -50%;
+  animation: sn-burst-bit 1.2s cubic-bezier(0.22, 1.4, 0.36, 1) forwards;
+}
+@keyframes sn-burst-ring {
+  from {
+    scale: 0.2;
+    opacity: 1;
+  }
+  to {
+    scale: 1;
+    opacity: 0;
+  }
+}
+@keyframes sn-burst-bit {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  60% {
+    transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(1.25);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), calc(var(--dy) + 40px)) rotate(var(--r)) scale(0.3);
+    opacity: 0;
+  }
+}

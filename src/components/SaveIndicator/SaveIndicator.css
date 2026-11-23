@@ -1,0 +1,100 @@
+.sn-save {
+  --sn-sv: var(--sn-color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border: 1px solid color-mix(in srgb, var(--sn-sv) 32%, transparent);
+  border-radius: var(--sn-radius-pill);
+  background: color-mix(in srgb, var(--sn-sv) 12%, transparent);
+  color: color-mix(in oklab, var(--sn-sv) 75%, var(--sn-color-text));
+  font: 600 var(--sn-text-xs) / 1.6 var(--sn-font);
+}
+.sn-save[data-state="saved"] {
+  --sn-sv: var(--sn-color-success);
+}
+.sn-save[data-state="error"] {
+  --sn-sv: var(--sn-color-danger);
+}
+.sn-save[data-state="dirty"] {
+  --sn-sv: var(--sn-color-text-dim);
+}
+.sn-save > i {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+.sn-save[data-state="dirty"] > i::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--sn-color-accent);
+}
+.sn-save[data-state="saving"] > i {
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+.sn-save[data-state="saved"] > i::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 0;
+  width: 4px;
+  height: 8px;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  rotate: 45deg;
+}
+.sn-save[data-state="error"] > i::before,
+.sn-save[data-state="error"] > i::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 2px;
+  height: 10px;
+  border-radius: 1px;
+  background: currentColor;
+  rotate: 45deg;
+}
+.sn-save[data-state="error"] > i::after {
+  rotate: -45deg;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-save {
+    animation: sn-save-in 0.22s var(--sn-ease) backwards;
+  }
+  .sn-save[data-state="saved"] {
+    animation: sn-save-pop 0.32s var(--sn-ease-spring) backwards;
+  }
+  .sn-save[data-state="saving"] > i {
+    animation: sn-m-spin 0.8s linear infinite;
+  }
+  .sn-save[data-state="dirty"] > i::before {
+    animation: sn-m-blink 1.6s ease-in-out infinite;
+  }
+}
+@keyframes sn-save-in {
+  from {
+    opacity: 0;
+    transform: translateX(4px);
+  }
+}
+@keyframes sn-save-pop {
+  from {
+    opacity: 0;
+    scale: 0.8;
+  }
+}
+@keyframes sn-m-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sn-m-blink {
+  50% {
+    opacity: 0.3;
+  }
+}

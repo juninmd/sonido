@@ -1,0 +1,48 @@
+.sn-progress {
+  display: grid;
+  gap: 6px;
+}
+.sn-progress__meta {
+  display: flex;
+  justify-content: space-between;
+  font: 600 var(--sn-text-xs) / 1.3 var(--sn-font);
+  color: var(--sn-color-text-dim);
+}
+.sn-progress__pct {
+  color: var(--sn-color-text);
+  font-variant-numeric: tabular-nums;
+}
+.sn-progress__track {
+  height: 8px;
+  border-radius: var(--sn-radius-pill);
+  background: var(--sn-color-surface-hover);
+  overflow: hidden;
+}
+.sn-progress--sm .sn-progress__track {
+  height: 4px;
+}
+.sn-progress__bar {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--sn-gradient-signature);
+  transform-origin: left;
+  transition: transform 700ms var(--sn-ease);
+}
+.sn-progress--brand .sn-progress__bar {
+  background: var(--sn-gradient);
+}
+.sn-progress--aqua .sn-progress__bar {
+  background: var(--sn-color-aqua);
+}
+.sn-progress__track--indeterminate .sn-progress__bar {
+  width: 40%;
+  animation: sn-indeterminate 1.3s var(--sn-ease) infinite;
+}
+@keyframes sn-indeterminate {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}

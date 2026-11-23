@@ -1,0 +1,94 @@
+.sn-menu {
+  position: relative;
+  display: inline-flex;
+}
+.sn-menu__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sn-space-2);
+  min-height: 40px;
+  padding: 0 var(--sn-space-3);
+  border: 1px solid var(--sn-color-border);
+  border-radius: 12px;
+  background: var(--sn-color-surface-2);
+  color: var(--sn-color-text);
+  font: 600 var(--sn-text-sm) / 1 var(--sn-font);
+  cursor: pointer;
+}
+.sn-menu__trigger:hover,
+.sn-menu__trigger[aria-expanded="true"] {
+  background: var(--sn-color-surface-hover);
+}
+.sn-menu__trigger:focus-visible {
+  outline: none;
+  box-shadow: var(--sn-ring);
+}
+.sn-menu__list {
+  position: absolute;
+  top: calc(100% + 6px);
+  z-index: 30;
+  min-width: 220px;
+  padding: 6px;
+  border: 1px solid var(--sn-glass-edge);
+  border-radius: var(--sn-radius);
+  background: var(--sn-glass-strong);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--sn-shadow-pop);
+  transform-origin: top left;
+  animation: sn-menu-in var(--sn-dur) var(--sn-ease-spring);
+}
+.sn-menu--end .sn-menu__list {
+  right: 0;
+  transform-origin: top right;
+}
+.sn-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 9px;
+  background: none;
+  color: var(--sn-color-text);
+  font: 500 var(--sn-text-sm) / 1 var(--sn-font);
+  text-align: left;
+  cursor: pointer;
+}
+.sn-menu__item:focus {
+  outline: none;
+  background: var(--sn-gradient-soft);
+}
+.sn-menu__item:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.sn-menu__item--danger {
+  color: var(--sn-color-danger);
+}
+.sn-menu__icon {
+  display: grid;
+  color: var(--sn-color-text-dim);
+}
+.sn-menu__item--danger .sn-menu__icon {
+  color: inherit;
+}
+.sn-menu__label {
+  flex: 1;
+}
+.sn-menu__kbd {
+  font: 600 11px / 1 var(--sn-font-mono);
+  color: var(--sn-color-text-faint);
+}
+.sn-menu__sep {
+  margin: 6px 4px;
+  border: 0;
+  border-top: 1px solid var(--sn-color-border-soft);
+}
+@keyframes sn-menu-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(-4px);
+  }
+}

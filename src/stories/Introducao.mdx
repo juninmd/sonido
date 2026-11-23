@@ -1,0 +1,62 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { LivePlayground } from "../../.storybook/live";
+
+<Meta title="Começar/Introdução" />
+
+# Sonido
+
+O design system dos apps do juninmd. Escuro por padrão, vidro sobre um fundo atmosférico, cor com função e movimento que responde ao toque.
+
+**78 componentes React**, **8 temas** e uma camada de movimento que respeita `prefers-reduced-motion`. Cada página tem um editor ao vivo: mude o código, veja o resultado e clique em **Copiar código** para levar o exemplo com os imports.
+
+## Instalar
+
+```bash
+npm install @juninmd/sonido
+```
+
+## Usar
+
+Importe o CSS uma vez e coloque a classe `sn-body` no `<body>` para herdar fonte, cor e fundo do tema.
+
+```tsx
+import { Button, Card, CardTitle } from "@juninmd/sonido";
+import "@juninmd/sonido/styles.css";
+
+export function App() {
+  return (
+    <Card>
+      <CardTitle>Olá, Sonido</CardTitle>
+      <Button>Começar</Button>
+    </Card>
+  );
+}
+```
+
+## Experimente aqui
+
+<LivePlayground
+  code={`function Demo() {
+  const [n, setN] = useState(3);
+  return (
+    <Card>
+      <CardTitle>Você tem {n} lições hoje</CardTitle>
+      <ProgressBar value={n / 10} label="Meta do dia" />
+      <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
+        <Button press onClick={(e) => { setN(n + 1); burst(e.currentTarget); }}>Concluir lição</Button>
+        <Button variant="ghost" onClick={() => setN(0)}>Zerar</Button>
+      </div>
+    </Card>
+  );
+}
+
+render(<Demo />);
+`}
+/>
+
+## Princípios
+
+- **Cor com função.** Coral é ação, violeta é foco, água é progresso, ouro é destaque.
+- **Vidro com propósito.** Superfícies translúcidas só sobre fundos ricos; o resto é sólido.
+- **Movimento que informa.** Toda animação tem motivo e some com `prefers-reduced-motion`.
+- **Acessível por padrão.** Alvos de 44px, foco visível e contraste AA nos 8 temas, auditados com axe.

@@ -1,0 +1,93 @@
+.sn-chart {
+  margin: 0;
+  font-family: var(--sn-font);
+}
+.sn-chart--columns .sn-chart__plot {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--sn-space-2);
+  align-items: end;
+}
+.sn-chart--columns .sn-chart__item {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+}
+.sn-chart--columns .sn-chart__track {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: var(--sn-chart-h);
+  border-radius: 10px;
+  background: repeating-linear-gradient(to top, var(--sn-color-border-soft) 0 1px, transparent 1px 25%);
+}
+.sn-chart--columns .sn-chart__bar {
+  width: 100%;
+  height: calc(var(--sn-v) * 100%);
+  min-height: 3px;
+  border-radius: 10px 10px 4px 4px;
+  background: var(--sn-gradient-signature);
+  transform-origin: bottom;
+  animation: sn-grow-y 700ms var(--sn-ease) both;
+}
+.sn-chart--columns .sn-chart__value {
+  order: -1;
+  font: 700 var(--sn-text-xs) / 1 var(--sn-font-mono);
+  color: var(--sn-color-text);
+  font-variant-numeric: tabular-nums;
+}
+.sn-chart__label {
+  font: 600 var(--sn-text-xs) / 1.2 var(--sn-font);
+  color: var(--sn-color-text-dim);
+  white-space: nowrap;
+}
+.sn-chart--bars .sn-chart__plot {
+  display: grid;
+  gap: var(--sn-space-2);
+}
+.sn-chart--bars .sn-chart__item {
+  display: grid;
+  grid-template-columns: minmax(64px, auto) 1fr auto;
+  align-items: center;
+  gap: var(--sn-space-3);
+}
+.sn-chart--bars .sn-chart__label {
+  order: -1;
+}
+.sn-chart--bars .sn-chart__track {
+  height: 10px;
+  border-radius: var(--sn-radius-pill);
+  background: var(--sn-color-surface-hover);
+}
+.sn-chart--bars .sn-chart__bar {
+  height: 100%;
+  width: calc(var(--sn-v) * 100%);
+  border-radius: inherit;
+  background: var(--sn-gradient-signature);
+  transform-origin: left;
+  animation: sn-grow-x 700ms var(--sn-ease) both;
+}
+.sn-chart--bars .sn-chart__value {
+  font: 700 var(--sn-text-xs) / 1 var(--sn-font-mono);
+  color: var(--sn-color-text);
+  font-variant-numeric: tabular-nums;
+}
+.sn-chart__item:hover .sn-chart__bar {
+  filter: brightness(1.15);
+}
+@keyframes sn-grow-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+@keyframes sn-grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sn-chart__bar {
+    animation: none !important;
+  }
+}

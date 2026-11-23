@@ -1,0 +1,85 @@
+.sn-wi {
+  overflow: visible;
+  flex: none;
+}
+.sn-wi :is(.sn-wi-sun, .sn-wi-rays, .sn-wi-drift, .sn-wi-fall, .sn-wi-bolt, .sn-wi-slide, .sn-wi-twinkle) {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-wi .sn-wi-rays {
+    animation: sn-turn 24s linear infinite;
+  }
+  .sn-wi .sn-wi-sun {
+    animation: sn-wi-pulse 4s ease-in-out infinite alternate;
+  }
+  .sn-wi .sn-wi-drift {
+    animation: sn-wi-drift 6s ease-in-out infinite alternate;
+  }
+  .sn-wi .sn-wi-fall {
+    animation: sn-wi-fall 1.3s ease-in var(--d, 0s) infinite;
+  }
+  .sn-wi .sn-wi-bolt {
+    animation: sn-wi-bolt 3.4s linear infinite;
+  }
+  .sn-wi .sn-wi-slide {
+    animation: sn-wi-slide 3.6s ease-in-out var(--d, 0s) infinite alternate;
+  }
+  .sn-wi .sn-wi-twinkle {
+    animation: sn-wi-twinkle 2.6s ease-in-out var(--d, 0s) infinite;
+  }
+}
+@keyframes sn-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sn-wi-pulse {
+  to {
+    transform: scale(1.06);
+  }
+}
+@keyframes sn-wi-drift {
+  to {
+    transform: translateX(3px);
+  }
+}
+@keyframes sn-wi-fall {
+  0% {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(9px);
+    opacity: 0;
+  }
+}
+@keyframes sn-wi-bolt {
+  0%,
+  60%,
+  100% {
+    opacity: 1;
+  }
+  64% {
+    opacity: 0.25;
+  }
+  68% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 0.4;
+  }
+}
+@keyframes sn-wi-slide {
+  to {
+    transform: translateX(4px);
+  }
+}
+@keyframes sn-wi-twinkle {
+  50% {
+    opacity: 0.15;
+  }
+}

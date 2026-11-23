@@ -1,0 +1,78 @@
+.sn-badge {
+  --sn-badge-c: var(--sn-color-text-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border-radius: var(--sn-radius-pill);
+  font: 600 var(--sn-text-xs) / 1.6 var(--sn-font);
+  white-space: nowrap;
+}
+.sn-badge--soft {
+  /* Puxa o tom para o texto: passa 4.5:1 em qualquer tema sem perder a cor. */
+  color: color-mix(in oklab, var(--sn-badge-c) 70%, var(--sn-color-text));
+  background: color-mix(in srgb, var(--sn-badge-c) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sn-badge-c) 28%, transparent);
+}
+.sn-badge--solid {
+  color: var(--sn-color-on-accent);
+  background: var(--sn-badge-c);
+}
+.sn-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.sn-badge--solid .sn-badge__dot {
+  background: currentColor;
+}
+.sn-badge--accent {
+  --sn-badge-c: var(--sn-color-accent);
+}
+.sn-badge--violet {
+  --sn-badge-c: var(--sn-color-accent-2);
+}
+.sn-badge--aqua {
+  --sn-badge-c: var(--sn-color-aqua);
+}
+.sn-badge--gold {
+  --sn-badge-c: var(--sn-color-gold);
+}
+.sn-badge--success {
+  --sn-badge-c: var(--sn-color-success);
+}
+.sn-badge--warning {
+  --sn-badge-c: var(--sn-color-warning);
+}
+.sn-badge--danger {
+  --sn-badge-c: var(--sn-color-danger);
+}
+/* Tons claros pedem tinta escura no sólido. */
+.sn-badge--solid:is(.sn-badge--gold, .sn-badge--aqua, .sn-badge--warning, .sn-badge--success) {
+  color: var(--sn-color-on-tint, #14110a);
+}
+/* Coral puro com branco não passa 4.5:1: o sólido usa o gradiente da marca, já escurecido. */
+.sn-badge--solid.sn-badge--accent {
+  background: var(--sn-gradient);
+}
+.sn-badge__dot {
+  position: relative;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-badge__dot[data-live]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: currentColor;
+    animation: sn-badge-ping 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+@keyframes sn-badge-ping {
+  75%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
