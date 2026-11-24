@@ -1,5 +1,6 @@
 import { type CSSProperties, type ReactNode, useEffect, useRef, useState } from "react";
 import { cx } from "../../utils/cx";
+import { formatElapsed } from "../../utils/format";
 import { useCanvasLoop } from "../../utils/useCanvasLoop";
 import { Artwork } from "../Artwork";
 import { Avatar } from "../Avatar";
@@ -8,7 +9,7 @@ import { Equalizer } from "../LiveBadge";
 import { Sparkline } from "../Sparkline";
 import { WeatherIcon } from "../WeatherIcon";
 import type { WeatherCondition } from "../WeatherSky/sky";
-import { clock, Island, IslandAction, type IslandTone } from "./Island";
+import { Island, IslandAction, type IslandTone } from "./Island";
 import { IslandIcons as I, type Maneuver, TurnArrow } from "./icons";
 
 /** Chama `tick` a cada segundo enquanto `running`. */
@@ -79,8 +80,8 @@ export function IslandTimer({
       trailing={
         <span className="sn-island__timer sn-island__tone">
           <span className="sn-island__timer-label">{label}</span>
-          <span role="timer" aria-label={`${label}: ${clock(left)}`} className="sn-island__big">
-            {clock(left)}
+          <span role="timer" aria-label={`${label}: ${formatElapsed(left)}`} className="sn-island__big">
+            {formatElapsed(left)}
           </span>
         </span>
       }
@@ -215,7 +216,7 @@ export function IslandMedia({
       trailing={<Equalizer active={playing} color="var(--sn-island-tone)" />}
     >
       <div className="sn-island__scrub">
-        <span className="sn-island__time">{clock(pos)}</span>
+        <span className="sn-island__time">{formatElapsed(pos)}</span>
         <input
           type="range"
           className="sn-island__range"
@@ -224,10 +225,10 @@ export function IslandMedia({
           value={pos}
           onChange={(e) => setPos(Number(e.target.value))}
           aria-label="Posição da faixa"
-          aria-valuetext={`${clock(pos)} de ${clock(duration)}`}
+          aria-valuetext={`${formatElapsed(pos)} de ${formatElapsed(duration)}`}
           style={{ "--sn-range": `${(pos / duration) * 100}%` } as CSSProperties}
         />
-        <span className="sn-island__time">-{clock(duration - pos)}</span>
+        <span className="sn-island__time">-{formatElapsed(duration - pos)}</span>
       </div>
       <div className="sn-island__controls">
         <IslandAction appearance="plain" className="sn-island-action--bare" aria-label="Anterior" onClick={onPrev}>
@@ -330,8 +331,8 @@ export function IslandRecording({
     onStop?.();
   };
   const time = (
-    <span role="timer" aria-label={`Gravando há ${clock(sec)}`} className="sn-island__value sn-island__tone">
-      {clock(sec)}
+    <span role="timer" aria-label={`Gravando há ${formatElapsed(sec)}`} className="sn-island__value sn-island__tone">
+      {formatElapsed(sec)}
     </span>
   );
   if (variant === "wave") {
@@ -451,7 +452,7 @@ export function IslandTicker({
       size="card"
       tone={up ? "success" : "danger"}
       className={className}
-      leading={<span className="sn-island__badge">{icon ?? symbol.slice(0, 1)}</span>}
+      leading={icon ?? <Avatar name={name} size={36} />}
       eyebrow={symbol}
       title={name}
       trailing={

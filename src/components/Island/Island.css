@@ -7,13 +7,15 @@
   --sn-color-surface: rgb(255 255 255 / 0.08);
   --sn-color-surface-2: rgb(255 255 255 / 0.12);
   --sn-color-border: rgb(255 255 255 / 0.12);
-  --sn-island-r: 30px;
+  --sn-island-r: calc(var(--sn-radius-lg) + var(--sn-space-2));
+  /* Tinta escura dos botões cheios e do texto sobre cor de tom */
+  --sn-island-ink: #0b0b0f;
   color-scheme: dark;
   position: relative;
   display: grid;
-  gap: 14px;
+  gap: var(--sn-space-3);
   box-sizing: border-box;
-  padding: 12px 14px;
+  padding: var(--sn-space-3) var(--sn-space-4);
   border-radius: var(--sn-island-r);
   background: var(--sn-island-bg);
   color: var(--sn-color-text);
@@ -32,13 +34,13 @@
   align-content: center;
 }
 .sn-island--card {
-  --sn-island-r: 34px;
-  padding: 18px 20px 20px;
+  --sn-island-r: calc(var(--sn-radius-lg) + var(--sn-space-3));
+  padding: var(--sn-space-4) var(--sn-space-5) var(--sn-space-5);
 }
 .sn-island--chip {
   --sn-island-r: var(--sn-radius-pill);
   display: inline-grid;
-  padding: 10px 18px;
+  padding: var(--sn-space-2) var(--sn-space-4);
   min-height: 44px;
   min-width: 120px;
 }
@@ -68,7 +70,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .sn-island {
-    animation: sn-island-in 520ms var(--sn-ease-spring) both;
+    animation: sn-island-in var(--sn-dur-slow) var(--sn-ease-spring) both;
   }
 }
 @keyframes sn-island-in {
@@ -82,12 +84,12 @@
 .sn-island__head {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--sn-space-3);
   min-width: 0;
 }
 .sn-island--chip .sn-island__head {
   justify-content: space-between;
-  gap: 18px;
+  gap: var(--sn-space-4);
 }
 .sn-island__leading {
   display: flex;
@@ -101,13 +103,13 @@
   min-width: 0;
 }
 .sn-island__eyebrow {
-  font-size: 12px;
+  font-size: var(--sn-text-xs);
   line-height: 1.2;
   color: var(--sn-color-text-dim);
 }
 .sn-island__title {
   overflow: hidden;
-  font-size: 16px;
+  font-size: var(--sn-text-md);
   font-weight: 650;
   line-height: 1.25;
   text-overflow: ellipsis;
@@ -121,7 +123,7 @@
 }
 .sn-island__body {
   display: grid;
-  gap: 12px;
+  gap: var(--sn-space-3);
   min-width: 0;
 }
 
@@ -133,37 +135,27 @@
   font-weight: 500;
 }
 .sn-island__value {
-  font-size: 20px;
+  font-size: var(--sn-text-lg);
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 .sn-island__big {
-  font: 700 40px / 1 var(--sn-font-display);
+  font: 700 var(--sn-text-display) / 1 var(--sn-font-display);
   letter-spacing: -0.03em;
 }
 .sn-island__big--sm {
-  font-size: 26px;
+  font-size: var(--sn-text-xl);
 }
 .sn-island__actions {
   display: flex;
-  gap: 10px;
+  gap: var(--sn-space-2);
 }
 .sn-island__eta {
   display: grid;
   justify-items: end;
-  gap: 4px;
-  font-size: 12px;
+  gap: var(--sn-space-1);
+  font-size: var(--sn-text-xs);
   text-align: right;
-}
-.sn-island__badge {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--sn-color-gold);
-  color: #1a1204;
-  font-weight: 800;
 }
 
 /* Botões redondos */
@@ -196,7 +188,7 @@
 }
 .sn-island-action--solid {
   background: var(--sn-ia-c);
-  color: #0b0b0f;
+  color: var(--sn-island-ink);
 }
 .sn-island-action--soft {
   background: color-mix(in oklab, var(--sn-ia-c) 26%, transparent);
@@ -216,7 +208,7 @@
 }
 @media (prefers-reduced-motion: no-preference) {
   .sn-island-action--pulse {
-    animation: sn-island-pulse 1.6s ease-out infinite;
+    animation: sn-island-pulse calc(var(--sn-dur-slow) * 4) var(--sn-ease) infinite;
   }
 }
 @keyframes sn-island-pulse {
@@ -232,26 +224,26 @@
 .sn-island__timer {
   display: inline-flex;
   align-items: baseline;
-  gap: 10px;
+  gap: var(--sn-space-2);
 }
 .sn-island__timer-label {
-  font-size: 15px;
+  font-size: var(--sn-text-md);
   font-weight: 600;
 }
 
 /* Mídia */
 .sn-island__cover {
   width: 64px;
-  border-radius: 14px;
+  border-radius: var(--sn-radius);
   overflow: hidden;
 }
 .sn-island--card .sn-island__title {
-  font-size: 18px;
+  font-size: var(--sn-text-lg);
 }
 .sn-island__subtitle {
   overflow: hidden;
   color: var(--sn-color-text-dim);
-  font-size: 14px;
+  font-size: var(--sn-text-sm);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -259,11 +251,11 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 12px;
-  margin-top: 4px;
+  gap: var(--sn-space-3);
+  margin-top: var(--sn-space-1);
 }
 .sn-island__time {
-  font-size: 12px;
+  font-size: var(--sn-text-xs);
   color: var(--sn-color-text-dim);
 }
 .sn-island__range {
@@ -277,14 +269,14 @@
 }
 .sn-island__range::-webkit-slider-runnable-track {
   height: 5px;
-  border-radius: 999px;
+  border-radius: var(--sn-radius-pill);
   background:
     linear-gradient(var(--sn-color-text), var(--sn-color-text)) 0 / var(--sn-range) 100% no-repeat,
     rgb(255 255 255 / 0.2);
 }
 .sn-island__range::-moz-range-track {
   height: 5px;
-  border-radius: 999px;
+  border-radius: var(--sn-radius-pill);
   background:
     linear-gradient(var(--sn-color-text), var(--sn-color-text)) 0 / var(--sn-range) 100% no-repeat,
     rgb(255 255 255 / 0.2);
@@ -313,14 +305,14 @@
 .sn-island__range:focus-visible {
   outline: 2px solid var(--sn-island-tone);
   outline-offset: 2px;
-  border-radius: 999px;
+  border-radius: var(--sn-radius-pill);
 }
 .sn-island__controls {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: var(--sn-space-5);
 }
 .sn-island__cast {
   position: absolute;
@@ -331,10 +323,10 @@
 .sn-island__rec {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--sn-space-1);
 }
 .sn-island__rec .sn-island__value {
-  font-size: 14px;
+  font-size: var(--sn-text-sm);
 }
 .sn-island__rec-dot {
   width: 7px;
@@ -344,12 +336,7 @@
 }
 @media (prefers-reduced-motion: no-preference) {
   .sn-island__rec-dot[data-on] {
-    animation: sn-island-blink 1.2s ease-in-out infinite;
-  }
-}
-@keyframes sn-island-blink {
-  50% {
-    opacity: 0.3;
+    animation: sn-m-blink 1.2s ease-in-out infinite;
   }
 }
 .sn-island__wave-wrap {
@@ -364,17 +351,17 @@
 
 /* Navegação e cotação */
 .sn-island--nav .sn-island__leading {
-  margin-inline: 6px 4px;
+  margin-inline: var(--sn-space-1);
 }
 .sn-island__price {
   display: flex;
   align-items: flex-end;
-  gap: 12px;
+  gap: var(--sn-space-3);
 }
 .sn-island__delta {
   display: grid;
   gap: 2px;
-  font-size: 12px;
+  font-size: var(--sn-text-xs);
   font-weight: 700;
 }
 .sn-island__spark {

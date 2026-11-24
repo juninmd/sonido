@@ -1,23 +1,14 @@
 import type { ButtonHTMLAttributes, CSSProperties, HTMLAttributes, ReactNode } from "react";
 import { cx } from "../../utils/cx";
+import { formatElapsed } from "../../utils/format";
+import { type Tone, toneVar } from "../../utils/tone";
 import "./Island.css";
 
-export type IslandTone = "accent" | "violet" | "aqua" | "gold" | "success" | "warning" | "danger" | "info" | "neutral";
-
-const TONE_VAR: Record<IslandTone, string> = {
-  accent: "var(--sn-color-accent)",
-  violet: "var(--sn-color-accent-2)",
-  aqua: "var(--sn-color-aqua)",
-  gold: "var(--sn-color-gold)",
-  success: "var(--sn-color-success)",
-  warning: "var(--sn-color-warning)",
-  danger: "var(--sn-color-danger)",
-  info: "var(--sn-color-info)",
-  neutral: "var(--sn-color-text)",
-};
+/** Mesmo vocabulário de tons do resto do Sonido. */
+export type IslandTone = Tone;
 
 /** Estilo inline que define a cor de destaque da ilha. */
-export const islandTone = (tone: IslandTone) => ({ "--sn-island-tone": TONE_VAR[tone] }) as CSSProperties;
+export const islandTone = (tone: IslandTone) => ({ "--sn-island-tone": toneVar(tone) }) as CSSProperties;
 
 export interface IslandProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
   /** `chip` = mini pílula (ícone + valor); `pill` = uma linha; `card` = expandida, com corpo. */
@@ -144,11 +135,8 @@ export function IslandChip({ icon, value, tone = "accent", label, className, ...
   );
 }
 
-/** mm:ss (ou h:mm:ss) para tempos das ilhas. */
-export function clock(totalSeconds: number) {
-  const s = Math.max(0, Math.round(totalSeconds));
-  const h = Math.floor(s / 3600);
-  const m = Math.floor((s % 3600) / 60);
-  const ss = String(s % 60).padStart(2, "0");
-  return h ? `${h}:${String(m).padStart(2, "0")}:${ss}` : `${m}:${ss}`;
-}
+/**
+ * mm:ss (ou h:mm:ss) para tempos das ilhas.
+ * @deprecated Use `formatElapsed`, o formatador comum do Sonido.
+ */
+export const clock = (totalSeconds: number) => formatElapsed(Math.round(totalSeconds));

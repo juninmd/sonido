@@ -85,6 +85,7 @@ export { type FlyToOptions, flyTo } from "./utils/flyTo";
 export { baseName, formatAge, formatBytes, formatCount, formatElapsed, splitBytes } from "./utils/format";
 export { hueFrom, initials } from "./utils/hue";
 export { squarify, type TileRect } from "./utils/squarify";
+export { type Tone, toneVar } from "./utils/tone";
 export { isRelated, type SizedNode, sizeTree, type TreeNode } from "./utils/tree";
 export { useCanvasLoop } from "./utils/useCanvasLoop";
 export {
