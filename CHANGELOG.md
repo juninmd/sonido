@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/juninmd/sonido/compare/v1.2.1...v2.0.0) (2026-11-24)
+
+
+* feat!: aplicar a skill de design em tudo e trocar as ilhas pelos cards de atividade ([#8](https://github.com/juninmd/sonido/issues/8)) ([2918e14](https://github.com/juninmd/sonido/commit/2918e14143ec6116f14718ce00a9ec4e2ba97c6c))
+
+
+### BREAKING CHANGES
+
+* os exports Island* foram renomeados ou removidos (ver tabela no PR);
+Hero e PageHeader não aceitam mais `eyebrow`; --sn-text-xs/sm e --sn-dur-slow mudaram de valor.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01Cn6JQLzujrev9QSiSnmqtQ
+
 ## [1.2.1](https://github.com/juninmd/sonido/compare/v1.2.0...v1.2.1) (2026-11-24)
 
 
