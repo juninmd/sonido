@@ -25,6 +25,7 @@ describe("formatadores", () => {
   it("formata bytes sem virar 1.024 KB", () => {
     expect(formatBytes(0)).toBe("0 B");
     expect(formatBytes(1536)).toBe("1,5 KB");
+    expect(formatBytes(0.5)).toBe("1 B");
     expect(formatBytes(1023.99 * 1024)).toBe("1 MB");
     expect(splitBytes(13.3 * 1024 ** 3)).toEqual(["13,3", "GB"]);
   });
