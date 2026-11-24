@@ -45,20 +45,20 @@
 .sn-scan__stats dt {
   color: var(--sn-color-text-faint);
   font-size: var(--sn-text-xs);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 .sn-scan__stats dd {
   margin: 0;
   font: 700 var(--sn-text-xl) / 1.1 var(--sn-font-display);
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 .sn-scan__current {
   overflow: hidden;
   color: var(--sn-color-text-faint);
-  font: var(--sn-text-xs) / 1.4 var(--sn-font-mono);
+  font: var(--sn-text-xs) / 1.4 var(--sn-font);
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
 }
 .sn-scan__foot {
   display: flex;

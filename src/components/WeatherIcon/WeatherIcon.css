@@ -19,7 +19,7 @@
     animation: sn-wi-drift 6s ease-in-out infinite alternate;
   }
   .sn-wi .sn-wi-fall {
-    animation: sn-wi-fall 1.3s ease-in var(--d, 0s) infinite;
+    animation: sn-wi-fall 1.3s linear var(--d, 0s) infinite;
   }
   .sn-wi .sn-wi-bolt {
     animation: sn-wi-bolt 3.4s linear infinite;

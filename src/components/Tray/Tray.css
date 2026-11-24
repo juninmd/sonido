@@ -10,12 +10,11 @@
 .sn-tray__title {
   color: var(--sn-color-text-faint);
   font-size: var(--sn-text-xs);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 .sn-tray__total {
   font: 700 var(--sn-text-xl) / 1.1 var(--sn-font-display);
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 .sn-tray__list {
   display: grid;
@@ -48,7 +47,7 @@
 }
 .sn-tray__value {
   color: var(--sn-color-text-dim);
-  font-family: var(--sn-font-mono);
+  font-family: var(--sn-font);
   font-variant-numeric: tabular-nums;
 }
 .sn-tray__remove {

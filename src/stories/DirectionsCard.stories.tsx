@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { LiveExample } from "../../.storybook/live";
-import { IslandNav } from "../index";
+import { DirectionsCard } from "../index";
 
 const code = `const steps = [
   { maneuver: "right", distance: "312 m", street: "Rua Monsenhor Rosa" },
@@ -13,13 +13,9 @@ function Demo() {
   const [i, setI] = useState(0);
   return (
     <div style={{ display: "grid", gap: 12, maxWidth: 420 }}>
-      <IslandNav key={i} {...steps[i]} arrival="12:08" remaining="6 min" />
+      <DirectionsCard {...steps[i]} arrival="12:08" remaining="6 min" />
       <div>
-        <Button
-          size="sm"
-          variant="secondary"
-          onClick={() => setI((i + 1) % steps.length)}
-        >
+        <Button size="sm" variant="secondary" onClick={() => setI((i + 1) % steps.length)}>
           Próxima manobra
         </Button>
       </div>
@@ -30,18 +26,18 @@ function Demo() {
 render(<Demo />);
 `;
 
-const meta: Meta<typeof IslandNav> = {
-  title: "Ilhas/IslandNav",
-  component: IslandNav,
+const meta: Meta<typeof DirectionsCard> = {
+  title: "Widgets/DirectionsCard",
+  component: DirectionsCard,
   parameters: {
     sonido: { code },
     docs: {
       description: {
-        component: `Navegação passo a passo: seta da manobra (\`right\`, \`left\`, \`slight-right\`, \`slight-left\`, \`straight\`, \`uturn\`), distância, rua e chegada.`,
+        component: `Navegação passo a passo: seta da manobra no \`ActivityIcon\`, distância, rua e chegada. É anunciado por leitor de tela a cada manobra.`,
       },
     },
   },
 };
 export default meta;
 
-export const Exemplo: StoryObj<typeof IslandNav> = { render: () => <LiveExample code={code} /> };
+export const Exemplo: StoryObj<typeof DirectionsCard> = { render: () => <LiveExample code={code} /> };

@@ -37,7 +37,7 @@
   border-color: transparent;
 }
 .sn-chip__count {
-  font: 600 var(--sn-text-xs) / 1 var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
   opacity: 0.9;
   font-variant-numeric: tabular-nums;
 }

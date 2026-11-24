@@ -6,10 +6,9 @@
   border-radius: 3px;
   color: var(--sn-st);
   font: 800 14px / 1 var(--sn-font-display);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
   white-space: nowrap;
   rotate: -2deg;
+  letter-spacing: -0.02em;
 }
 .sn-stamp[data-tone="true"] {
   --sn-st: var(--sn-color-success);
@@ -29,7 +28,8 @@
 .sn-stamp[data-tone="pending"] {
   border-style: dotted;
   rotate: 0deg;
-  font: 600 11px / 1 var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
+  font-variant-numeric: tabular-nums;
 }
 .sn-stamp[data-tone="winner"] {
   --sn-st: var(--sn-color-gold);

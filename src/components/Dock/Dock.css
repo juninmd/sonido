@@ -91,7 +91,7 @@
   border-radius: 9px;
   background: var(--sn-gradient-signature);
   color: #fff;
-  font: 700 10px / 17px var(--sn-font);
+  font: 700 var(--sn-text-xs) / 17px var(--sn-font);
   font-variant-numeric: tabular-nums;
   box-shadow: 0 4px 10px -4px #000;
 }
@@ -106,7 +106,7 @@
   border-radius: 10px;
   background: var(--sn-color-text);
   color: var(--sn-color-bg);
-  font: 600 12px / 1 var(--sn-font);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
@@ -119,7 +119,7 @@
   padding: 1px 5px;
   border-radius: 5px;
   background: rgb(0 0 0 / 0.1);
-  font: 600 10px var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) var(--sn-font-mono);
 }
 .sn-dock__item:hover .sn-dock__label,
 .sn-dock__item:focus-visible .sn-dock__label {

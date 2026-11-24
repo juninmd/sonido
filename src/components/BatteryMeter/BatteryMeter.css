@@ -2,9 +2,9 @@
   --sn-battery-tone: var(--sn-color-success);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--sn-space-2);
   color: var(--sn-battery-tone);
-  font: 700 14px / 1 var(--sn-font);
+  font: 700 var(--sn-text-sm) / 1 var(--sn-font);
   font-variant-numeric: tabular-nums;
 }
 .sn-battery[data-state="mid"] {
@@ -50,11 +50,6 @@
 }
 @media (prefers-reduced-motion: no-preference) {
   .sn-battery[data-state="low"] .sn-battery__fill {
-    animation: sn-battery-blink 1.6s ease-in-out infinite;
-  }
-}
-@keyframes sn-battery-blink {
-  50% {
-    opacity: 0.35;
+    animation: sn-m-blink 1.6s ease-in-out infinite;
   }
 }

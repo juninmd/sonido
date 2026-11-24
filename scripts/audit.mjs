@@ -17,7 +17,6 @@ const RAW_COLOR_OK = {
   AlertCard: "céu padrão da cena, sobrescrito pela prop sky",
   Avatar: "texto branco sobre gradiente de matiz fixo",
   Dock: "sombra preta e contador branco sobre o gradiente assinatura",
-  Island: "pílula sempre escura, em qualquer tema",
   RouteMap: "escala de trânsito",
   WeatherSky: "céu do clima",
 };

@@ -42,7 +42,7 @@
   padding: 2px 6px;
   border: 1px solid var(--sn-color-border);
   border-radius: 6px;
-  font: 600 11px / 1.2 var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) / 1.2 var(--sn-font-mono);
   color: var(--sn-color-text-faint);
 }
 .sn-palette__list {
@@ -52,9 +52,7 @@
 }
 .sn-palette__group {
   padding: 12px 20px 6px;
-  font: 800 11px / 1 var(--sn-font);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font: 800 var(--sn-text-xs) / 1 var(--sn-font);
   color: var(--sn-color-text-faint);
 }
 .sn-palette__opt {
@@ -91,8 +89,9 @@
   font: 600 var(--sn-text-md) / 1.2 var(--sn-font);
 }
 .sn-palette__hint {
-  font: 600 var(--sn-text-xs) / 1 var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
   color: var(--sn-color-text-faint);
+  font-variant-numeric: tabular-nums;
 }
 .sn-palette__empty {
   margin: 0;

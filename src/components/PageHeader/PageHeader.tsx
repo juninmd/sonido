@@ -5,8 +5,6 @@ import "./PageHeader.css";
 export interface PageHeaderProps {
   title: string;
   icon?: ReactNode;
-  /** Rótulo acima do título; some quando há `pills`. */
-  eyebrow?: string;
   /** Fatos rápidos em Badge (estado, categoria, contagem). */
   pills?: ReactNode;
   description?: ReactNode;
@@ -21,11 +19,10 @@ export interface PageHeaderProps {
   className?: string;
 }
 
-/** Cabeçalho canônico de página (PageHero do mika): ícone com brilho, pílulas, título, ações e números. */
+/** Cabeçalho canônico de página (PageHero do mika): ícone, pílulas, título, ações e números. */
 export function PageHeader({
   title,
   icon,
-  eyebrow,
   pills,
   description,
   leading,
@@ -46,11 +43,7 @@ export function PageHeader({
             </span>
           )}
           <div className="sn-pagehead__text">
-            {pills ? (
-              <div className="sn-pagehead__pills">{pills}</div>
-            ) : (
-              eyebrow && <p className="sn-pagehead__eyebrow">{eyebrow}</p>
-            )}
+            {pills && <div className="sn-pagehead__pills">{pills}</div>}
             <h2 className="sn-pagehead__title">{title}</h2>
             {description && <p className="sn-pagehead__desc">{description}</p>}
           </div>

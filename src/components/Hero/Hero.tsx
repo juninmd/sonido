@@ -3,8 +3,6 @@ import { cx } from "../../utils/cx";
 import "./Hero.css";
 
 export interface HeroProps {
-  /** Rótulo pequeno acima do título. */
-  eyebrow?: ReactNode;
   title: string;
   /** Linha de metadados (gênero, ano, horas…). */
   meta?: ReactNode;
@@ -18,7 +16,7 @@ export interface HeroProps {
 }
 
 /** Destaque de página com título que sobe palavra por palavra (games-gallery). */
-export function Hero({ eyebrow, title, meta, actions, backdrop, aside, className }: HeroProps) {
+export function Hero({ title, meta, actions, backdrop, aside, className }: HeroProps) {
   return (
     <section className={cx("sn-hero", className)}>
       <div className="sn-hero__backdrop" aria-hidden>
@@ -26,7 +24,6 @@ export function Hero({ eyebrow, title, meta, actions, backdrop, aside, className
       </div>
       <div className="sn-hero__shade" aria-hidden />
       <div className="sn-hero__copy">
-        {eyebrow && <span className="sn-hero__eyebrow">{eyebrow}</span>}
         <h1 className="sn-hero__title" aria-label={title}>
           {title.split(" ").map((w, i) => (
             // biome-ignore lint/suspicious/noArrayIndexKey: palavras na ordem fixa

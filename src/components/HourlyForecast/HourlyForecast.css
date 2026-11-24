@@ -12,7 +12,7 @@
   justify-items: center;
   align-content: start;
   gap: 6px;
-  padding: 8px 4px;
+  padding: var(--sn-space-2) var(--sn-space-1);
   border-radius: var(--sn-radius);
   font-variant-numeric: tabular-nums;
 }
@@ -20,14 +20,14 @@
   background: color-mix(in oklab, var(--sn-color-text) 7%, transparent);
 }
 .sn-hourly__time {
-  font: 600 12px / 1 var(--sn-font);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
   color: var(--sn-color-text-dim);
 }
 .sn-hourly__rain {
-  font: 600 11px / 1 var(--sn-font);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
   color: var(--sn-color-info);
 }
 .sn-hourly__temp {
-  font: 700 14px / 1 var(--sn-font);
+  font: 700 var(--sn-text-sm) / 1 var(--sn-font);
   color: var(--sn-color-text);
 }

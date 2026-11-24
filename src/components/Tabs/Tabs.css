@@ -31,7 +31,8 @@
   padding: 1px 7px;
   border-radius: var(--sn-radius-pill);
   background: var(--sn-color-surface-hover);
-  font: 600 var(--sn-text-xs) / 1.4 var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) / 1.4 var(--sn-font);
+  font-variant-numeric: tabular-nums;
 }
 
 .sn-tabs--underline {

@@ -68,7 +68,7 @@
   font: 700 var(--sn-text-md) / 1.25 var(--sn-font);
 }
 .sn-alertcard__meta {
-  font: 600 var(--sn-text-xs) / 1 var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
   color: var(--sn-color-text-dim);
   font-variant-numeric: tabular-nums;
 }

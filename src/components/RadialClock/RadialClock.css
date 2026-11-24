@@ -37,7 +37,8 @@
 }
 .sn-rclock__label {
   fill: var(--sn-color-text-faint);
-  font: 600 3.6px var(--sn-font-mono);
+  font: 600 3.6px var(--sn-font);
+  font-variant-numeric: tabular-nums;
 }
 .sn-rclock__center {
   fill: var(--sn-color-text);
@@ -46,7 +47,8 @@
 }
 .sn-rclock__sub {
   fill: var(--sn-color-text-dim);
-  font: 500 3.4px var(--sn-font-mono);
+  font: 500 3.4px var(--sn-font);
+  font-variant-numeric: tabular-nums;
 }
 .sn-rclock figcaption {
   margin-top: var(--sn-space-2);

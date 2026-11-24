@@ -64,6 +64,7 @@
   font: 800 var(--sn-text-lg) / 1 var(--sn-font-display);
   color: var(--sn-m-c);
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 .sn-meter__row {
   display: grid;
@@ -99,7 +100,7 @@
 .sn-meter__rowpct {
   min-width: 34px;
   text-align: right;
-  font: 700 var(--sn-text-xs) / 1 var(--sn-font-mono);
+  font: 700 var(--sn-text-xs) / 1 var(--sn-font);
   font-variant-numeric: tabular-nums;
 }
 .sn-meter__rowpct[data-status="warn"] {

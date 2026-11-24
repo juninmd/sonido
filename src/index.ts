@@ -3,6 +3,7 @@ import "./base.css";
 import "./motion.css";
 
 export * from "./components/Accordion";
+export * from "./components/ActivityCard";
 export * from "./components/AgendaRail";
 export * from "./components/Alert";
 export * from "./components/AlertCard";
@@ -32,7 +33,6 @@ export * from "./components/FilterChips";
 export * from "./components/Heatmap";
 export * from "./components/Hero";
 export * from "./components/HourlyForecast";
-export * from "./components/Island";
 export * from "./components/Kbd";
 export * from "./components/LiveBadge";
 export * from "./components/Menu";
@@ -85,6 +85,7 @@ export { type FlyToOptions, flyTo } from "./utils/flyTo";
 export { baseName, formatAge, formatBytes, formatCount, formatElapsed, splitBytes } from "./utils/format";
 export { hueFrom, initials } from "./utils/hue";
 export { squarify, type TileRect } from "./utils/squarify";
+export { type Tone, toneVar } from "./utils/tone";
 export { isRelated, type SizedNode, sizeTree, type TreeNode } from "./utils/tree";
 export { useCanvasLoop } from "./utils/useCanvasLoop";
 export {

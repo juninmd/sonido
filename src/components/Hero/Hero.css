@@ -3,11 +3,12 @@
   isolation: isolate;
   overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: end;
+  justify-items: start;
   gap: var(--sn-space-5);
-  min-height: 320px;
-  padding: clamp(24px, 4vw, 48px);
+  min-height: 420px;
+  padding: clamp(28px, 5vw, 64px);
   border-radius: 32px;
   border: 1px solid var(--sn-glass-edge);
   background: var(--sn-color-surface);
@@ -26,7 +27,6 @@
   transform: scale(1.25);
   filter: blur(34px) saturate(150%);
   opacity: 0.7;
-  animation: sn-drift 22s ease-in-out infinite alternate;
 }
 .sn-hero__ambient {
   background:
@@ -38,9 +38,9 @@
   inset: 0;
   z-index: -1;
   background: linear-gradient(
-    95deg,
-    var(--sn-color-surface) 22%,
-    color-mix(in srgb, var(--sn-color-surface) 55%, transparent) 60%,
+    0deg,
+    var(--sn-color-surface) 18%,
+    color-mix(in srgb, var(--sn-color-surface) 40%, transparent) 70%,
     transparent
   );
 }
@@ -49,24 +49,10 @@
   gap: var(--sn-space-4);
   min-width: 0;
 }
-.sn-hero__eyebrow {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 12px;
-  border-radius: var(--sn-radius-pill);
-  font: 600 11px / 1.2 var(--sn-font);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--sn-color-text);
-  background: color-mix(in srgb, var(--sn-color-text) 7%, transparent);
-  border: 1px solid color-mix(in srgb, var(--sn-color-text) 14%, transparent);
-  backdrop-filter: blur(8px);
-}
 .sn-hero__title {
   margin: 0;
-  font: 800 clamp(36px, 6vw, 80px) / 0.9 var(--sn-font-display);
+  font: 800 clamp(3.5rem, 7.5vw, 8rem) / 0.92 var(--sn-font-display);
+  max-width: 14ch;
   font-stretch: 80%;
   letter-spacing: -0.045em;
   text-wrap: balance;
@@ -89,8 +75,13 @@
   gap: var(--sn-space-2);
 }
 .sn-hero__aside {
+  grid-row: 1;
+  justify-self: end;
   display: grid;
   justify-items: center;
+}
+.sn-hero__copy {
+  grid-row: 2;
 }
 @keyframes sn-word-rise {
   from {
@@ -99,22 +90,13 @@
     filter: blur(8px);
   }
 }
-@keyframes sn-drift {
-  to {
-    transform: scale(1.35) translate(3%, -2%);
-  }
-}
 @media (max-width: 640px) {
-  .sn-hero {
-    grid-template-columns: 1fr;
-  }
   .sn-hero__aside {
     display: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .sn-hero__title span,
-  .sn-hero__backdrop > * {
+  .sn-hero__title span {
     animation: none;
   }
 }
