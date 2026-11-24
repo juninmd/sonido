@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/juninmd/sonido/compare/v1.1.0...v1.1.1) (2026-11-24)
+
+
+### Bug Fixes
+
+* **format:** evita "undefined" em formatBytes para valores menores que 1 byte ([#5](https://github.com/juninmd/sonido/issues/5)) ([cbdd0ce](https://github.com/juninmd/sonido/commit/cbdd0ceae22c6b5594dd221bcd39d28a7390fdfe))
+
 # [1.1.0](https://github.com/juninmd/sonido/compare/v1.0.1...v1.1.0) (2026-11-24)
 
 
