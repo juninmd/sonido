@@ -1,4 +1,4 @@
-name: Release
+name: Publish
 
 on:
   push:
@@ -27,6 +27,8 @@ jobs:
           node-version: 22
           cache: npm
           registry-url: https://registry.npmjs.org
+      - name: npm com suporte a trusted publishing (OIDC)
+        run: npm install -g npm@latest
       - run: npm ci
       - run: npm run lint
       - run: npm run typecheck
@@ -37,4 +39,4 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: "" # sem token: a autenticação vem do OIDC (trusted publisher)
