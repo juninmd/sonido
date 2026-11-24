@@ -1,0 +1,108 @@
+.sn-scan {
+  --sn-scan-tone: var(--sn-color-aqua);
+  display: grid;
+  gap: var(--sn-space-3);
+  min-width: 0;
+}
+.sn-scan--stopping {
+  --sn-scan-tone: var(--sn-color-warning);
+}
+.sn-scan--done {
+  --sn-scan-tone: var(--sn-color-success);
+}
+.sn-scan--cancelled {
+  --sn-scan-tone: var(--sn-color-text-faint);
+}
+.sn-scan__track {
+  position: relative;
+  height: 6px;
+  overflow: hidden;
+  border-radius: var(--sn-radius-pill);
+  background: var(--sn-color-surface-2);
+}
+.sn-scan__track i {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--sn-scan-tone);
+}
+.sn-scan--running .sn-scan__track i,
+.sn-scan--stopping .sn-scan__track i {
+  opacity: 0.5;
+}
+.sn-scan__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sn-space-3);
+  margin: 0;
+}
+.sn-scan__stats div {
+  min-width: 0;
+  padding: var(--sn-space-3);
+  border-radius: var(--sn-radius);
+  background: var(--sn-color-surface-2);
+}
+.sn-scan__stats dt {
+  color: var(--sn-color-text-faint);
+  font-size: var(--sn-text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.sn-scan__stats dd {
+  margin: 0;
+  font: 700 var(--sn-text-xl) / 1.1 var(--sn-font-display);
+  font-variant-numeric: tabular-nums;
+}
+.sn-scan__current {
+  overflow: hidden;
+  color: var(--sn-color-text-faint);
+  font: var(--sn-text-xs) / 1.4 var(--sn-font-mono);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sn-scan__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sn-space-3);
+}
+.sn-scan__btn {
+  min-height: 32px;
+  padding: 0 var(--sn-space-3);
+  border: 1px solid var(--sn-color-border);
+  border-radius: 10px;
+  background: var(--sn-color-surface-2);
+  color: var(--sn-color-text);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
+  cursor: pointer;
+}
+.sn-scan__btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.sn-scan__btn:focus-visible {
+  outline: 2px solid var(--sn-color-accent-2);
+  outline-offset: 2px;
+}
+.sn-scan__status {
+  color: var(--sn-color-text-dim);
+  font-size: var(--sn-text-xs);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-scan--running .sn-scan__track i,
+  .sn-scan--stopping .sn-scan__track i {
+    right: auto;
+    width: 30%;
+    opacity: 1;
+    background: linear-gradient(90deg, transparent, var(--sn-scan-tone), transparent);
+    animation: sn-scan-sweep 1.4s var(--sn-ease) infinite;
+  }
+}
+@keyframes sn-scan-sweep {
+  from {
+    left: -30%;
+  }
+  to {
+    left: 100%;
+  }
+}

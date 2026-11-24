@@ -23,7 +23,7 @@ Escuro por padrão, vidro sobre um fundo atmosférico, cor com função e movime
 
 |                             |                                                                                                   |
 | --------------------------- | ------------------------------------------------------------------------------------------------- |
-| 🧩 **78 componentes**       | De botão a céu animado do clima, todos com tipos, teclado e ARIA.                                 |
+| 🧩 **83 componentes**       | De botão a céu animado do clima, todos com tipos, teclado e ARIA.                                 |
 | 🎨 **8 temas**              | Troque com um atributo: `data-theme="hueco-mundo"`. Tokens `--sn-*` em CSS e em JS.               |
 | ✨ **Movimento com motivo** | Mola tátil, confete, cenas em canvas. Tudo desliga com `prefers-reduced-motion`.                  |
 | ♿ **Acessível**            | Contraste AA nos 8 temas, auditado com axe. Alvos de 44px e foco visível.                         |
@@ -139,7 +139,7 @@ Os testes montam **todos os exemplos da documentação**, então o código que v
 Em `.claude/skills/` há três skills para o Claude Code:
 
 - **sonido-audit**: roda `npm run audit:ds`, lint, tipos e testes e corrige o que falhar.
-- **sonido-a11y**: axe-core nos 78 exemplos em todos os temas.
+- **sonido-a11y**: axe-core nos exemplos em todos os temas.
 - **sonido-component**: passo a passo para criar ou portar um componente.
 
 ## Releases
