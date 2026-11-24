@@ -9,7 +9,7 @@
   color: var(--sn-color-text);
 }
 .sn-slider__value {
-  font: 700 var(--sn-text-sm) / 1.3 var(--sn-font-mono);
+  font: 700 var(--sn-text-sm) / 1.3 var(--sn-font);
   color: var(--sn-color-accent);
   font-variant-numeric: tabular-nums;
 }

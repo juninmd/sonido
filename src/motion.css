@@ -64,17 +64,17 @@
     animation: sn-m-blink 1.2s ease-in-out infinite;
   }
   .sn-m-glow {
-    animation: sn-m-glow 2.4s ease-in-out infinite;
+    animation: sn-m-glow 2.4s ease-in-out 2;
   }
   .sn-m-halo {
-    animation: sn-m-halo 2.4s ease-in-out infinite;
+    animation: sn-m-halo 2.4s ease-in-out 2;
   }
   .sn-m-float {
-    animation: sn-m-float 3.2s ease-in-out infinite;
+    animation: sn-m-float 3.2s ease-in-out 1;
   }
   .sn-m-wiggle {
     transform-origin: 50% 80%;
-    animation: sn-m-wiggle 1.8s ease-in-out infinite;
+    animation: sn-m-wiggle 1.8s ease-in-out 1;
   }
   .sn-m-spin {
     animation: sn-m-spin 0.9s linear infinite;
@@ -106,13 +106,13 @@
     animation: sn-m-strike 280ms var(--sn-ease) backwards;
   }
   .sn-m-exit-swipe {
-    animation: sn-m-swipe 150ms var(--sn-ease-in) forwards;
+    animation: sn-m-swipe 150ms var(--sn-linear) forwards;
   }
   .sn-m-exit-archive {
-    animation: sn-m-archive 150ms var(--sn-ease-in) forwards;
+    animation: sn-m-archive 150ms var(--sn-linear) forwards;
   }
   .sn-m-exit-trash {
-    animation: sn-m-trash 150ms var(--sn-ease-in) forwards;
+    animation: sn-m-trash 150ms var(--sn-linear) forwards;
   }
   .sn-m-raise {
     transition: transform 200ms var(--sn-ease);

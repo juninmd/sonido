@@ -6,8 +6,8 @@ const svg = (children: ReactNode, size = 20) => (
   </svg>
 );
 
-/** Ícones internos das ilhas (traço cheio, legíveis em 20px). */
-export const IslandIcons = {
+/** Ícones internos dos cards de atividade (traço cheio, legíveis em 20px). */
+export const ActivityIcons = {
   play: (s?: number) =>
     svg(<path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" />, s),
   pause: (s?: number) =>

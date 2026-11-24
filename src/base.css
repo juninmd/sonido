@@ -6,6 +6,7 @@
   font-family: var(--sn-font);
   font-size: var(--sn-text-md);
   line-height: 1.5;
+  font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
 }
 

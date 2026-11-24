@@ -59,20 +59,19 @@ Coloque `class="sn-body"` no `<body>` para herdar fonte, cor e fundo do tema.
 
 ## Componentes
 
-| Grupo           | Componentes                                                                                                                                                      |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Ações**       | Button, ConfirmButton, Tray                                                                                                                                      |
-| **Formulários** | Checkbox, FilterChips, RadioGroup, Rating, SearchField, Select, Slider, Switch, TextField, ToggleCard                                                            |
-| **Exibição**    | Avatar, Badge, Kbd, Tooltip                                                                                                                                      |
-| **Feedback**    | Alert, EmptyState, LiveBadge, SaveIndicator, ScanProgress, Skeleton, Spinner, Stamp, Toast                                                                       |
-| **Superfícies** | Accordion, AmbientBackdrop, Artwork, Bento, Card, Carousel, Dialog, Hero, PageHeader                                                                             |
-| **Navegação**   | Breadcrumb, CommandPalette, Dock, Menu, NavRail, Pagination, Stepper, Tabs                                                                                       |
-| **Dados**       | BarChart, CountUp, DataTable, Duel, Heatmap, MeterCard, Odometer, ProgressBar, ProgressRing, RadialClock, Sparkline, Stat, StatTile, Sunburst, Timeline, Treemap |
-| **Ilhas**       | Island, IslandCall, IslandChip, IslandMedia, IslandNav, IslandRecording, IslandTicker, IslandTimer, IslandWeather, BatteryMeter, HourlyForecast                  |
-| **Widgets**     | AgendaRail, AlertCard, RouteMap, WeatherIcon, WeatherSky                                                                                                         |
-| **Assistente**  | EmojiBurst, PresenceOrb, RadialMenu, SpeechBubble, ThinkingBubble                                                                                                |
-| **Movimento**   | BlackHole, Motion                                                                                                                                                |
-| **Temas**       | ThemeSwitcher                                                                                                                                                    |
+| Grupo           | Componentes                                                                                                                                                                    |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Ações**       | Button, ConfirmButton, Tray                                                                                                                                                    |
+| **Formulários** | Checkbox, FilterChips, RadioGroup, Rating, SearchField, Select, Slider, Switch, TextField, ToggleCard                                                                          |
+| **Exibição**    | Avatar, Badge, Kbd, Tooltip                                                                                                                                                    |
+| **Feedback**    | Alert, EmptyState, LiveBadge, SaveIndicator, ScanProgress, Skeleton, Spinner, Stamp, Toast                                                                                     |
+| **Superfícies** | Accordion, AmbientBackdrop, Artwork, Bento, Card, Carousel, Dialog, Hero, PageHeader                                                                                           |
+| **Navegação**   | Breadcrumb, CommandPalette, Dock, Menu, NavRail, Pagination, Stepper, Tabs                                                                                                     |
+| **Dados**       | BatteryMeter, BarChart, CountUp, DataTable, Duel, Heatmap, MeterCard, Odometer, ProgressBar, ProgressRing, RadialClock, Sparkline, Stat, StatTile, Sunburst, Timeline, Treemap |
+| **Widgets**     | ActivityCard, AgendaRail, AlertCard, CallCard, DirectionsCard, HourlyForecast, PlayerCard, RouteMap, TimerCard, WeatherIcon, WeatherSky                                        |
+| **Assistente**  | EmojiBurst, PresenceOrb, RadialMenu, SpeechBubble, ThinkingBubble                                                                                                              |
+| **Movimento**   | BlackHole, Motion                                                                                                                                                              |
+| **Temas**       | ThemeSwitcher                                                                                                                                                                  |
 
 Os grupos são os mesmos da barra lateral da documentação.
 
@@ -84,23 +83,21 @@ Componentes com a prop `tone` usam o mesmo vocabulário: `accent` (ação), `vio
 
 | Para quê    | Exportações                                                                                      |
 | ----------- | ------------------------------------------------------------------------------------------------ |
-| Cor         | `accentStyle(hue)` (cor por seção), `hueFrom`, `initials`                                        |
+| Cor         | `accentStyle(hue)` (cor por seção), `toneVar(tone)`, `hueFrom`, `initials`                       |
 | Movimento   | `burst` (confete), `flyTo` (cometa até a bandeja), `easeOutCubic`, `countValue`, `useCanvasLoop` |
 | Preferência | `useReducedMotion`, `useMotionPref`, `getMotionPref`, `setMotionPref`, `shouldAnimate`           |
 | Layout      | `useSize`, `squarify`, `sizeTree`, `isRelated`                                                   |
 | Formato     | `formatBytes`, `splitBytes`, `formatCount`, `formatAge`, `formatElapsed`, `baseName` (pt-BR)     |
 | Classes     | `cx`                                                                                             |
 
-## Ilhas vivas
+## Cards de atividade
 
-Pílulas escuras para atividades em andamento: chamada, timer, música, gravação, rota, cotação, clima e bateria. Ficam escuras em qualquer tema e usam a cor de destaque dele.
-
-<img src=".github/assets/islands.png" alt="Galeria de ilhas vivas: cotação, chamada, timer, navegação, player, gravação, clima por hora, progresso e bateria" width="100%" />
+Algo em andamento (chamada, música, timer, gravação, rota, entrega) num card que segue o tema, com a cor do `tone` no ícone e nos valores.
 
 ```tsx
-<IslandCall name="Ana Lima" subtitle="celular" onAccept={atender} onDecline={recusar} />
-<IslandTimer duration={25 * 60} label="Foco" onDone={tocar} />
-<IslandChip icon={<Bike />} value="2,0 km" tone="gold" label="Pedalada: 2 km" />
+<CallCard name="Ana Lima" subtitle="Celular" onAccept={atender} onDecline={recusar} />
+<TimerCard duration={25 * 60} label="Foco" onDone={tocar} />
+<ActivityCard tone="gold" leading={<ActivityIcon><Bike /></ActivityIcon>} title="Pedalada" trailing={<span className="sn-activity__value">2,0 km</span>} />
 ```
 
 ## Temas

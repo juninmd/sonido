@@ -78,7 +78,7 @@
   flex: 1;
 }
 .sn-menu__kbd {
-  font: 600 11px / 1 var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font-mono);
   color: var(--sn-color-text-faint);
 }
 .sn-menu__sep {

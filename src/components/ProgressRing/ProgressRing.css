@@ -20,4 +20,5 @@
   place-items: center;
   font: 800 var(--sn-text-lg) / 1 var(--sn-font-display);
   color: var(--sn-color-text);
+  letter-spacing: -0.02em;
 }

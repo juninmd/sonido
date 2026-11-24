@@ -98,7 +98,7 @@ const meta: Meta<typeof Motion> = {
     sonido: { code },
     docs: {
       description: {
-        component: `A camada \`motion.css\`: classes \`sn-m-*\` reunidas do canto-widget, pobre-lingo e games-gallery. Entradas (rise, pop, drop, slide, unfold, roll), feedback (star, bump, shake, flash, tick-up/down, strike), loops (ping, blink, glow, halo, float, wiggle, spin, shimmer), saídas (exit-swipe/archive/trash) e hovers (raise, lift, tilt). Escalone com \`--i\`. Tudo sob reduced-motion; \`data-paused\` no \`<html>\` pausa tudo.`,
+        component: `A camada \`motion.css\`: classes \`sn-m-*\` reunidas do canto-widget, pobre-lingo e games-gallery. Entradas (rise, pop, drop, slide, unfold, roll), feedback (star, bump, shake, flash, tick-up/down, strike), indicadores em loop (ping, blink, spin, shimmer), chamarizes que tocam uma ou duas vezes (glow, halo, float, wiggle), saídas (exit-swipe/archive/trash) e hovers (raise, lift, tilt). Escalone com \`--i\`. Tudo sob reduced-motion; \`data-paused\` no \`<html>\` pausa tudo.`,
       },
     },
   },

@@ -7,7 +7,6 @@ const code = `function Demo() {
   return (
     <Hero
       key={kValue}
-      eyebrow="Continue de onde parou"
       title="Outer Wilds Echoes of the Eye"
       meta={[
         <span key={1}>
@@ -51,7 +50,7 @@ const meta: Meta<typeof Hero> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Destaque do topo da página: eyebrow, título com palavras que sobem em sequência, metadados, ações e um \`aside\` (capa ou anel). Sem \`backdrop\`, usa as cores de ambiente do tema.`,
+        component: `Destaque do topo da página: manchete em largura total com palavras que sobem em sequência, metadados, ações e um \`aside\` (capa ou anel). Sem \`backdrop\`, usa as cores de ambiente do tema.`,
       },
     },
   },

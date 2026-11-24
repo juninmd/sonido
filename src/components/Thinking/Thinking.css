@@ -75,8 +75,6 @@
   align-items: center;
   gap: var(--sn-space-2);
   font: 700 var(--sn-text-xs) / 1 var(--sn-font);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--sn-color-text-dim);
 }
 .sn-thinking__transcript {
@@ -97,7 +95,8 @@
   border-radius: var(--sn-radius-pill);
   background: color-mix(in srgb, var(--sn-color-info) 12%, transparent);
   color: color-mix(in oklab, var(--sn-color-info) 70%, var(--sn-color-text));
-  font: 600 var(--sn-text-xs) / 1.6 var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) / 1.6 var(--sn-font);
+  font-variant-numeric: tabular-nums;
 }
 .sn-thinking__steps {
   display: grid;

@@ -20,7 +20,7 @@ const code = `function Demo() {
         step={0.01}
         format={(v) => Math.round(v * 100) + "%"}
       />
-      <Island
+      <ActivityCard
         tone="danger"
         title="Bateria fraca"
         trailing={<BatteryMeter level={level} />}
@@ -33,7 +33,7 @@ render(<Demo />);
 `;
 
 const meta: Meta<typeof BatteryMeter> = {
-  title: "Ilhas/BatteryMeter",
+  title: "Dados/BatteryMeter",
   component: BatteryMeter,
   parameters: {
     sonido: { code },

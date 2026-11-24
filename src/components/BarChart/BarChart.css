@@ -33,7 +33,7 @@
 }
 .sn-chart--columns .sn-chart__value {
   order: -1;
-  font: 700 var(--sn-text-xs) / 1 var(--sn-font-mono);
+  font: 700 var(--sn-text-xs) / 1 var(--sn-font);
   color: var(--sn-color-text);
   font-variant-numeric: tabular-nums;
 }
@@ -69,7 +69,7 @@
   animation: sn-grow-x 700ms var(--sn-ease) both;
 }
 .sn-chart--bars .sn-chart__value {
-  font: 700 var(--sn-text-xs) / 1 var(--sn-font-mono);
+  font: 700 var(--sn-text-xs) / 1 var(--sn-font);
   color: var(--sn-color-text);
   font-variant-numeric: tabular-nums;
 }

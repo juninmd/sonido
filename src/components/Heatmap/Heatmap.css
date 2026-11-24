@@ -16,8 +16,9 @@
 }
 .sn-heat__rl {
   min-width: 28px;
-  font: 600 10px / 1 var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
   color: var(--sn-color-text-faint);
+  font-variant-numeric: tabular-nums;
 }
 .sn-heat__cell,
 .sn-heat__legend i {
@@ -43,15 +44,16 @@
   background: var(--sn-heat);
 }
 .sn-heat__cols span {
-  font: 600 9px / 1 var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
   color: var(--sn-color-text-faint);
+  font-variant-numeric: tabular-nums;
 }
 .sn-heat__legend {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 3px;
-  font-size: 11px;
+  font-size: var(--sn-text-xs);
   color: var(--sn-color-text-dim);
 }
 .sn-heat__legend i {

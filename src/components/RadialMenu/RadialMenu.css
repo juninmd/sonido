@@ -94,9 +94,7 @@
   border-radius: var(--sn-radius-pill);
   background: var(--sn-color-surface);
   color: var(--sn-color-text);
-  font: 800 10px / 1.4 var(--sn-font);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font: 800 var(--sn-text-xs) / 1.4 var(--sn-font);
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;

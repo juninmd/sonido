@@ -94,7 +94,7 @@
   font-weight: 600;
 }
 .sn-agenda__time {
-  font: 500 11px / 1.2 var(--sn-font-mono);
+  font: 500 var(--sn-text-xs) / 1.2 var(--sn-font);
   color: var(--sn-color-text-dim);
   font-variant-numeric: tabular-nums;
 }
@@ -107,7 +107,8 @@
   gap: var(--sn-space-2);
   height: 20px;
   color: var(--sn-color-danger);
-  font: 700 10px / 1 var(--sn-font-mono);
+  font: 700 var(--sn-text-xs) / 1 var(--sn-font);
+  font-variant-numeric: tabular-nums;
 }
 .sn-nowline__dot {
   position: relative;
@@ -155,8 +156,9 @@
   transition: stroke-dashoffset 1s linear;
 }
 .sn-countdown b {
-  font: 800 12px / 1 var(--sn-font-display);
+  font: 800 var(--sn-text-xs) / 1 var(--sn-font-display);
   color: var(--sn-color-accent);
+  letter-spacing: -0.02em;
 }
 @media (prefers-reduced-motion: no-preference) {
   .sn-agenda__wrap {

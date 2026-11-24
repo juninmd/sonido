@@ -3,6 +3,7 @@ import "./base.css";
 import "./motion.css";
 
 export * from "./components/Accordion";
+export * from "./components/ActivityCard";
 export * from "./components/AgendaRail";
 export * from "./components/Alert";
 export * from "./components/AlertCard";
@@ -32,7 +33,6 @@ export * from "./components/FilterChips";
 export * from "./components/Heatmap";
 export * from "./components/Hero";
 export * from "./components/HourlyForecast";
-export * from "./components/Island";
 export * from "./components/Kbd";
 export * from "./components/LiveBadge";
 export * from "./components/Menu";

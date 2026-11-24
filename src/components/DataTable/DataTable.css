@@ -18,8 +18,6 @@
   background: var(--sn-color-surface-2);
   color: var(--sn-color-text-dim);
   font: 600 var(--sn-text-xs) / 1.2 var(--sn-font);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
   white-space: nowrap;
 }
 .sn-table td {

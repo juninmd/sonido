@@ -14,8 +14,6 @@
 }
 .sn-stat__label {
   font: 600 var(--sn-text-xs) / 1.2 var(--sn-font);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--sn-color-text-dim);
 }
 .sn-stat__icon {
@@ -29,8 +27,8 @@
 }
 .sn-stat__value {
   font: 800 clamp(28px, 4vw, 38px) / 1 var(--sn-font-display);
-  letter-spacing: -0.03em;
   color: var(--sn-color-text);
+  letter-spacing: -0.03em;
 }
 .sn-stat__foot {
   display: flex;

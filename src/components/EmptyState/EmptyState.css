@@ -21,6 +21,7 @@
   margin: 0;
   font: 700 var(--sn-text-lg) / 1.2 var(--sn-font-display);
   color: var(--sn-color-text);
+  letter-spacing: -0.03em;
 }
 .sn-empty__desc {
   margin: 0;

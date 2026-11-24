@@ -88,3 +88,11 @@
   gap: var(--sn-space-2);
   justify-content: flex-end;
 }
+
+/* Sem card dentro de card: o aninhado vira tinta de superfície. */
+:is(.sn-card, .sn-dialog__panel, .sn-meter, .sn-togglecard) .sn-card {
+  border-color: transparent;
+  box-shadow: none;
+  background: var(--sn-color-surface-2);
+  backdrop-filter: none;
+}

@@ -116,8 +116,6 @@
   background: color-mix(in srgb, var(--sn-color-surface) 84%, transparent);
   backdrop-filter: blur(8px);
   font: 700 var(--sn-text-xs) / 1 var(--sn-font);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
 }
 .sn-map__live > i {
   width: 7px;
@@ -166,9 +164,10 @@
 }
 .sn-gauge__value strong {
   font: 800 var(--sn-text-md) / 1 var(--sn-font-display);
+  letter-spacing: -0.02em;
 }
 .sn-gauge__value small {
-  font-size: 11px;
+  font-size: var(--sn-text-xs);
   color: var(--sn-t);
   font-weight: 700;
 }

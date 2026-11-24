@@ -24,9 +24,7 @@
 .sn-navrail__title {
   margin: 0 0 4px;
   padding: 0 12px;
-  font: 700 11px / 1 var(--sn-font);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font: 700 var(--sn-text-xs) / 1 var(--sn-font);
   color: var(--sn-color-text-faint);
 }
 .sn-navrail--compact .sn-navrail__title,
@@ -90,6 +88,7 @@
   padding: 1px 7px;
   border-radius: var(--sn-radius-pill);
   background: var(--sn-color-surface-hover);
-  font: 600 var(--sn-text-xs) / 1.4 var(--sn-font-mono);
+  font: 600 var(--sn-text-xs) / 1.4 var(--sn-font);
   color: var(--sn-color-text-dim);
+  font-variant-numeric: tabular-nums;
 }

@@ -6,9 +6,8 @@
   border: 1px solid var(--sn-color-border);
   border-radius: 4px;
   color: var(--sn-color-text-dim);
-  font: 600 11px / 1 var(--sn-font-mono);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
+  font-variant-numeric: tabular-nums;
 }
 .sn-live > i {
   width: 8px;

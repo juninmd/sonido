@@ -37,9 +37,7 @@
   align-items: center;
   gap: 6px;
   color: color-mix(in oklab, var(--sn-st-c) 75%, var(--sn-color-text));
-  font: 600 11px / 1.2 var(--sn-font);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font: 600 var(--sn-text-xs) / 1.2 var(--sn-font);
 }
 .sn-stattile__label svg {
   width: 12px;
@@ -49,9 +47,9 @@
   margin-top: 6px;
   overflow: hidden;
   font: 800 var(--sn-text-lg) / 1.1 var(--sn-font-display);
-  letter-spacing: -0.02em;
   text-overflow: ellipsis;
   white-space: nowrap;
+  letter-spacing: -0.03em;
 }
 .sn-stattile__hint {
   margin-top: 4px;

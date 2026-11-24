@@ -22,7 +22,7 @@ render(<Demo />);
 `;
 
 const meta: Meta<typeof HourlyForecast> = {
-  title: "Ilhas/HourlyForecast",
+  title: "Widgets/HourlyForecast",
   component: HourlyForecast,
   parameters: {
     sonido: { code },

@@ -61,9 +61,7 @@
   font-size: var(--sn-text-sm);
 }
 .sn-togglecard__state {
-  font: 800 10px / 1 var(--sn-font);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font: 800 var(--sn-text-xs) / 1 var(--sn-font);
   color: var(--sn-color-text-dim);
 }
 .sn-togglecard[aria-pressed="true"] .sn-togglecard__state {
@@ -75,8 +73,9 @@
   color: var(--sn-color-text-dim);
 }
 .sn-togglecard__detail {
-  font: 500 11px / 1.4 var(--sn-font-mono);
+  font: 500 var(--sn-text-xs) / 1.4 var(--sn-font);
   color: var(--sn-color-text-faint);
+  font-variant-numeric: tabular-nums;
 }
 .sn-togglecard__check {
   flex: none;

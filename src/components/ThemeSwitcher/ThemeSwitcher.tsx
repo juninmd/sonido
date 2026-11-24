@@ -13,7 +13,7 @@ export interface ThemeOption {
 
 /** Os temas que vêm no Sonido. */
 export const SONIDO_THEMES: ThemeOption[] = [
-  { id: "dark", label: "Sonido escuro", swatch: ["#0a0b12", "#171a28", "#ff3d6e"] },
+  { id: "dark", label: "Sonido escuro", swatch: ["#0c0d10", "#1b1c21", "#ff3d6e"] },
   { id: "light", label: "Sonido claro", swatch: ["#eeedf6", "#ffffff", "#c81e45"] },
   { id: "hueco-mundo", label: "Hueco Mundo", swatch: ["#050506", "#ede9e0", "#e11d48"] },
   { id: "canto", label: "Canto", swatch: ["#0b0f16", "#111826", "#4ade80"] },
