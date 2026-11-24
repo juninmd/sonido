@@ -1,6 +1,8 @@
 .sn-wi {
   overflow: visible;
   flex: none;
+  /* Contorno que acompanha o texto do tema: some no escuro, separa nuvem clara do fundo claro. */
+  filter: drop-shadow(0 0 0.75px color-mix(in oklab, var(--sn-color-text) 55%, transparent));
 }
 .sn-wi :is(.sn-wi-sun, .sn-wi-rays, .sn-wi-drift, .sn-wi-fall, .sn-wi-bolt, .sn-wi-slide, .sn-wi-twinkle) {
   transform-box: fill-box;
