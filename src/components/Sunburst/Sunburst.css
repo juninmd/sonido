@@ -1,0 +1,67 @@
+.sn-sunburst {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  margin-inline: auto;
+}
+.sn-sunburst svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.sn-sunburst__slice {
+  stroke: var(--sn-color-surface);
+  stroke-width: 1.5;
+  cursor: pointer;
+  outline: none;
+}
+.sn-sunburst__slice--leaf {
+  cursor: default;
+}
+.sn-sunburst__slice:hover,
+.sn-sunburst__slice:focus-visible {
+  stroke: var(--sn-color-text);
+  stroke-width: 2;
+}
+.sn-sunburst__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-content: center;
+  width: 30%;
+  aspect-ratio: 1;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--sn-color-text);
+  text-align: center;
+  font: inherit;
+  cursor: pointer;
+}
+.sn-sunburst__center:disabled {
+  cursor: default;
+}
+.sn-sunburst__center strong {
+  font: 700 var(--sn-text-lg) / 1.1 var(--sn-font-display);
+  font-variant-numeric: tabular-nums;
+}
+.sn-sunburst__center span,
+.sn-sunburst__center small {
+  overflow: hidden;
+  color: var(--sn-color-text-dim);
+  font-size: var(--sn-text-xs);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sn-sunburst__center small {
+  color: var(--sn-color-accent-2);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-sunburst__slice {
+    transition: fill-opacity var(--sn-dur) var(--sn-ease);
+  }
+}

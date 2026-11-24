@@ -13,6 +13,7 @@ export * from "./components/Badge";
 export * from "./components/BarChart";
 export * from "./components/BatteryMeter";
 export * from "./components/Bento";
+export * from "./components/BlackHole";
 export * from "./components/Breadcrumb";
 export * from "./components/Button";
 export * from "./components/Card";
@@ -50,6 +51,7 @@ export * from "./components/RadioGroup";
 export * from "./components/Rating";
 export * from "./components/RouteMap";
 export * from "./components/SaveIndicator";
+export * from "./components/ScanProgress";
 export * from "./components/SearchField";
 export * from "./components/Select";
 export * from "./components/Skeleton";
@@ -61,6 +63,7 @@ export * from "./components/Stamp";
 export * from "./components/Stat";
 export * from "./components/StatTile";
 export * from "./components/Stepper";
+export * from "./components/Sunburst";
 export * from "./components/Switch";
 export * from "./components/Tabs";
 export * from "./components/TextField";
@@ -70,11 +73,27 @@ export * from "./components/Timeline";
 export * from "./components/Toast";
 export * from "./components/ToggleCard";
 export * from "./components/Tooltip";
+export * from "./components/Tray";
+export * from "./components/Treemap";
 export * from "./components/WeatherIcon";
 export * from "./components/WeatherSky";
 export { accentStyle } from "./utils/accent";
 export { burst } from "./utils/confetti";
 export { cx } from "./utils/cx";
+export { countValue, easeOutCubic } from "./utils/ease";
+export { type FlyToOptions, flyTo } from "./utils/flyTo";
+export { baseName, formatAge, formatBytes, formatCount, formatElapsed, splitBytes } from "./utils/format";
 export { hueFrom, initials } from "./utils/hue";
+export { squarify, type TileRect } from "./utils/squarify";
+export { isRelated, type SizedNode, sizeTree, type TreeNode } from "./utils/tree";
 export { useCanvasLoop } from "./utils/useCanvasLoop";
+export {
+  getMotionPref,
+  MOTION_PREF_LABELS,
+  type MotionPref,
+  setMotionPref,
+  shouldAnimate,
+  useMotionPref,
+} from "./utils/useMotionPref";
 export { useReducedMotion } from "./utils/useReducedMotion";
+export { type Size, useSize } from "./utils/useSize";
