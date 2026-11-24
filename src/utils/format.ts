@@ -9,7 +9,7 @@ const digitsFor = (v: number, i: number) => (v >= 100 || i === 0 ? 0 : v >= 10 ?
 /** 1536 → "1,5 KB". Base 1024; 1023,99 KB sobe para "1 MB" em vez de "1.024 KB". */
 export function formatBytes(bytes: number, locale = "pt-BR"): string {
   if (!Number.isFinite(bytes) || bytes <= 0) return "0 B";
-  let i = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), UNITS.length - 1);
+  let i = Math.min(Math.max(Math.floor(Math.log(bytes) / Math.log(1024)), 0), UNITS.length - 1);
   let v = bytes / 1024 ** i;
   if (i < UNITS.length - 1 && Math.round(v) >= 1024) {
     i += 1;
