@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/juninmd/sonido/compare/v1.1.1...v1.2.0) (2026-11-24)
+
+
+### Features
+
+* padroniza tons, cores e movimento e atualiza a documentação ([#6](https://github.com/juninmd/sonido/issues/6)) ([8be884a](https://github.com/juninmd/sonido/commit/8be884adfa3c8e716c6b1870fe3a8feef98b3cd6))
+
 ## [1.1.1](https://github.com/juninmd/sonido/compare/v1.1.0...v1.1.1) (2026-11-24)
 
 
