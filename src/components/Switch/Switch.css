@@ -37,7 +37,7 @@
 }
 .sn-switch__input:checked + .sn-switch__track .sn-switch__thumb {
   transform: translateX(18px);
-  background: #fff;
+  background: var(--sn-color-on-accent);
 }
 .sn-switch__input:focus-visible + .sn-switch__track {
   box-shadow: var(--sn-ring);

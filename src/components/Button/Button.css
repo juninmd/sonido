@@ -41,7 +41,7 @@
 .sn-button--primary {
   --sn-btn-bg: var(--sn-gradient);
   --sn-btn-fg: var(--sn-color-on-accent);
-  --sn-btn-press: #8a1c3f;
+  --sn-btn-press: color-mix(in oklab, var(--sn-color-accent) 50%, black);
 }
 .sn-button--primary:hover:not(:disabled) {
   box-shadow: var(--sn-shadow-glow);
@@ -76,7 +76,7 @@
 .sn-button--danger {
   --sn-btn-bg: var(--sn-color-danger);
   --sn-btn-fg: var(--sn-color-on-danger);
-  --sn-btn-press: #9f1239;
+  --sn-btn-press: color-mix(in oklab, var(--sn-color-danger) 50%, black);
 }
 .sn-button--link {
   --sn-btn-bg: transparent;

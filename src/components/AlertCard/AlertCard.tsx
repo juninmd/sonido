@@ -5,7 +5,8 @@ import { type AlertScene, SCENES, seedScene } from "./scenes";
 import "./AlertCard.css";
 
 export type { AlertScene };
-export type AlertTone = "danger" | "warn" | "accent" | "muted";
+/** `warning` e `neutral` seguem o vocabulário comum de tons; `warn` e `muted` continuam aceitos (obsoletos). */
+export type AlertTone = "danger" | "warning" | "accent" | "neutral" | "warn" | "muted";
 export type AlertEnter = "drop" | "shake" | "gust" | "rise" | "frost" | "mist" | "glow";
 
 const TONE_RGB: Record<AlertTone, string> = {
@@ -13,6 +14,8 @@ const TONE_RGB: Record<AlertTone, string> = {
   warn: "251,191,36",
   accent: "106,168,255",
   muted: "148,163,184",
+  warning: "251,191,36",
+  neutral: "148,163,184",
 };
 
 /** Entrada e cena sugeridas por tipo de alerta (alertFxSpec do canto-widget). */
@@ -96,7 +99,7 @@ export function AlertCard({
       role={severe ? "alert" : "status"}
       className={cx("sn-alertcard", className)}
       data-enter={enter}
-      data-tone={tone}
+      data-tone={tone === "warning" ? "warn" : tone === "neutral" ? "muted" : tone}
       data-severe={severe || undefined}
       style={sky ? ({ "--sn-ac-sky": sky } as React.CSSProperties) : undefined}
     >

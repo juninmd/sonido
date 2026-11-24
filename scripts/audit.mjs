@@ -12,6 +12,16 @@ const stories = readdirSync(STORIES)
   .filter((f) => f.endsWith(".stories.tsx"))
   .map((f) => readFileSync(join(STORIES, f), "utf8"));
 
+// Cores fixas de propósito (dados ou superfícies que não mudam com o tema).
+const RAW_COLOR_OK = {
+  AlertCard: "céu padrão da cena, sobrescrito pela prop sky",
+  Avatar: "texto branco sobre gradiente de matiz fixo",
+  Dock: "sombra preta e contador branco sobre o gradiente assinatura",
+  Island: "pílula sempre escura, em qualquer tema",
+  RouteMap: "escala de trânsito",
+  WeatherSky: "céu do clima",
+};
+
 const errors = [];
 const warnings = [];
 const err = (c, m) => errors.push(`${c}: ${m}`);
@@ -57,7 +67,11 @@ for (const name of folders) {
 
   // 6. Cor crua no CSS do componente (use tokens --sn-*)
   const hex = [...css.replace(/var\([^)]*\)/g, "").matchAll(/#[0-9a-fA-F]{3,8}\b/g)].map((m) => m[0]);
-  if (hex.length) warn(name, `cores cruas no CSS: ${[...new Set(hex)].slice(0, 5).join(", ")}`);
+  if (hex.length && !RAW_COLOR_OK[name]) warn(name, `cores cruas no CSS: ${[...new Set(hex)].slice(0, 5).join(", ")}`);
+
+  // 7. Animação com duração fixa precisa respeitar prefers-reduced-motion
+  const fixedAnim = /animation:\s*[\w-]+\s+[\d.]+m?s/.test(css);
+  if (fixedAnim && !/prefers-reduced-motion/.test(css)) warn(name, "animação sem bloco prefers-reduced-motion");
 }
 
 const pad = (s) => `  ${s}`;

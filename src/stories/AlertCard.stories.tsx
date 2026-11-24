@@ -32,7 +32,7 @@ function Demo() {
   const tone = /ciFail|flood|storm|heat/.test(kValue)
     ? "danger"
     : /conflict|status|cold|wind|uv|dry|smoke/.test(kValue)
-      ? "warn"
+      ? "warning"
       : "accent";
   return (
     <div style={{ display: "grid", gap: 14 }}>

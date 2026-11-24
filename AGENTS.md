@@ -36,6 +36,7 @@ Rode `npm run check` antes de todo push.
   - alvos de 44px;
   - foco visível;
   - nada interativo dentro de interativo.
+- **Tons:** a prop `tone` usa o vocabulário comum (`accent`, `violet`, `aqua`, `gold`, `success`, `warning`, `danger`, `info`, `neutral`). Nome novo fora dele precisa de motivo; renomear um valor antigo mantém o antigo como alias obsoleto.
 - **Componentes:** cada componente novo precisa de história em `src/stories` com editor ao vivo. A auditoria falha sem ela.
 - **Lint:** `biome-ignore` só com motivo concreto.
 - **Testes:** nunca desative ou pule um teste para o CI passar.

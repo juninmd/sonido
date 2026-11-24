@@ -29,7 +29,7 @@ export function Stepper({ steps, current, orientation = "horizontal", className 
           >
             <span className="sn-stepper__dot" aria-hidden>
               {state === "done" ? (
-                <svg viewBox="0 0 16 16" width="14" height="14">
+                <svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14">
                   <path
                     d="m3.5 8.5 3 3 6-7"
                     fill="none"

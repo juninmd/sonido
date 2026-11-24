@@ -7,7 +7,8 @@ export interface ProgressBarProps {
   label: string;
   /** Mostra rótulo e porcentagem acima da barra. */
   showValue?: boolean;
-  tone?: "brand" | "signature" | "aqua";
+  /** `accent` usa o gradiente de ação; `brand` é o nome antigo (obsoleto). */
+  tone?: "signature" | "accent" | "aqua" | "brand";
   size?: "sm" | "md";
   className?: string;
 }
@@ -16,7 +17,14 @@ export interface ProgressBarProps {
 export function ProgressBar({ value, label, showValue, tone = "signature", size = "md", className }: ProgressBarProps) {
   const v = value == null ? undefined : Math.min(1, Math.max(0, value));
   return (
-    <div className={cx("sn-progress", `sn-progress--${tone}`, `sn-progress--${size}`, className)}>
+    <div
+      className={cx(
+        "sn-progress",
+        `sn-progress--${tone === "brand" ? "accent" : tone}`,
+        `sn-progress--${size}`,
+        className,
+      )}
+    >
       {showValue && (
         <div className="sn-progress__meta">
           <span>{label}</span>
