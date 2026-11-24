@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/juninmd/sonido/compare/v1.2.0...v1.2.1) (2026-11-24)
+
+
+### Bug Fixes
+
+* contraste do clima no tema claro e selo do Stat sem quebra ([#7](https://github.com/juninmd/sonido/issues/7)) ([588b257](https://github.com/juninmd/sonido/commit/588b25788d37bbc7ab6f4ee54f1aa23a96f8e876)), closes [#1d4ed8](https://github.com/juninmd/sonido/issues/1d4ed8)
+
 # [1.2.0](https://github.com/juninmd/sonido/compare/v1.1.1...v1.2.0) (2026-11-24)
 
 
