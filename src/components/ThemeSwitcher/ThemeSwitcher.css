@@ -46,3 +46,8 @@
     translate: 0 8px;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .sn-theme-switcher .sn-menu__item {
+    animation: none;
+  }
+}

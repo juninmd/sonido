@@ -88,7 +88,7 @@ export function PresenceOrb({
           {state === "speaking" ? (
             BARS.map((w) => <i key={w} style={{ "--w": w } as CSSProperties} />)
           ) : state === "muted" ? (
-            <svg viewBox="0 0 24 24" width="16" height="16">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
               <path
                 d="M9 9v3a3 3 0 0 0 5 2.2M15 9.3V5a3 3 0 0 0-5.7-1.3M19 11a7 7 0 0 1-1.1 3.8M5 11a7 7 0 0 0 11 5.7M12 19v3M3 3l18 18"
                 fill="none"

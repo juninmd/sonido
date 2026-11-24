@@ -28,7 +28,7 @@
   transform-origin: left;
   transition: transform 700ms var(--sn-ease);
 }
-.sn-progress--brand .sn-progress__bar {
+.sn-progress--accent .sn-progress__bar {
   background: var(--sn-gradient);
 }
 .sn-progress--aqua .sn-progress__bar {
@@ -36,7 +36,17 @@
 }
 .sn-progress__track--indeterminate .sn-progress__bar {
   width: 40%;
-  animation: sn-indeterminate 1.3s var(--sn-ease) infinite;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-progress__track--indeterminate .sn-progress__bar {
+    animation: sn-indeterminate 1.3s var(--sn-ease) infinite;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sn-progress__track--indeterminate .sn-progress__bar {
+    width: 100%;
+    opacity: 0.5;
+  }
 }
 @keyframes sn-indeterminate {
   from {

@@ -54,3 +54,10 @@
     opacity: 0;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .sn-burst__ring,
+  .sn-burst__at b {
+    animation: none;
+    opacity: 0;
+  }
+}

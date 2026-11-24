@@ -39,7 +39,7 @@ export function Checkbox({
         {...rest}
       />
       <span className="sn-check__box" aria-hidden>
-        <svg viewBox="0 0 16 16" width="14" height="14">
+        <svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14">
           {indeterminate ? (
             <path d="M4 8h8" className="sn-check__mark" />
           ) : (

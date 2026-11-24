@@ -84,7 +84,7 @@
 }
 .sn-palette__opt[aria-selected="true"] .sn-palette__ic {
   background: var(--sn-gradient);
-  color: #fff;
+  color: var(--sn-color-on-accent);
 }
 .sn-palette__label {
   flex: 1;
