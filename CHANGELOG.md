@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/juninmd/sonido/compare/v2.0.0...v2.1.0) (2026-11-25)
+
+
+### Features
+
+* CommandPalette com filtro próprio, OmniSearch e campos compactos ([#9](https://github.com/juninmd/sonido/issues/9)) ([b4e8964](https://github.com/juninmd/sonido/commit/b4e89647d1ade320fadfde472d76b5e21b14509b))
+
 # [2.0.0](https://github.com/juninmd/sonido/compare/v1.2.1...v2.0.0) (2026-11-24)
 
 
