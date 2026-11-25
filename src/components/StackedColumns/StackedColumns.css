@@ -1,0 +1,95 @@
+.sn-stacked {
+  --sn-stacked-axis: 36px;
+  display: grid;
+  gap: var(--sn-space-3);
+  margin: 0;
+  font-family: var(--sn-font);
+  font-variant-numeric: tabular-nums;
+}
+.sn-stacked__plot {
+  position: relative;
+  height: var(--sn-stacked-h);
+  margin: var(--sn-space-4) 0 0 var(--sn-stacked-axis);
+}
+.sn-stacked__grid,
+.sn-stacked__cols {
+  position: absolute;
+  inset: 0;
+}
+.sn-stacked__tick {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--sn-at) * 100%);
+  border-top: 1px solid var(--sn-color-border-soft);
+}
+.sn-stacked__tick:first-child {
+  border-top-color: var(--sn-color-border);
+}
+.sn-stacked__tick i {
+  position: absolute;
+  right: 100%;
+  margin-right: var(--sn-space-2);
+  transform: translateY(-50%);
+  font: 500 var(--sn-text-xs) / 1 var(--sn-font);
+  font-style: normal;
+  color: var(--sn-color-text-faint);
+}
+.sn-stacked__cols,
+.sn-stacked__x {
+  display: grid;
+  grid-template-columns: repeat(var(--sn-stacked-cols), minmax(0, 1fr));
+}
+/* column-reverse: a primeira série fica na base e o total, último filho, acima da ponta. */
+.sn-stacked__col {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 2px;
+  height: 100%;
+  min-width: 0;
+}
+.sn-stacked__seg {
+  flex: none;
+  width: min(24px, 62%);
+  height: calc(var(--sn-v) * 100%);
+  min-height: 3px;
+  transform-origin: 50% 100%;
+  transition: filter var(--sn-dur-fast) var(--sn-ease);
+}
+.sn-stacked__seg--cap {
+  border-radius: 4px 4px 0 0;
+}
+.sn-stacked__seg:hover {
+  filter: brightness(1.15);
+}
+.sn-stacked__total {
+  margin-bottom: 3px;
+  font: 700 var(--sn-text-xs) / 1 var(--sn-font);
+  color: var(--sn-color-text);
+}
+.sn-stacked__x {
+  margin: var(--sn-space-2) 0 0 var(--sn-stacked-axis);
+  font: 600 var(--sn-text-xs) / 1.2 var(--sn-font);
+  color: var(--sn-color-text-dim);
+  text-align: center;
+}
+.sn-stacked__x span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sn-stacked .sn-legend {
+  margin-left: var(--sn-stacked-axis);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-stacked__seg {
+    animation: sn-stacked-grow 600ms var(--sn-ease) backwards;
+    animation-delay: calc(var(--sn-i, 0) * 28ms);
+  }
+}
+@keyframes sn-stacked-grow {
+  from {
+    transform: scaleY(0);
+  }
+}

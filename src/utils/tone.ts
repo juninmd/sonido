@@ -15,3 +15,18 @@ const TONE_VAR: Record<Tone, string> = {
 
 /** Token CSS da cor de um tom, ex.: `toneVar("aqua")` → `var(--sn-color-aqua)`. */
 export const toneVar = (tone: Tone) => TONE_VAR[tone];
+
+/** Ordem padrão de tons para séries de gráfico sem `tone` explícito. */
+export const SERIES_TONES: readonly Tone[] = [
+  "accent",
+  "violet",
+  "aqua",
+  "gold",
+  "info",
+  "success",
+  "warning",
+  "danger",
+];
+
+/** Tom da série `i`: o explícito ou o próximo da ordem padrão. */
+export const seriesTone = (i: number, tone?: Tone): Tone => tone ?? (SERIES_TONES[i % SERIES_TONES.length] as Tone);

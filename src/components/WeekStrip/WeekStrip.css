@@ -1,0 +1,60 @@
+.sn-week {
+  display: grid;
+  grid-template-columns: repeat(var(--sn-week-days), minmax(0, 1fr));
+  gap: var(--sn-space-2);
+  font-family: var(--sn-font);
+}
+.sn-week__day {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: var(--sn-space-2) var(--sn-space-1);
+  border: 1px solid var(--sn-color-border-soft);
+  border-radius: var(--sn-radius);
+  background: var(--sn-color-surface);
+  color: var(--sn-color-text);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background-color var(--sn-dur-fast) var(--sn-ease),
+    border-color var(--sn-dur-fast) var(--sn-ease);
+}
+.sn-week__day:hover {
+  background: var(--sn-color-surface-hover);
+}
+.sn-week__day:focus-visible {
+  outline: 2px solid var(--sn-color-accent-2);
+  outline-offset: 2px;
+}
+.sn-week__day--today {
+  border-color: var(--sn-color-accent);
+}
+.sn-week__day--on {
+  border-color: var(--sn-color-text);
+  background: var(--sn-color-surface-hover);
+  box-shadow: inset 0 0 0 1px var(--sn-color-text);
+}
+.sn-week__weekday {
+  font: 700 var(--sn-text-xs) / 1.2 var(--sn-font);
+  text-transform: uppercase;
+  color: var(--sn-color-text-dim);
+}
+.sn-week__num {
+  font: 700 var(--sn-text-lg) / 1.2 var(--sn-font);
+  font-variant-numeric: tabular-nums;
+}
+/* Reserva a altura do selo mesmo vazio: dias com e sem contagem alinham. */
+.sn-week__count {
+  min-width: 20px;
+  min-height: 18px;
+  padding: 0 6px;
+  border-radius: var(--sn-radius-pill);
+  font: 800 var(--sn-text-xs) / 18px var(--sn-font);
+  font-variant-numeric: tabular-nums;
+}
+.sn-week__count:not(:empty) {
+  background: var(--sn-color-accent);
+  color: var(--sn-color-on-accent);
+}
