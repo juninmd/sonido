@@ -12,7 +12,7 @@ const code = `function Demo() {
       allLabel="Todos"
       allCount={248}
       chips={[
-        { key: "pc", label: "PC", count: 131 },
+        { key: "pc", label: "PC", count: 131, icon: <Icon name="grid" /> },
         { key: "ps", label: "PlayStation", count: 64 },
         { key: "sw", label: "Switch", count: 38 },
         { key: "retro", label: "Retrô", count: 15 },
@@ -31,7 +31,7 @@ const meta: Meta<typeof FilterChips> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Grupo de filtro de seleção única com \`aria-pressed\`. Clicar no chip ativo volta a \`null\` (todos). Use \`allLabel\` para o chip "Todos".`,
+        component: `Grupo de filtro de seleção única com \`aria-pressed\`. Clicar no chip ativo volta a \`null\` (todos). Use \`allLabel\` para o chip "Todos"; cada chip aceita um \`icon\` decorativo.`,
       },
     },
   },

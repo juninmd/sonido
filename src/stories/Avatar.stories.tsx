@@ -35,7 +35,7 @@ const meta: Meta<typeof Avatar> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Foto ou iniciais com cor estável derivada do nome, status e anel. \`AvatarGroup\` empilha e mostra +N.`,
+        component: `Foto ou iniciais com cor estável derivada do nome, status e anel. \`referrerPolicy\` vai para o \`<img>\`. \`AvatarGroup\` empilha e mostra +N.`,
       },
     },
   },

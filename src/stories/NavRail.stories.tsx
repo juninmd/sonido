@@ -9,9 +9,15 @@ const code = `function Demo() {
     {
       title: "Assistir",
       items: [
-        { key: "home", label: "Início", icon: <Icon name="home" /> },
-        { key: "lib", label: "Biblioteca", icon: <Icon name="grid" />, badge: 248 },
-        { key: "fav", label: "Favoritos", icon: <Icon name="heart" /> },
+        { key: "home", label: "Início", icon: <Icon name="home" />, href: "#inicio" },
+        {
+          key: "lib",
+          label: "Biblioteca",
+          icon: <Icon name="grid" />,
+          badge: 248,
+          href: "#biblioteca",
+        },
+        { key: "fav", label: "Favoritos", icon: <Icon name="heart" />, href: "#favoritos" },
       ],
     },
     {
@@ -50,7 +56,7 @@ const meta: Meta<typeof NavRail> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Menu lateral agrupado por intenção. O item ativo ganha barra em gradiente, fundo suave e brilho no ícone. \`compact\` deixa só ícones (88px).`,
+        component: `Menu lateral agrupado por intenção. O item ativo ganha barra em gradiente, fundo suave e brilho no ícone. \`compact\` deixa só ícones (88px). Item com \`href\` vira link: o clique chama \`onChange\` sem \`preventDefault\`, então nova aba e clique do meio funcionam.`,
       },
     },
   },

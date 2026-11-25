@@ -16,6 +16,7 @@ const code = `function Demo() {
         </svg>
       }
       title="Nada por aqui ainda"
+      titleAs="h2"
       description="Adicione uma pasta de jogos ou conecte uma loja para começar."
       action={<Button press>Adicionar pasta</Button>}
     />
@@ -30,7 +31,11 @@ const meta: Meta<typeof EmptyState> = {
   component: EmptyState,
   parameters: {
     sonido: { code },
-    docs: { description: { component: `Estado vazio ou de erro recuperável: ícone, título, descrição e uma ação.` } },
+    docs: {
+      description: {
+        component: `Estado vazio ou de erro recuperável: ícone, título, descrição e uma ação. O título é um parágrafo; \`titleAs\` troca por um heading quando o estado ocupa a página ou a seção.`,
+      },
+    },
   },
 };
 export default meta;

@@ -83,6 +83,37 @@
 .sn-hero__copy {
   grid-row: 2;
 }
+.sn-hero__lead {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sn-space-5);
+  min-width: 0;
+}
+.sn-hero__poster {
+  flex: none;
+  width: clamp(88px, 14vw, 180px);
+}
+.sn-hero__body {
+  max-width: 68ch;
+  color: var(--sn-color-text-dim);
+}
+/* Recolhível: sticky com top negativo (definido no JS) deixa só a faixa de baixo à vista. */
+.sn-hero--collapsible {
+  position: sticky;
+  z-index: 2;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-hero--collapsible .sn-hero__backdrop > * {
+    opacity: calc(0.7 - 0.35 * var(--sn-hero-p, 0));
+  }
+  .sn-hero--collapsible .sn-hero__title {
+    transform: scale(calc(1 - 0.35 * var(--sn-hero-p, 0)));
+    transform-origin: left bottom;
+  }
+  .sn-hero--collapsible :is(.sn-hero__poster, .sn-hero__aside, .sn-hero__meta, .sn-hero__body) {
+    opacity: calc(1 - var(--sn-hero-p, 0));
+  }
+}
 @keyframes sn-word-rise {
   from {
     opacity: 0;

@@ -5,6 +5,8 @@ import "./Carousel.css";
 export interface CarouselProps {
   /** Título da faixa (também rotula a região). */
   title: string;
+  /** Ícone decorativo antes do título. */
+  icon?: ReactNode;
   /** Ação no cabeçalho, ex.: "Ver tudo". */
   action?: ReactNode;
   children: ReactNode;
@@ -14,7 +16,7 @@ export interface CarouselProps {
 }
 
 /** Faixa horizontal com scroll-snap e setas que rolam uma página (nerd-watch). */
-export function Carousel({ title, action, children, itemWidth = 160, className }: CarouselProps) {
+export function Carousel({ title, icon, action, children, itemWidth = 160, className }: CarouselProps) {
   const rail = useRef<HTMLDivElement>(null);
   const [edges, setEdges] = useState({ start: true, end: false });
 
@@ -46,7 +48,14 @@ export function Carousel({ title, action, children, itemWidth = 160, className }
       style={{ ["--sn-item-w" as string]: `${itemWidth}px` }}
     >
       <header className="sn-carousel__head">
-        <h3 className="sn-carousel__title">{title}</h3>
+        <h3 className="sn-carousel__title">
+          {icon && (
+            <span className="sn-carousel__icon" aria-hidden>
+              {icon}
+            </span>
+          )}
+          {title}
+        </h3>
         {action}
         <div className="sn-carousel__nav">
           <button

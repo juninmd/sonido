@@ -6,6 +6,7 @@ import "./Select.css";
 export interface SelectOption {
   value: string;
   label: string;
+  disabled?: boolean;
 }
 
 export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, "onChange"> {
@@ -50,7 +51,7 @@ export function Select({
           {...rest}
         >
           {options.map((o) => (
-            <option key={o.value} value={o.value}>
+            <option key={o.value} value={o.value} disabled={o.disabled}>
               {o.label}
             </option>
           ))}

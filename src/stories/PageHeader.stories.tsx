@@ -8,6 +8,7 @@ const code = `function Demo() {
     <PageHeader
       icon={<Icon name="chart" />}
       title="Uso de modelos"
+      titleAs="h1"
       pills={[
         <Badge key={1} tone="success" live>
           Conectado
@@ -42,7 +43,7 @@ const meta: Meta<typeof PageHeader> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Cabeçalho canônico de página (PageHero do mika): ícone com brilho no acento, pílulas de estado (use \`Badge live\`), título, descrição, ações, uma grade de \`StatTile\` à direita e uma nota de contexto no rodapé.`,
+        component: `Cabeçalho canônico de página (PageHero do mika): ícone com brilho no acento, pílulas de estado (use \`Badge live\`), título, descrição, ações, uma grade de \`StatTile\` à direita e uma nota de contexto no rodapé. O título é \`h2\`; use \`titleAs="h1"\` quando ele for o título da página.`,
       },
     },
   },

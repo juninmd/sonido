@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { cx } from "../../utils/cx";
 import "./FilterChips.css";
 
@@ -5,6 +6,8 @@ export interface Chip<K extends string> {
   key: K;
   label: string;
   count?: number;
+  /** Ícone decorativo antes do rótulo. */
+  icon?: ReactNode;
 }
 
 export interface FilterChipsProps<K extends string> {
@@ -43,6 +46,7 @@ export function FilterChips<K extends string>({
           onClick={() => onChange(value === c.key ? null : c.key)}
           label={c.label}
           count={c.count}
+          icon={c.icon}
         />
       ))}
     </fieldset>
@@ -54,14 +58,21 @@ function ChipButton({
   onClick,
   label,
   count,
+  icon,
 }: {
   active: boolean;
   onClick: () => void;
   label: string;
   count?: number;
+  icon?: ReactNode;
 }) {
   return (
     <button type="button" className="sn-chip" aria-pressed={active} onClick={onClick}>
+      {icon && (
+        <span className="sn-chip__icon" aria-hidden>
+          {icon}
+        </span>
+      )}
       {label}
       {count != null && <span className="sn-chip__count">{count}</span>}
     </button>

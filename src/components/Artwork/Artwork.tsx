@@ -1,4 +1,4 @@
-import { type CSSProperties, type ReactNode, useState } from "react";
+import { type CSSProperties, type HTMLAttributeReferrerPolicy, type ReactNode, useState } from "react";
 import { cx } from "../../utils/cx";
 import { hueFrom, initials } from "../../utils/hue";
 import "./Artwork.css";
@@ -10,11 +10,13 @@ export interface ArtworkProps {
   ratio?: "poster" | "square" | "wide";
   /** Selo no canto (ex.: plataforma, nota). */
   badge?: ReactNode;
+  /** Repassado ao `<img>`, ex.: `"no-referrer"` para CDNs que bloqueiam hotlink. */
+  referrerPolicy?: HTMLAttributeReferrerPolicy;
   className?: string;
 }
 
 /** Arte (capa, pôster) com fade-in e placeholder em gradiente de cor estável derivada do título (nerd-watch + games-gallery). */
-export function Artwork({ title, src, ratio = "poster", badge, className }: ArtworkProps) {
+export function Artwork({ title, src, ratio = "poster", badge, referrerPolicy, className }: ArtworkProps) {
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
   const style = { "--sn-artwork-h": hueFrom(title) } as CSSProperties;
@@ -32,6 +34,7 @@ export function Artwork({ title, src, ratio = "poster", badge, className }: Artw
           src={src}
           alt={title}
           loading="lazy"
+          referrerPolicy={referrerPolicy}
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
         />

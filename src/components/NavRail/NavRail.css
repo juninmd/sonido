@@ -45,6 +45,7 @@
   color: var(--sn-color-text-dim);
   font: 600 var(--sn-text-sm) / 1 var(--sn-font);
   text-align: left;
+  text-decoration: none;
   cursor: pointer;
   transition:
     background var(--sn-dur) var(--sn-ease),

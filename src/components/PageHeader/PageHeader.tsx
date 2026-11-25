@@ -16,6 +16,8 @@ export interface PageHeaderProps {
   /** Linha de contexto com ícone de info no rodapé. */
   note?: ReactNode;
   children?: ReactNode;
+  /** Elemento do título. Use `h1` quando o cabeçalho for o título principal da página. */
+  titleAs?: "h1" | "h2";
   className?: string;
 }
 
@@ -30,6 +32,7 @@ export function PageHeader({
   aside,
   note,
   children,
+  titleAs: Title = "h2",
   className,
 }: PageHeaderProps) {
   return (
@@ -44,7 +47,7 @@ export function PageHeader({
           )}
           <div className="sn-pagehead__text">
             {pills && <div className="sn-pagehead__pills">{pills}</div>}
-            <h2 className="sn-pagehead__title">{title}</h2>
+            <Title className="sn-pagehead__title">{title}</Title>
             {description && <p className="sn-pagehead__desc">{description}</p>}
           </div>
         </div>

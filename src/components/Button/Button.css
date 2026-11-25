@@ -14,6 +14,7 @@
   background: var(--sn-btn-bg);
   color: var(--sn-btn-fg);
   font: 600 var(--sn-text-sm) / 1 var(--sn-font);
+  text-decoration: none;
   cursor: pointer;
   overflow: hidden;
   isolation: isolate;
@@ -23,17 +24,18 @@
     background-color var(--sn-dur) var(--sn-ease),
     border-color var(--sn-dur) var(--sn-ease);
 }
-.sn-button:hover:not(:disabled) {
+.sn-button:hover:not(:disabled, [aria-disabled="true"]) {
   transform: translateY(-1px);
 }
-.sn-button:active:not(:disabled) {
+.sn-button:active:not(:disabled, [aria-disabled="true"]) {
   transform: scale(0.97);
 }
 .sn-button:focus-visible {
   outline: none;
   box-shadow: var(--sn-ring);
 }
-.sn-button:disabled {
+.sn-button:disabled,
+.sn-button[aria-disabled="true"] {
   opacity: 0.55;
   cursor: not-allowed;
 }
@@ -43,7 +45,7 @@
   --sn-btn-fg: var(--sn-color-on-accent);
   --sn-btn-press: color-mix(in oklab, var(--sn-color-accent) 50%, black);
 }
-.sn-button--primary:hover:not(:disabled) {
+.sn-button--primary:hover:not(:disabled, [aria-disabled="true"]) {
   box-shadow: var(--sn-shadow-glow);
 }
 /* Brilho que atravessa o botão (nerd-watch) */
@@ -55,7 +57,7 @@
   background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.28) 50%, transparent 65%);
   transform: translateX(-120%);
 }
-.sn-button--primary:hover:not(:disabled)::after {
+.sn-button--primary:hover:not(:disabled, [aria-disabled="true"])::after {
   transform: translateX(120%);
   transition: transform 700ms var(--sn-ease);
 }
@@ -64,13 +66,13 @@
   --sn-btn-bg: var(--sn-color-surface-2);
   border-color: var(--sn-color-border);
 }
-.sn-button--secondary:hover:not(:disabled) {
+.sn-button--secondary:hover:not(:disabled, [aria-disabled="true"]) {
   --sn-btn-bg: var(--sn-color-surface-hover);
 }
 .sn-button--ghost {
   --sn-btn-bg: transparent;
 }
-.sn-button--ghost:hover:not(:disabled) {
+.sn-button--ghost:hover:not(:disabled, [aria-disabled="true"]) {
   --sn-btn-bg: var(--sn-color-surface-hover);
 }
 .sn-button--danger {
@@ -86,7 +88,7 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.sn-button--link:hover:not(:disabled) {
+.sn-button--link:hover:not(:disabled, [aria-disabled="true"]) {
   transform: none;
 }
 
@@ -112,7 +114,7 @@
 .sn-button--press {
   box-shadow: 0 var(--sn-press-depth) 0 var(--sn-btn-press);
 }
-.sn-button--press:active:not(:disabled) {
+.sn-button--press:active:not(:disabled, [aria-disabled="true"]) {
   transform: translateY(var(--sn-press-depth));
   box-shadow: 0 0 0 var(--sn-btn-press);
 }

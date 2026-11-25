@@ -16,6 +16,7 @@ const code = `function Demo() {
         <div key={x} style={{ display: "grid", gap: 8 }}>
           <Artwork
             title={x}
+            referrerPolicy="no-referrer"
             badge={
               i === 0 ? (
                 <Badge tone="gold" appearance="solid">
@@ -41,7 +42,7 @@ const meta: Meta<typeof Artwork> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Capa de jogo, filme ou curso. Enquanto a imagem carrega (ou se falhar), mostra um gradiente com cor estável derivada do título (djb2) e as iniciais. \`badge\` vai no canto.`,
+        component: `Capa de jogo, filme ou curso. Enquanto a imagem carrega (ou se falhar), mostra um gradiente com cor estável derivada do título (djb2) e as iniciais. \`badge\` vai no canto; \`referrerPolicy\` vai para o \`<img>\` (ex.: CDNs que bloqueiam hotlink).`,
       },
     },
   },
