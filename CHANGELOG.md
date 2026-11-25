@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/juninmd/sonido/compare/v2.2.0...v2.2.1) (2026-11-25)
+
+
+### Bug Fixes
+
+* **hero:** faixa recolhida mostra o título em vez de espaço vazio ([12f9f1c](https://github.com/juninmd/sonido/commit/12f9f1c7fc6c6b40dc87ab9c3e99ae4b0ec5dd37))
+
 # [2.2.0](https://github.com/juninmd/sonido/compare/v2.1.1...v2.2.0) (2026-11-25)
 
 
