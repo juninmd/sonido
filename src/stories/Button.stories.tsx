@@ -12,6 +12,14 @@ const code = `function Demo() {
         <Button variant="ghost">Ver mais</Button>
         <Button variant="danger">Excluir</Button>
         <Button variant="link">Detalhes</Button>
+        <Button
+          variant="secondary"
+          href="https://github.com/juninmd/sonido"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Abrir no GitHub
+        </Button>
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
         <Button
@@ -56,7 +64,7 @@ const meta: Meta<typeof Button> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Botão base para toda ação. Use um \`primary\` por área; \`press\` dá a sombra tátil para CTAs de jogo/lição; \`loading\` desabilita e anuncia \`aria-busy\`. Combine com \`burst()\` para celebrar uma conquista.`,
+        component: `Botão base para toda ação. Use um \`primary\` por área; \`press\` dá a sombra tátil para CTAs de jogo/lição; \`loading\` desabilita e anuncia \`aria-busy\`. Combine com \`burst()\` para celebrar uma conquista. Com \`href\` (e \`target\`, \`rel\`, \`download\`) vira um \`<a>\` com o mesmo visual; desabilitado ou carregando, perde o \`href\` e ganha \`aria-disabled\`.`,
       },
     },
   },

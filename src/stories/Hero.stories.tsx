@@ -4,10 +4,15 @@ import { Hero } from "../index";
 
 const code = `function Demo() {
   const [kValue, setKValue] = useState(0);
+  const [collapsible, setCollapsible] = useState(false);
   return (
+    <div style={{ display: "grid", gap: 16 }}>
+      <Switch checked={collapsible} onChange={setCollapsible} label="Recolher ao rolar" />
     <Hero
       key={kValue}
+      collapsible={collapsible}
       title="Outer Wilds Echoes of the Eye"
+      poster={<Artwork title="Outer Wilds" />}
       meta={[
         <span key={1}>
           <b>24h</b>
@@ -36,7 +41,11 @@ const code = `function Demo() {
           68%
         </ProgressRing>
       }
-    />
+    >
+      Um laço temporal de 22 minutos e um sistema solar inteiro para entender.
+    </Hero>
+      {collapsible && <div style={{ height: 900 }} />}
+    </div>
   );
 }
 
@@ -50,7 +59,7 @@ const meta: Meta<typeof Hero> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Destaque do topo da página: manchete em largura total com palavras que sobem em sequência, metadados, ações e um \`aside\` (capa ou anel). Sem \`backdrop\`, usa as cores de ambiente do tema.`,
+        component: `Destaque do topo da página: manchete em largura total com palavras que sobem em sequência, metadados, ações e um \`aside\` (capa ou anel). Sem \`backdrop\`, usa as cores de ambiente do tema. \`poster\` fica ao lado do título e \`children\` sob os metadados (ex.: sinopse). \`collapsible\` deixa o hero sticky e encolhendo com o scroll até sobrar uma faixa de \`collapsedHeight\` px (padrão 132), com o progresso em \`--sn-hero-p\`, a classe \`sn-hero--collapsed\` no fim e \`stickyOffset\` para descontar a barra do app; com movimento reduzido, só fica sticky.`,
       },
     },
   },

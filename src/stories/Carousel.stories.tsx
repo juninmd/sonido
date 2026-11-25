@@ -20,6 +20,7 @@ function Demo() {
   return (
     <Carousel
       title="Jogados recentemente"
+      icon={<Icon name="play" />}
       itemWidth={130}
       action={
         <Button variant="link" size="sm">
@@ -44,7 +45,7 @@ const meta: Meta<typeof Carousel> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Faixa horizontal com scroll-snap. As setas rolam uma página e desabilitam nas pontas; o título ganha a barra de acento em gradiente.`,
+        component: `Faixa horizontal com scroll-snap. As setas rolam uma página e desabilitam nas pontas; o título ganha a barra de acento em gradiente e um \`icon\` opcional.`,
       },
     },
   },

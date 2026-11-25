@@ -13,14 +13,20 @@ export interface AccordionProps {
   /** Permite várias abertas ao mesmo tempo. */
   multiple?: boolean;
   defaultOpen?: string[];
+  /** Avisa quando uma seção abre ou fecha (seções fechadas por `multiple={false}` não disparam). */
+  onToggle?: (key: string, open: boolean) => void;
   className?: string;
 }
 
 /** Seções expansíveis com altura animada (grid 0fr → 1fr). */
-export function Accordion({ items, multiple = false, defaultOpen = [], className }: AccordionProps) {
+export function Accordion({ items, multiple = false, defaultOpen = [], onToggle, className }: AccordionProps) {
   const [open, setOpen] = useState<string[]>(defaultOpen);
   const base = useId();
-  const toggle = (k: string) => setOpen((o) => (o.includes(k) ? o.filter((x) => x !== k) : multiple ? [...o, k] : [k]));
+  const toggle = (k: string) => {
+    const wasOpen = open.includes(k);
+    setOpen(wasOpen ? open.filter((x) => x !== k) : multiple ? [...open, k] : [k]);
+    onToggle?.(k, !wasOpen);
+  };
   return (
     <div className={cx("sn-accordion", className)}>
       {items.map((it) => {

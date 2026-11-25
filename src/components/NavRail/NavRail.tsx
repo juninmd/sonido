@@ -7,6 +7,8 @@ export interface NavItem<K extends string> {
   label: string;
   icon: ReactNode;
   badge?: ReactNode;
+  /** Vira `<a href>`: o clique ainda chama `onChange`, sem `preventDefault`, então nova aba e clique do meio funcionam. */
+  href?: string;
 }
 
 export interface NavGroup<K extends string> {
@@ -43,21 +45,31 @@ export function NavRail<K extends string>({
         // biome-ignore lint/suspicious/noArrayIndexKey: grupos em ordem fixa
         <div key={gi} className="sn-navrail__group">
           {g.title && <p className="sn-navrail__title">{g.title}</p>}
-          {g.items.map((it) => (
-            <button
-              key={it.key}
-              type="button"
-              className="sn-navrail__link"
-              aria-current={it.key === value ? "page" : undefined}
-              aria-label={compact ? it.label : undefined}
-              title={compact ? it.label : undefined}
-              onClick={() => onChange(it.key)}
-            >
-              <span className="sn-navrail__icon">{it.icon}</span>
-              <span className="sn-navrail__label">{it.label}</span>
-              {it.badge != null && <span className="sn-navrail__badge">{it.badge}</span>}
-            </button>
-          ))}
+          {g.items.map((it) => {
+            const props = {
+              className: "sn-navrail__link",
+              "aria-current": it.key === value ? ("page" as const) : undefined,
+              "aria-label": compact ? it.label : undefined,
+              title: compact ? it.label : undefined,
+              onClick: () => onChange(it.key),
+            };
+            const content = (
+              <>
+                <span className="sn-navrail__icon">{it.icon}</span>
+                <span className="sn-navrail__label">{it.label}</span>
+                {it.badge != null && <span className="sn-navrail__badge">{it.badge}</span>}
+              </>
+            );
+            return it.href != null ? (
+              <a key={it.key} href={it.href} {...props}>
+                {content}
+              </a>
+            ) : (
+              <button key={it.key} type="button" {...props}>
+                {content}
+              </button>
+            );
+          })}
         </div>
       ))}
     </nav>

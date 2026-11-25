@@ -16,6 +16,7 @@ const code = `function Demo() {
           { value: "pt", label: "Português" },
           { value: "en", label: "Inglês" },
           { value: "es", label: "Espanhol" },
+          { value: "ja", label: "Japonês (em breve)", disabled: true },
         ]}
       />
       <Select
@@ -44,7 +45,7 @@ const meta: Meta<typeof Select> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Select nativo estilizado: bom em celular e acessível de graça. Rótulo, dica e chevron. \`compact\` + \`hideLabel\` dão a versão em linha, com o rótulo só para leitores de tela.`,
+        component: `Select nativo estilizado: bom em celular e acessível de graça. Rótulo, dica e chevron. \`compact\` + \`hideLabel\` dão a versão em linha, com o rótulo só para leitores de tela. Opção com \`disabled\` aparece mas não pode ser escolhida.`,
       },
     },
   },

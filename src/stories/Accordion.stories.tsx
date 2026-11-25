@@ -3,9 +3,14 @@ import { LiveExample } from "../../.storybook/live";
 import { Accordion } from "../index";
 
 const code = `function Demo() {
+  const [last, setLast] = useState("a aberta");
   return (
+    <div style={{ display: "grid", gap: 12 }}>
     <Accordion
       defaultOpen={["a"]}
+      onToggle={(key, open) => {
+        setLast(key + (open ? " aberta" : " fechada"));
+      }}
       items={[
         {
           key: "a",
@@ -25,6 +30,8 @@ const code = `function Demo() {
         },
       ]}
     />
+    <span aria-live="polite">Última: {last}</span>
+    </div>
   );
 }
 
@@ -38,7 +45,7 @@ const meta: Meta<typeof Accordion> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Seções que abrem com \`grid-template-rows\` 0fr→1fr, sem medir altura. \`multiple\` permite várias abertas.`,
+        component: `Seções que abrem com \`grid-template-rows\` 0fr→1fr, sem medir altura. \`multiple\` permite várias abertas; \`onToggle(key, open)\` avisa cada clique.`,
       },
     },
   },

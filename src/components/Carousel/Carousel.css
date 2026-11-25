@@ -12,6 +12,9 @@
   position: relative;
   margin: 0;
   padding-left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sn-space-2);
   font: 700 var(--sn-text-lg) / 1.2 var(--sn-font-display);
   letter-spacing: -0.02em;
   color: var(--sn-color-text);
@@ -71,4 +74,9 @@
 }
 .sn-carousel__rail > * {
   scroll-snap-align: start;
+}
+.sn-carousel__icon {
+  display: inline-grid;
+  place-items: center;
+  color: var(--sn-color-accent);
 }
