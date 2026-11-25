@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/juninmd/sonido/compare/v2.1.0...v2.1.1) (2026-11-25)
+
+
+### Bug Fixes
+
+* **rating:** outline empty stars so they stay visible on every theme ([#10](https://github.com/juninmd/sonido/issues/10)) ([cddc642](https://github.com/juninmd/sonido/commit/cddc6420f2d9b8877059e74433dddffea7edaf03))
+
 # [2.1.0](https://github.com/juninmd/sonido/compare/v2.0.0...v2.1.0) (2026-11-25)
 
 
