@@ -2,11 +2,18 @@
   display: inline-flex;
   gap: 2px;
 }
+.sn-star path {
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+/* Outline keeps unfilled stars visible on glass and tinted surfaces. */
 .sn-star__empty {
-  fill: var(--sn-color-surface-hover);
+  fill: color-mix(in srgb, var(--sn-color-text-faint) 18%, transparent);
+  stroke: var(--sn-color-text-faint);
 }
 .sn-star__full {
   fill: var(--sn-color-gold);
+  stroke: var(--sn-color-gold);
   filter: drop-shadow(0 0 4px color-mix(in srgb, var(--sn-color-gold) 50%, transparent));
 }
 .sn-rating--input button {

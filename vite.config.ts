@@ -20,7 +20,8 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: ["./src/test/setup.ts"],
-    css: false,
+    // Only raw CSS imports (token/contrast tests) are processed; styles stay off.
+    css: { include: [/\.css\?raw$/] },
     include: ["src/**/*.test.{ts,tsx}"],
   },
 });
