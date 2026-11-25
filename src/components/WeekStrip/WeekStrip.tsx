@@ -28,8 +28,9 @@ export interface WeekStripProps {
   className?: string;
 }
 
-const defaultDayLabel = (locale: string) => (d: WeekDay) => {
-  const date = d.date.toLocaleDateString(locale, { weekday: "long", day: "numeric", month: "long" });
+const defaultDayLabel = (locale: string, todayLabel: string) => (d: WeekDay) => {
+  const day = d.date.toLocaleDateString(locale, { weekday: "long", day: "numeric", month: "long" });
+  const date = d.isToday ? `${todayLabel}, ${day}` : day;
   return d.count > 0 ? `${date}: ${d.count}` : date;
 };
 
@@ -45,7 +46,7 @@ export function WeekStrip({
   today,
   locale = "pt-BR",
   todayLabel = "hoje",
-  dayLabel = defaultDayLabel(locale),
+  dayLabel = defaultDayLabel(locale, todayLabel),
   className,
 }: WeekStripProps) {
   const now = today ?? localIsoDate(new Date());

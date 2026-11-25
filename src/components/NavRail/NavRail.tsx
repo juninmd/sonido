@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 import { cx } from "../../utils/cx";
 import "./NavRail.css";
 
@@ -51,7 +51,11 @@ export function NavRail<K extends string>({
               "aria-current": it.key === value ? ("page" as const) : undefined,
               "aria-label": compact ? it.label : undefined,
               title: compact ? it.label : undefined,
-              onClick: () => onChange(it.key),
+              onClick: (e: MouseEvent) => {
+                // Clique com modificador abre nova aba: a tela atual não muda.
+                if (it.href && (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0)) return;
+                onChange(it.key);
+              },
             };
             const content = (
               <>

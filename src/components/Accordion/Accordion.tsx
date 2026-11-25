@@ -24,7 +24,7 @@ export function Accordion({ items, multiple = false, defaultOpen = [], onToggle,
   const base = useId();
   const toggle = (k: string) => {
     const wasOpen = open.includes(k);
-    setOpen(wasOpen ? open.filter((x) => x !== k) : multiple ? [...open, k] : [k]);
+    setOpen((o) => (wasOpen ? o.filter((x) => x !== k) : multiple ? [...o, k] : [k]));
     onToggle?.(k, !wasOpen);
   };
   return (

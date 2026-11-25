@@ -49,7 +49,7 @@ export function SegmentedBar({
           const s = segments[b.index] as Segment;
           return (
             <div
-              key={s.label}
+              key={`${b.index}-${s.label}`}
               className="sn-segbar__seg"
               style={{ "--sn-share": b.share, "--sn-i": i, background: toneVar(tones[b.index] as Tone) } as Vars}
               title={`${s.label}: ${format(b.value)} (${b.percent})`}
@@ -68,7 +68,7 @@ export function SegmentedBar({
           {blocks.map((b) => {
             const s = segments[b.index] as Segment;
             return (
-              <tr key={s.label}>
+              <tr key={`${b.index}-${s.label}`}>
                 <th scope="row">{s.label}</th>
                 <td>{format(b.value)}</td>
                 <td>{b.percent}</td>

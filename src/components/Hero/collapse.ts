@@ -48,7 +48,11 @@ export function useHeroCollapse(
     // capture: também pega o scroll de um contêiner interno (scroll não borbulha).
     window.addEventListener("scroll", schedule, { passive: true, capture: true });
     window.addEventListener("resize", schedule, { passive: true });
+    // Altura muda sem scroll/resize (fonte, imagem, conteúdo): mede de novo.
+    const ro = typeof ResizeObserver === "function" ? new ResizeObserver(schedule) : null;
+    ro?.observe(el);
     return () => {
+      ro?.disconnect();
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", schedule, { capture: true });
       window.removeEventListener("resize", schedule);

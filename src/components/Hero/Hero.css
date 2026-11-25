@@ -102,6 +102,10 @@
   position: sticky;
   z-index: 2;
 }
+/* Recolhido: o que sumiu da vista sai também do foco e do leitor de tela. */
+.sn-hero--collapsed :is(.sn-hero__poster, .sn-hero__aside, .sn-hero__meta, .sn-hero__body) {
+  visibility: hidden;
+}
 @media (prefers-reduced-motion: no-preference) {
   .sn-hero--collapsible .sn-hero__backdrop > * {
     opacity: calc(0.7 - 0.35 * var(--sn-hero-p, 0));
