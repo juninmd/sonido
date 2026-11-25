@@ -1,0 +1,48 @@
+.sn-segbar {
+  display: grid;
+  gap: var(--sn-space-3);
+  margin: 0;
+  font-family: var(--sn-font);
+  font-variant-numeric: tabular-nums;
+}
+/* 2px de fundo entre os blocos separam as cores sem depender de contraste entre elas. */
+.sn-segbar__track {
+  display: flex;
+  gap: 2px;
+  min-height: 28px;
+  border-radius: var(--sn-radius-sm);
+  overflow: hidden;
+  background: var(--sn-color-surface-hover);
+}
+.sn-segbar__seg {
+  flex: var(--sn-share) 1 0;
+  min-width: 6px;
+  display: flex;
+  align-items: center;
+  padding-left: var(--sn-space-1);
+  transform-origin: 0 50%;
+  transition: filter var(--sn-dur-fast) var(--sn-ease);
+}
+.sn-segbar__seg:hover {
+  filter: brightness(1.15);
+}
+/* Selo com fundo de superfície: o texto tem o contraste do tema sobre qualquer tom. */
+.sn-segbar__pct {
+  padding: 2px 6px;
+  border-radius: var(--sn-radius-pill);
+  background: var(--sn-color-surface);
+  color: var(--sn-color-text);
+  font: 700 var(--sn-text-xs) / 1 var(--sn-font);
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sn-segbar__seg {
+    animation: sn-segbar-grow 600ms var(--sn-ease) backwards;
+    animation-delay: calc(var(--sn-i, 0) * 70ms);
+  }
+}
+@keyframes sn-segbar-grow {
+  from {
+    transform: scaleX(0);
+  }
+}

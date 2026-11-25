@@ -1,0 +1,22 @@
+.sn-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sn-space-1) var(--sn-space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: 500 var(--sn-text-xs) / 1.4 var(--sn-font);
+  color: var(--sn-color-text-dim);
+}
+.sn-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.sn-legend__swatch {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
