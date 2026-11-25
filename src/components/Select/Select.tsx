@@ -14,15 +14,30 @@ export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement
   value: string;
   onChange: (value: string) => void;
   hint?: string;
+  /** Versão compacta (32px) para uso em linha, como o status num card. */
+  compact?: boolean;
+  /** Esconde o rótulo visualmente; ele continua lido por leitores de tela. */
+  hideLabel?: boolean;
 }
 
 /** `<select>` nativo estilizado: acessível e bom no celular. */
-export function Select({ label, options, value, onChange, hint, className, id, ...rest }: SelectProps) {
+export function Select({
+  label,
+  options,
+  value,
+  onChange,
+  hint,
+  compact,
+  hideLabel,
+  className,
+  id,
+  ...rest
+}: SelectProps) {
   const auto = useId();
   const sid = id ?? auto;
   return (
-    <div className={cx("sn-field", className)}>
-      <label htmlFor={sid} className="sn-field__label">
+    <div className={cx("sn-field", compact && "sn-field--compact", className)}>
+      <label htmlFor={sid} className={hideLabel ? "sn-visually-hidden" : "sn-field__label"}>
         {label}
       </label>
       <div className="sn-field__box sn-select">

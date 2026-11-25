@@ -23,7 +23,7 @@ Escuro por padrão, vidro sobre um fundo atmosférico, cor com função e movime
 
 |                             |                                                                                                   |
 | --------------------------- | ------------------------------------------------------------------------------------------------- |
-| 🧩 **83 componentes**       | De botão a céu animado do clima, todos com tipos, teclado e ARIA.                                 |
+| 🧩 **84 componentes**       | De botão a céu animado do clima, todos com tipos, teclado e ARIA.                                 |
 | 🎨 **8 temas**              | Troque com um atributo: `data-theme="hueco-mundo"`. Tokens `--sn-*` em CSS e em JS.               |
 | ✨ **Movimento com motivo** | Mola tátil, confete, cenas em canvas. Tudo desliga com `prefers-reduced-motion`.                  |
 | ♿ **Acessível**            | Contraste AA nos 8 temas, auditado com axe. Alvos de 44px e foco visível.                         |
@@ -62,7 +62,7 @@ Coloque `class="sn-body"` no `<body>` para herdar fonte, cor e fundo do tema.
 | Grupo           | Componentes                                                                                                                                                                    |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Ações**       | Button, ConfirmButton, Tray                                                                                                                                                    |
-| **Formulários** | Checkbox, FilterChips, RadioGroup, Rating, SearchField, Select, Slider, Switch, TextField, ToggleCard                                                                          |
+| **Formulários** | Checkbox, FilterChips, OmniSearch, RadioGroup, Rating, SearchField, Select, Slider, Switch, TextField, ToggleCard                                                              |
 | **Exibição**    | Avatar, Badge, Kbd, Tooltip                                                                                                                                                    |
 | **Feedback**    | Alert, EmptyState, LiveBadge, SaveIndicator, ScanProgress, Skeleton, Spinner, Stamp, Toast                                                                                     |
 | **Superfícies** | Accordion, AmbientBackdrop, Artwork, Bento, Card, Carousel, Dialog, Hero, PageHeader                                                                                           |

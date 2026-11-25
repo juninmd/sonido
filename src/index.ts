@@ -40,6 +40,7 @@ export * from "./components/MeterCard";
 export * from "./components/Motion";
 export * from "./components/NavRail";
 export * from "./components/Odometer";
+export * from "./components/OmniSearch";
 export * from "./components/PageHeader";
 export * from "./components/Pagination";
 export * from "./components/PresenceOrb";

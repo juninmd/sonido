@@ -58,3 +58,18 @@
   color: var(--sn-color-danger);
   font-weight: 600;
 }
+.sn-field--compact {
+  display: inline-grid;
+  gap: 4px;
+}
+.sn-field--compact .sn-field__control {
+  min-height: 32px;
+  padding: 4px 10px;
+  font-size: var(--sn-text-sm);
+}
+.sn-field--compact .sn-field__icon {
+  left: 9px;
+}
+.sn-field--compact .sn-field__icon + .sn-field__control {
+  padding-left: 32px;
+}

@@ -16,25 +16,45 @@ export interface Command {
 export interface CommandPaletteProps {
   open: boolean;
   onClose: () => void;
-  commands: Command[];
+  /**
+   * Lista fixa (filtrada por `filter`) ou função que recebe a busca e devolve os itens já filtrados,
+   * para itens dinâmicos como resultados de uma busca no app.
+   */
+  commands: Command[] | ((query: string) => Command[]);
+  /** Filtro próprio para a lista fixa. Padrão: `defaultCommandFilter` (sem acento, por rótulo, grupo e palavras). */
+  filter?: (command: Command, query: string) => boolean;
+  /** Máximo de resultados mostrados. */
+  limit?: number;
   placeholder?: string;
-  emptyText?: string;
+  /** Rótulo acessível do campo. Padrão: `placeholder`. */
+  label?: string;
+  emptyText?: ReactNode | ((query: string) => ReactNode);
   /** Abre com Ctrl/⌘+K chamando `onOpen`. */
   onOpen?: () => void;
 }
 
-const norm = (s: string) =>
+/** Normaliza para busca: sem acentos e em minúsculas. */
+export const foldText = (s: string) =>
   s
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "")
     .toLowerCase();
 
-/** Paleta de comandos (Ctrl+K) do nerd-watch: busca sem acento, grupos, ↑↓ e Enter. */
+/** Filtro padrão: a busca (sem acento) aparece no rótulo, no grupo ou nas palavras extras. */
+export function defaultCommandFilter(c: Command, query: string): boolean {
+  const n = foldText(query.trim());
+  return !n || foldText(`${c.label} ${c.group ?? ""} ${c.keywords ?? ""}`).includes(n);
+}
+
+/** Paleta de comandos (Ctrl+K): busca sem acento ou filtro próprio, itens dinâmicos, limite, grupos, ↑↓ e Enter. */
 export function CommandPalette({
   open,
   onClose,
   commands,
+  filter = defaultCommandFilter,
+  limit,
   placeholder = "O que você quer fazer?",
+  label,
   emptyText = "Nenhum comando encontrado.",
   onOpen,
 }: CommandPaletteProps) {
@@ -67,9 +87,16 @@ export function CommandPalette({
   }, [open]);
 
   const results = useMemo(() => {
-    const n = norm(q.trim());
-    return n ? commands.filter((c) => norm(`${c.label} ${c.group ?? ""} ${c.keywords ?? ""}`).includes(n)) : commands;
-  }, [q, commands]);
+    const all = typeof commands === "function" ? commands(q) : commands.filter((c) => filter(c, q));
+    return limit != null ? all.slice(0, Math.max(0, limit)) : all;
+  }, [q, commands, filter, limit]);
+  const current = Math.min(active, Math.max(0, results.length - 1));
+
+  const activeId = results[current] ? `${listId}-${results[current].id}` : undefined;
+
+  useEffect(() => {
+    if (activeId) document.getElementById(activeId)?.scrollIntoView?.({ block: "nearest" });
+  }, [activeId]);
 
   const run = (c: Command | undefined) => {
     if (!c) return;
@@ -101,8 +128,8 @@ export function CommandPalette({
           role="combobox"
           aria-expanded="true"
           aria-controls={listId}
-          aria-activedescendant={results[active] ? `${listId}-${results[active].id}` : undefined}
-          aria-label={placeholder}
+          aria-activedescendant={activeId}
+          aria-label={label ?? placeholder}
           placeholder={placeholder}
           value={q}
           onChange={(e) => {
@@ -110,22 +137,25 @@ export function CommandPalette({
             setActive(0);
           }}
           onKeyDown={(e) => {
+            const n = Math.max(1, results.length);
             if (e.key === "ArrowDown") {
               e.preventDefault();
-              setActive((a) => Math.min(results.length - 1, a + 1));
+              setActive((current + 1) % n);
             } else if (e.key === "ArrowUp") {
               e.preventDefault();
-              setActive((a) => Math.max(0, a - 1));
+              setActive((current - 1 + n) % n);
             } else if (e.key === "Enter") {
               e.preventDefault();
-              run(results[active]);
+              run(results[current]);
             }
           }}
         />
         <kbd className="sn-palette__esc">Esc</kbd>
       </div>
       <div id={listId} role="listbox" className="sn-palette__list">
-        {results.length === 0 && <p className="sn-palette__empty">{emptyText}</p>}
+        {results.length === 0 && (
+          <p className="sn-palette__empty">{typeof emptyText === "function" ? emptyText(q) : emptyText}</p>
+        )}
         {results.map((c, i) => {
           const head = c.group && c.group !== lastGroup ? c.group : null;
           lastGroup = c.group;
@@ -141,7 +171,7 @@ export function CommandPalette({
                 id={`${listId}-${c.id}`}
                 role="option"
                 tabIndex={-1}
-                aria-selected={i === active}
+                aria-selected={i === current}
                 className={cx("sn-palette__opt")}
                 onPointerMove={() => setActive(i)}
                 onClick={() => run(c)}

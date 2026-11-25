@@ -31,6 +31,7 @@ const code = `function Demo() {
         }
       />
       <TextField multiline label="Anotações" placeholder="O que você achou do final?" />
+      <TextField compact hideLabel label="Nova tag" placeholder="+ tag (Enter)" style={{ width: 144 }} />
     </div>
   );
 }
@@ -45,7 +46,7 @@ const meta: Meta<typeof TextField> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Campo de texto (ou \`multiline\`) com rótulo visível, dica e erro. O erro marca \`aria-invalid\` e substitui a dica; o texto do erro diz como corrigir.`,
+        component: `Campo de texto (ou \`multiline\`) com rótulo visível, dica e erro. O erro marca \`aria-invalid\` e substitui a dica; o texto do erro diz como corrigir. \`compact\` + \`hideLabel\` dão a versão em linha (32px), com o rótulo só para leitores de tela.`,
       },
     },
   },

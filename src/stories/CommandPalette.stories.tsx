@@ -23,6 +23,17 @@ const code = `function Demo() {
     cmd("theme", "Alternar tema", "Ações", "moon"),
     cmd("prefs", "Preferências", "Conta", "gear"),
   ];
+  const games = ["Hollow Knight", "Hades", "Celeste", "Outer Wilds", "Elden Ring", "Hi-Fi Rush"];
+  // Itens dinâmicos: a função recebe a busca e devolve a lista já filtrada (aqui, até 3 jogos).
+  const commands = (q) => {
+    const fixed = C.filter((c) => defaultCommandFilter(c, q));
+    if (!q.trim()) return fixed;
+    const found = games
+      .filter((g) => foldText(g).includes(foldText(q.trim())))
+      .slice(0, 3)
+      .map((g) => cmd(\`game:\${g}\`, g, "Jogos", "game"));
+    return [...fixed, ...found];
+  };
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
       <Button
@@ -47,7 +58,9 @@ const code = `function Demo() {
         onOpen={() => {
           setOpen(true);
         }}
-        commands={C}
+        commands={commands}
+        limit={8}
+        emptyText={(q) => \`Nada encontrado para “\${q}”.\`}
       />
     </div>
   );
@@ -63,7 +76,7 @@ const meta: Meta<typeof CommandPalette> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Paleta de comandos (Ctrl/⌘+K) sobre \`<dialog>\`: busca que ignora acentos, grupos, ↑↓ e Enter, combobox + listbox com \`aria-activedescendant\`.`,
+        component: `Paleta de comandos (Ctrl/⌘+K) sobre \`<dialog>\`: busca que ignora acentos, grupos, ↑↓ e Enter, combobox + listbox com \`aria-activedescendant\`. Para itens dinâmicos passe \`commands\` como função da busca; \`filter\` troca o filtro padrão e \`limit\` corta os resultados.`,
       },
     },
   },
