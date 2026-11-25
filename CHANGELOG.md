@@ -1,3 +1,16 @@
+# [2.2.0](https://github.com/juninmd/sonido/compare/v2.1.1...v2.2.0) (2026-11-25)
+
+
+### Bug Fixes
+
+* **componentes:** ajustes da revisão (chaves, foco no hero recolhido, rótulo de hoje) ([1435adc](https://github.com/juninmd/sonido/commit/1435adcc453b7ab8357aa58710247d642f6ae7de))
+
+
+### Features
+
+* **charts:** add StackedColumns, SegmentedBar, Legend and WeekStrip ([56dd3d1](https://github.com/juninmd/sonido/commit/56dd3d1e2be8f89f8a56e813a2cc08f113997060))
+* **componentes:** opções que faltavam para o nerd-watch ([f6efe34](https://github.com/juninmd/sonido/commit/f6efe34e5aabc23a91dc72f6a57f550b65bb1c41))
+
 ## [2.1.1](https://github.com/juninmd/sonido/compare/v2.1.0...v2.1.1) (2026-11-25)
 
 
