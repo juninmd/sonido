@@ -4,8 +4,9 @@ import { Select } from "../index";
 
 const code = `function Demo() {
   const [value, setValue] = useState("pt");
+  const [status, setStatus] = useState("playing");
   return (
-    <div style={{ maxWidth: 320 }}>
+    <div style={{ display: "grid", gap: 16, maxWidth: 320 }}>
       <Select
         label="Idioma"
         value={value}
@@ -15,6 +16,18 @@ const code = `function Demo() {
           { value: "pt", label: "Português" },
           { value: "en", label: "Inglês" },
           { value: "es", label: "Espanhol" },
+        ]}
+      />
+      <Select
+        compact
+        hideLabel
+        label="Status de Hollow Knight"
+        value={status}
+        onChange={setStatus}
+        options={[
+          { value: "backlog", label: "Na fila" },
+          { value: "playing", label: "Jogando" },
+          { value: "done", label: "Zerado" },
         ]}
       />
     </div>
@@ -31,7 +44,7 @@ const meta: Meta<typeof Select> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Select nativo estilizado: bom em celular e acessível de graça. Rótulo, dica e chevron.`,
+        component: `Select nativo estilizado: bom em celular e acessível de graça. Rótulo, dica e chevron. \`compact\` + \`hideLabel\` dão a versão em linha, com o rótulo só para leitores de tela.`,
       },
     },
   },

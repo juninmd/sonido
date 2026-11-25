@@ -9,6 +9,10 @@ interface Common {
   error?: string;
   /** Ícone à esquerda (só input). */
   icon?: ReactNode;
+  /** Versão compacta (32px) para uso em linha: tags, preços, contadores. */
+  compact?: boolean;
+  /** Esconde o rótulo visualmente; ele continua lido por leitores de tela. */
+  hideLabel?: boolean;
 }
 
 export type TextFieldProps = Common &
@@ -25,6 +29,8 @@ export function TextField(props: TextFieldProps) {
     hint,
     error,
     icon,
+    compact,
+    hideLabel,
     className,
     id = auto,
     multiline,
@@ -42,8 +48,8 @@ export function TextField(props: TextFieldProps) {
     className: "sn-field__control",
   };
   return (
-    <div className={cx("sn-field", error && "sn-field--error", className)}>
-      <label htmlFor={id} className="sn-field__label">
+    <div className={cx("sn-field", compact && "sn-field--compact", error && "sn-field--error", className)}>
+      <label htmlFor={id} className={hideLabel ? "sn-visually-hidden" : "sn-field__label"}>
         {label}
       </label>
       <div className="sn-field__box">

@@ -13,3 +13,9 @@
   color: var(--sn-color-text-dim);
   pointer-events: none;
 }
+.sn-field--compact .sn-select__control {
+  padding-right: 30px;
+}
+.sn-field--compact .sn-select__chev {
+  right: 8px;
+}
