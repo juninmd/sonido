@@ -102,6 +102,34 @@
   position: sticky;
   z-index: 2;
 }
+/* O conteúdo encolhe junto com o progresso: no fim, a faixa de `collapsedHeight` px mostra título (1 linha) e ações. */
+.sn-hero--collapsible {
+  --sn-hero-pad: clamp(28px, 5vw, 64px);
+  padding-block: calc(var(--sn-hero-pad) - var(--sn-hero-p, 0) * (var(--sn-hero-pad) - var(--sn-space-4)));
+  gap: calc(var(--sn-space-5) * (1 - var(--sn-hero-p, 0)));
+}
+.sn-hero--collapsible .sn-hero__title {
+  font-size: calc(clamp(3.5rem, 7.5vw, 8rem) * (1 - 0.65 * var(--sn-hero-p, 0)));
+}
+.sn-hero--collapsible .sn-hero__lead {
+  gap: calc(var(--sn-space-5) * (1 - var(--sn-hero-p, 0)));
+}
+.sn-hero--collapsible .sn-hero__poster {
+  width: calc(clamp(88px, 14vw, 180px) * (1 - var(--sn-hero-p, 0)));
+}
+.sn-hero--collapsible :is(.sn-hero__meta, .sn-hero__body, .sn-hero__aside) {
+  max-height: calc((1 - var(--sn-hero-p, 0)) * 24em);
+  overflow: hidden;
+}
+.sn-hero--collapsed .sn-hero__title {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sn-hero--collapsed .sn-hero__copy {
+  gap: var(--sn-space-2);
+}
 /* Recolhido: o que sumiu da vista sai também do foco e do leitor de tela. */
 .sn-hero--collapsed :is(.sn-hero__poster, .sn-hero__aside, .sn-hero__meta, .sn-hero__body) {
   visibility: hidden;
@@ -109,10 +137,6 @@
 @media (prefers-reduced-motion: no-preference) {
   .sn-hero--collapsible .sn-hero__backdrop > * {
     opacity: calc(0.7 - 0.35 * var(--sn-hero-p, 0));
-  }
-  .sn-hero--collapsible .sn-hero__title {
-    transform: scale(calc(1 - 0.35 * var(--sn-hero-p, 0)));
-    transform-origin: left bottom;
   }
   .sn-hero--collapsible :is(.sn-hero__poster, .sn-hero__aside, .sn-hero__meta, .sn-hero__body) {
     opacity: calc(1 - var(--sn-hero-p, 0));
