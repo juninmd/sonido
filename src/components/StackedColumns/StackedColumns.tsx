@@ -60,7 +60,8 @@ export function StackedColumns({
           </div>
           <div className="sn-stacked__cols">
             {columns.map((col, i) => (
-              <div key={data[i]?.label} className="sn-stacked__col" style={{ "--sn-i": i } as Vars}>
+              // biome-ignore lint/suspicious/noArrayIndexKey: rótulos podem repetir; ordem fixa
+              <div key={i} className="sn-stacked__col" style={{ "--sn-i": i } as Vars}>
                 {col.segments.map((s) => (
                   <div
                     key={s.series}
@@ -75,8 +76,9 @@ export function StackedColumns({
           </div>
         </div>
         <div className="sn-stacked__x">
-          {data.map((d) => (
-            <span key={d.label}>{d.label}</span>
+          {data.map((d, i) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: rótulos podem repetir; ordem fixa
+            <span key={`${i}-${d.label}`}>{d.label}</span>
           ))}
         </div>
       </div>
@@ -86,8 +88,9 @@ export function StackedColumns({
         <thead>
           <tr>
             <th scope="col">Categoria</th>
-            {series.map((s) => (
-              <th key={s.label} scope="col">
+            {series.map((s, j) => (
+              // biome-ignore lint/suspicious/noArrayIndexKey: rótulos podem repetir; ordem fixa
+              <th key={`${j}-${s.label}`} scope="col">
                 {s.label}
               </th>
             ))}
@@ -96,10 +99,12 @@ export function StackedColumns({
         </thead>
         <tbody>
           {data.map((d, i) => (
-            <tr key={d.label}>
+            // biome-ignore lint/suspicious/noArrayIndexKey: rótulos podem repetir; ordem fixa
+            <tr key={`${i}-${d.label}`}>
               <th scope="row">{d.label}</th>
               {series.map((s, j) => (
-                <td key={s.label}>{format(d.values[j] ?? 0)}</td>
+                // biome-ignore lint/suspicious/noArrayIndexKey: rótulos podem repetir; ordem fixa
+                <td key={`${j}-${s.label}`}>{format(d.values[j] ?? 0)}</td>
               ))}
               <td>{format(columns[i]?.total ?? 0)}</td>
             </tr>

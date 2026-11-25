@@ -20,7 +20,8 @@ export function Legend({ items, label = "Legenda", className }: LegendProps) {
   return (
     <ul className={cx("sn-legend", className)} aria-label={label}>
       {items.map((it, i) => (
-        <li key={it.label} className="sn-legend__item">
+        // biome-ignore lint/suspicious/noArrayIndexKey: rótulos podem repetir; ordem fixa
+        <li key={`${i}-${it.label}`} className="sn-legend__item">
           <span className="sn-legend__swatch" style={{ background: toneVar(seriesTone(i, it.tone)) }} aria-hidden />
           {it.label}
         </li>
