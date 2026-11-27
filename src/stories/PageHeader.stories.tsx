@@ -5,6 +5,7 @@ import { PageHeader } from "../index";
 const code = `function Demo() {
   const [checked, setChecked] = useState(true);
   return (
+    <div style={{ display: "grid", gap: 16 }}>
     <PageHeader
       icon={<Icon name="chart" />}
       title="Uso de modelos"
@@ -30,6 +31,14 @@ const code = `function Demo() {
       ]}
       note="Os números vêm da API de cada provedor e atualizam a cada 5 minutos."
     />
+    <PageHeader
+      accent
+      icon={<Icon name="heart" />}
+      title="Com a lavada do acento"
+      pills={<Badge tone="accent">PageHero do mika</Badge>}
+      description="O mesmo cabeçalho com o gradiente radial e o brilho do ícone na cor da página."
+    />
+    </div>
   );
 }
 

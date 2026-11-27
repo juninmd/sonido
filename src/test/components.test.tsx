@@ -9,6 +9,7 @@ import {
   ConfirmButton,
   hueFrom,
   initials,
+  PageHeader,
   SubTabs,
   Switch,
   Tabs,
@@ -246,5 +247,18 @@ describe("utilitários", () => {
   it("Badge count usa o contador compacto", () => {
     render(<Badge appearance="count">12</Badge>);
     expect(screen.getByText("12")).toHaveClass("sn-badge--count");
+  });
+});
+
+describe("PageHeader", () => {
+  it("a variante accent adiciona a lavada e mantém o rótulo da seção", () => {
+    const { container } = render(<PageHeader accent title="Visão geral" description="Resumo" />);
+    expect(screen.getByRole("region", { name: "Visão geral" })).toHaveClass("sn-pagehead", "sn-pagehead--accent");
+    expect(container.querySelector(".sn-pagehead__title")).toHaveTextContent("Visão geral");
+  });
+
+  it("sem accent fica na superfície padrão", () => {
+    const { container } = render(<PageHeader title="Simples" />);
+    expect(container.querySelector(".sn-pagehead")).not.toHaveClass("sn-pagehead--accent");
   });
 });
