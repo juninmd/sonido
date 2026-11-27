@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/juninmd/sonido/compare/v2.3.0...v2.3.1) (2026-11-27)
+
+
+### Bug Fixes
+
+* **confirm-button:** gatilho inline aceita o estilo do consumidor ([#15](https://github.com/juninmd/sonido/issues/15)) ([1250d49](https://github.com/juninmd/sonido/commit/1250d49747b253774cca3426a520a82b90cc15b5))
+
 # [2.3.0](https://github.com/juninmd/sonido/compare/v2.2.2...v2.3.0) (2026-11-27)
 
 
