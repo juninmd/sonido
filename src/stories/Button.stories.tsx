@@ -50,6 +50,17 @@ const code = `function Demo() {
           <Icon name="heart" />
         </Button>
       </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "center" }}>
+        <Button appearance="outline" size="xs">
+          Abrir terminal
+        </Button>
+        <Button appearance="outline" size="xs" variant="primary">
+          Copiar saída
+        </Button>
+        <Button appearance="outline" size="xs" variant="danger">
+          Excluir
+        </Button>
+      </div>
     </div>
   );
 }

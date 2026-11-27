@@ -92,6 +92,49 @@
   transform: none;
 }
 
+/* Contorno compacto: só borda e texto, no tom da variante (vibe-code). */
+.sn-button--outline {
+  --sn-btn-bg: transparent;
+  border-color: var(--sn-color-border);
+  color: var(--sn-color-text-dim);
+  box-shadow: none;
+}
+.sn-button--outline::after {
+  display: none;
+}
+.sn-button--outline:hover:not(:disabled, [aria-disabled="true"]) {
+  background: var(--sn-color-surface-hover);
+  color: var(--sn-color-text);
+  box-shadow: none;
+  transform: none;
+}
+.sn-button--outline:active:not(:disabled, [aria-disabled="true"]) {
+  transform: none;
+}
+.sn-button--outline.sn-button--primary {
+  border-color: var(--sn-color-accent);
+  color: var(--sn-color-accent);
+}
+.sn-button--outline.sn-button--primary:hover:not(:disabled, [aria-disabled="true"]) {
+  color: var(--sn-color-accent);
+}
+.sn-button--outline.sn-button--danger {
+  border-color: color-mix(in srgb, var(--sn-color-danger) 65%, transparent);
+  color: var(--sn-color-danger);
+}
+.sn-button--outline.sn-button--danger:hover:not(:disabled, [aria-disabled="true"]) {
+  color: var(--sn-color-danger);
+  background: color-mix(in srgb, var(--sn-color-danger) 12%, transparent);
+}
+
+.sn-button--xs {
+  min-height: 28px;
+  padding: 0 11px;
+  gap: 7px;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
 .sn-button--sm {
   min-height: 32px;
   padding: 0 var(--sn-space-3);

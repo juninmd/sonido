@@ -31,6 +31,17 @@ describe("Button", () => {
     expect(btn).toHaveAttribute("aria-busy", "true");
     expect(btn).toBeDisabled();
   });
+
+  it("o contorno compacto mantém a variante e o tamanho", () => {
+    render(
+      <Button appearance="outline" size="xs" variant="primary">
+        Abrir terminal
+      </Button>,
+    );
+    const btn = screen.getByRole("button", { name: "Abrir terminal" });
+    expect(btn).toHaveClass("sn-button--outline", "sn-button--xs", "sn-button--primary");
+    expect(btn).not.toHaveAttribute("appearance");
+  });
 });
 
 describe("Tabs", () => {
@@ -230,5 +241,10 @@ describe("utilitários", () => {
     );
     expect(screen.getByText("Ao vivo")).toBeInTheDocument();
     expect(container.querySelector(".sn-badge__dot")).toHaveAttribute("data-live", "true");
+  });
+
+  it("Badge count usa o contador compacto", () => {
+    render(<Badge appearance="count">12</Badge>);
+    expect(screen.getByText("12")).toHaveClass("sn-badge--count");
   });
 });

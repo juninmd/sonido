@@ -3,7 +3,7 @@ import { cx } from "../../utils/cx";
 import { Button, type ButtonProps } from "../Button";
 import "./ConfirmButton.css";
 
-export interface ConfirmButtonProps extends Omit<ButtonProps, "onClick"> {
+export interface ConfirmButtonProps extends Omit<ButtonProps, "onClick" | "appearance"> {
   /** Pergunta exibida no segundo passo. */
   ask: ReactNode;
   confirmLabel?: string;

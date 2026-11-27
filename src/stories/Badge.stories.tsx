@@ -35,6 +35,8 @@ const code = `function Demo() {
         <Badge tone="accent" appearance="solid">
           Novo
         </Badge>
+        <Badge appearance="count">12</Badge>
+        <Badge appearance="count">248</Badge>
       </div>
     </div>
   );
