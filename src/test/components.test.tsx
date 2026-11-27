@@ -9,6 +9,7 @@ import {
   ConfirmButton,
   hueFrom,
   initials,
+  PageHeader,
   SubTabs,
   Switch,
   Tabs,
@@ -230,5 +231,18 @@ describe("utilitários", () => {
     );
     expect(screen.getByText("Ao vivo")).toBeInTheDocument();
     expect(container.querySelector(".sn-badge__dot")).toHaveAttribute("data-live", "true");
+  });
+});
+
+describe("PageHeader", () => {
+  it("a variante accent adiciona a lavada e mantém o rótulo da seção", () => {
+    const { container } = render(<PageHeader accent title="Visão geral" description="Resumo" />);
+    expect(screen.getByRole("region", { name: "Visão geral" })).toHaveClass("sn-pagehead", "sn-pagehead--accent");
+    expect(container.querySelector(".sn-pagehead__title")).toHaveTextContent("Visão geral");
+  });
+
+  it("sem accent fica na superfície padrão", () => {
+    const { container } = render(<PageHeader title="Simples" />);
+    expect(container.querySelector(".sn-pagehead")).not.toHaveClass("sn-pagehead--accent");
   });
 });

@@ -18,6 +18,8 @@ export interface PageHeaderProps {
   children?: ReactNode;
   /** Elemento do título. Use `h1` quando o cabeçalho for o título principal da página. */
   titleAs?: "h1" | "h2";
+  /** Lavada radial do acento + brilho no ícone (PageHero do mika). */
+  accent?: boolean;
   className?: string;
 }
 
@@ -33,10 +35,11 @@ export function PageHeader({
   note,
   children,
   titleAs: Title = "h2",
+  accent = false,
   className,
 }: PageHeaderProps) {
   return (
-    <section className={cx("sn-pagehead", className)} aria-label={title}>
+    <section className={cx("sn-pagehead", accent && "sn-pagehead--accent", className)} aria-label={title}>
       <div className="sn-pagehead__top">
         <div className="sn-pagehead__id">
           {leading}
