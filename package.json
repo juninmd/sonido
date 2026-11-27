@@ -1,6 +1,6 @@
 {
   "name": "@juninmd/sonido",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "Design system e biblioteca de componentes React do juninmd: 84 componentes, 8 temas e animações.",
   "type": "module",
   "license": "MIT",

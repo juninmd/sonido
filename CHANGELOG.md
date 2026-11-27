@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/juninmd/sonido/compare/v2.2.2...v2.3.0) (2026-11-27)
+
+
+### Features
+
+* **components:** SubTabs e variante inline do ConfirmButton ([#14](https://github.com/juninmd/sonido/issues/14)) ([910ec66](https://github.com/juninmd/sonido/commit/910ec66646981f5b487687514d8d4ce94e17db0d))
+
 ## [2.2.2](https://github.com/juninmd/sonido/compare/v2.2.1...v2.2.2) (2026-11-27)
 
 
