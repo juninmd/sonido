@@ -23,7 +23,7 @@ Escuro por padrão, vidro sobre um fundo atmosférico, cor com função e movime
 
 |                             |                                                                                                   |
 | --------------------------- | ------------------------------------------------------------------------------------------------- |
-| 🧩 **84 componentes**       | De botão a céu animado do clima, todos com tipos, teclado e ARIA.                                 |
+| 🧩 **85 componentes**       | De botão a céu animado do clima, todos com tipos, teclado e ARIA.                                 |
 | 🎨 **8 temas**              | Troque com um atributo: `data-theme="hueco-mundo"`. Tokens `--sn-*` em CSS e em JS.               |
 | ✨ **Movimento com motivo** | Mola tátil, confete, cenas em canvas. Tudo desliga com `prefers-reduced-motion`.                  |
 | ♿ **Acessível**            | Contraste AA nos 8 temas, auditado com axe. Alvos de 44px e foco visível.                         |
@@ -66,7 +66,7 @@ Coloque `class="sn-body"` no `<body>` para herdar fonte, cor e fundo do tema.
 | **Exibição**    | Avatar, Badge, Kbd, Tooltip                                                                                                                                                    |
 | **Feedback**    | Alert, EmptyState, LiveBadge, SaveIndicator, ScanProgress, Skeleton, Spinner, Stamp, Toast                                                                                     |
 | **Superfícies** | Accordion, AmbientBackdrop, Artwork, Bento, Card, Carousel, Dialog, Hero, PageHeader                                                                                           |
-| **Navegação**   | Breadcrumb, CommandPalette, Dock, Menu, NavRail, Pagination, Stepper, Tabs                                                                                                     |
+| **Navegação**   | Breadcrumb, CommandPalette, Dock, Menu, NavRail, Pagination, Stepper, SubTabs, Tabs                                                                                            |
 | **Dados**       | BatteryMeter, BarChart, CountUp, DataTable, Duel, Heatmap, MeterCard, Odometer, ProgressBar, ProgressRing, RadialClock, Sparkline, Stat, StatTile, Sunburst, Timeline, Treemap |
 | **Widgets**     | ActivityCard, AgendaRail, AlertCard, CallCard, DirectionsCard, HourlyForecast, PlayerCard, RouteMap, TimerCard, WeatherIcon, WeatherSky                                        |
 | **Assistente**  | EmojiBurst, PresenceOrb, RadialMenu, SpeechBubble, ThinkingBubble                                                                                                              |
