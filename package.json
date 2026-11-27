@@ -34,13 +34,15 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./styles.css": "./dist/sonido.css",
     "./tokens.css": "./dist/tokens.css",
     "./tokens": {
       "types": "./dist/tokens/index.d.ts",
-      "import": "./dist/tokens.js"
+      "import": "./dist/tokens.js",
+      "default": "./dist/tokens.js"
     },
     "./package.json": "./package.json"
   },
