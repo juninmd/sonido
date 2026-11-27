@@ -29,17 +29,10 @@
   font: 500 var(--sn-text-xs) / 1.3 var(--sn-font);
 }
 .sn-confirm__trigger {
-  /* Sem fundo nem cor: o visual do gatilho é do consumidor (era assim no canto-widget). */
+  /* Só o layout: fundo, cor, borda, padding e fonte vêm do consumidor (era assim no canto-widget). */
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-width: 24px;
-  min-height: 24px;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  font: inherit;
   cursor: pointer;
 }
 .sn-confirm__trigger:disabled {
