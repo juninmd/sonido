@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/juninmd/sonido/compare/v2.4.0...v2.5.0) (2026-11-27)
+
+
+### Features
+
+* **page-header:** variante accent com a lavada e o brilho do PageHero ([#17](https://github.com/juninmd/sonido/issues/17)) ([97515b7](https://github.com/juninmd/sonido/commit/97515b7b3e2b462778c0d938e27debbaab5cedef))
+
 # [2.4.0](https://github.com/juninmd/sonido/compare/v2.3.1...v2.4.0) (2026-11-27)
 
 
