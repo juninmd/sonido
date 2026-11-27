@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/juninmd/sonido/compare/v2.3.1...v2.4.0) (2026-11-27)
+
+
+### Features
+
+* **button:** contorno compacto e contador com a identidade do vibe-code ([#16](https://github.com/juninmd/sonido/issues/16)) ([f75dfb1](https://github.com/juninmd/sonido/commit/f75dfb1c7a1d07b18835afeb25d7e504296b50cd))
+
 ## [2.3.1](https://github.com/juninmd/sonido/compare/v2.3.0...v2.3.1) (2026-11-27)
 
 
