@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/juninmd/sonido/compare/v2.2.1...v2.2.2) (2026-11-27)
+
+
+### Bug Fixes
+
+* **package:** declara a condicao default nos exports ([#13](https://github.com/juninmd/sonido/issues/13)) ([1dd1a36](https://github.com/juninmd/sonido/commit/1dd1a36570688db693f239ab27788b0f9a36e815))
+
 ## [2.2.1](https://github.com/juninmd/sonido/compare/v2.2.0...v2.2.1) (2026-11-25)
 
 
