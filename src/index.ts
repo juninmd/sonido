@@ -67,6 +67,7 @@ export * from "./components/Stamp";
 export * from "./components/Stat";
 export * from "./components/StatTile";
 export * from "./components/Stepper";
+export * from "./components/SubTabs";
 export * from "./components/Sunburst";
 export * from "./components/Switch";
 export * from "./components/Tabs";

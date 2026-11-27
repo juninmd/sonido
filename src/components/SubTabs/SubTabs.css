@@ -1,0 +1,82 @@
+.sn-subtabs {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 2px;
+  max-width: 100%;
+  padding: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border: 1px solid var(--sn-color-border-soft);
+  border-radius: var(--sn-radius);
+  background: color-mix(in srgb, var(--sn-color-surface-2) 80%, transparent);
+  align-self: flex-start;
+}
+.sn-subtabs--dense {
+  align-self: stretch;
+}
+.sn-subtabs--dense .sn-subtab {
+  flex: 1 1 auto;
+  justify-content: center;
+  padding: 0 var(--sn-space-2);
+}
+
+.sn-subtab {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  min-width: 24px;
+  min-height: 28px;
+  padding: 0 var(--sn-space-3);
+  border: 0;
+  border-radius: var(--sn-radius-sm);
+  background: none;
+  color: var(--sn-color-text-dim);
+  font: 600 var(--sn-text-xs) / 1 var(--sn-font);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background var(--sn-dur) var(--sn-ease),
+    color var(--sn-dur) var(--sn-ease);
+}
+.sn-subtab:hover {
+  background: var(--sn-color-surface-hover);
+  color: var(--sn-color-text);
+}
+.sn-subtab[aria-selected="true"] {
+  background: var(--sn-color-surface);
+  color: var(--sn-color-accent);
+  box-shadow: var(--sn-shadow-card);
+}
+.sn-subtab:focus-visible {
+  outline: 2px solid var(--sn-color-accent-2);
+  outline-offset: 2px;
+}
+
+.sn-subtab__icon {
+  display: inline-grid;
+  transition: transform var(--sn-dur) var(--sn-ease-spring);
+}
+.sn-subtab[aria-selected="true"] .sn-subtab__icon {
+  transform: scale(1.1);
+}
+
+.sn-subtab__badge {
+  display: inline-grid;
+  min-width: 14px;
+  height: 14px;
+  padding: 0 4px;
+  place-items: center;
+  border-radius: var(--sn-radius-pill);
+  font: 700 9px / 1 var(--sn-font);
+  font-variant-numeric: tabular-nums;
+}
+.sn-subtab__badge--info {
+  background: color-mix(in srgb, var(--sn-color-accent-2) 65%, transparent);
+  color: var(--sn-color-on-accent);
+}
+.sn-subtab__badge--hot {
+  background: linear-gradient(135deg, var(--sn-color-warning), var(--sn-color-danger));
+  color: var(--sn-color-on-accent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--sn-color-warning) 50%, transparent);
+}

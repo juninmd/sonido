@@ -9,6 +9,7 @@ import {
   ConfirmButton,
   hueFrom,
   initials,
+  SubTabs,
   Switch,
   Tabs,
   ToastProvider,
@@ -92,6 +93,87 @@ describe("ConfirmButton", () => {
     fireEvent.click(screen.getByRole("button", { name: "Remover jogo" }));
     fireEvent.click(screen.getByRole("button", { name: "Remover" }));
     expect(onConfirm).toHaveBeenCalledOnce();
+  });
+
+  it("a variante inline mantém o gatilho do consumidor e as duas ações de texto", () => {
+    const onConfirm = vi.fn();
+    render(
+      <ConfirmButton
+        appearance="inline"
+        ask="parar a sincronização?"
+        confirmLabel="sim, parar"
+        cancelLabel="cancelar"
+        onConfirm={onConfirm}
+        className="meu-gatilho"
+      >
+        parar
+      </ConfirmButton>,
+    );
+    const trigger = screen.getByRole("button", { name: "parar" });
+    expect(trigger).toHaveClass("sn-confirm__trigger", "meu-gatilho");
+    fireEvent.click(trigger);
+    fireEvent.click(screen.getByRole("button", { name: "sim, parar" }));
+    expect(onConfirm).toHaveBeenCalledOnce();
+    expect(screen.getByRole("button", { name: "parar" })).toHaveFocus();
+  });
+
+  it("a variante inline fecha a pergunta quando o gatilho desabilita", () => {
+    const { rerender } = render(
+      <ConfirmButton appearance="inline" ask="parar?" confirmLabel="sim, parar" onConfirm={() => {}}>
+        parar
+      </ConfirmButton>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: "parar" }));
+    expect(screen.getByRole("group")).toBeInTheDocument();
+    rerender(
+      <ConfirmButton appearance="inline" ask="parar?" confirmLabel="sim, parar" onConfirm={() => {}} disabled>
+        parar
+      </ConfirmButton>,
+    );
+    expect(screen.queryByRole("group")).toBeNull();
+    expect(screen.getByRole("button", { name: "parar" })).toBeDisabled();
+  });
+});
+
+describe("SubTabs", () => {
+  function Demo({ iconsOnly = false }: { iconsOnly?: boolean }) {
+    const [value, setValue] = useState<"loja" | "desejos" | "jogos">("desejos");
+    return (
+      <SubTabs
+        label="Seções da Steam"
+        iconsOnly={iconsOnly}
+        value={value}
+        onChange={setValue}
+        items={[
+          { key: "loja", label: "Loja", icon: <span aria-hidden>L</span> },
+          { key: "desejos", label: "Desejos", icon: <span aria-hidden>D</span>, badge: 12 },
+          { key: "jogos", label: "Jogos", icon: <span aria-hidden>J</span> },
+        ]}
+      />
+    );
+  }
+
+  it("segue o WAI-ARIA com setas, Home e End", () => {
+    render(<Demo />);
+    const selected = screen.getByRole("tab", { name: "Desejos" });
+    expect(selected).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("tab", { name: "Loja" })).toHaveAttribute("tabindex", "-1");
+    fireEvent.keyDown(selected, { key: "ArrowRight" });
+    expect(screen.getByRole("tab", { name: "Jogos" })).toHaveAttribute("aria-selected", "true");
+    fireEvent.keyDown(screen.getByRole("tab", { name: "Jogos" }), { key: "Home" });
+    expect(screen.getByRole("tab", { name: "Loja" })).toHaveAttribute("aria-selected", "true");
+  });
+
+  it("o contador fica fora do nome acessível", () => {
+    render(<Demo />);
+    expect(screen.getByRole("tab", { name: "Desejos" })).toBeInTheDocument();
+  });
+
+  it("iconsOnly esconde o rótulo só até a seleção", () => {
+    render(<Demo iconsOnly />);
+    const loja = screen.getByRole("tab", { name: "Loja" });
+    expect(loja.querySelector(".sn-visually-hidden")).not.toBeNull();
+    expect(screen.getByRole("tab", { name: "Desejos" }).querySelector(".sn-visually-hidden")).toBeNull();
   });
 });
 
