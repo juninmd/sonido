@@ -52,6 +52,19 @@
 .sn-badge--solid:is(.sn-badge--gold, .sn-badge--aqua, .sn-badge--warning, .sn-badge--success) {
   color: var(--sn-color-on-tint, #14110a);
 }
+/* Contador compacto: bloco de 10px com fundo elevado, sem borda (vibe-code). */
+.sn-badge--count {
+  display: inline-grid;
+  min-width: 20px;
+  padding: 2px 5px;
+  place-items: center;
+  border: 0;
+  border-radius: 4px;
+  background: var(--sn-color-surface-hover);
+  color: var(--sn-color-text-dim);
+  font: 600 10px / 1 var(--sn-font);
+  vertical-align: middle;
+}
 /* Coral puro com branco não passa 4.5:1: o sólido usa o gradiente da marca, já escurecido. */
 .sn-badge--solid.sn-badge--accent {
   background: var(--sn-gradient);

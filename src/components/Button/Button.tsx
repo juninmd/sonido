@@ -4,12 +4,15 @@ import { Spinner } from "../Spinner";
 import "./Button.css";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "link";
-export type ButtonSize = "sm" | "md" | "lg" | "icon";
+export type ButtonSize = "xs" | "sm" | "md" | "lg" | "icon";
+export type ButtonAppearance = "solid" | "outline";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Estilo visual. `primary` usa o gradiente da marca com brilho no hover. */
   variant?: ButtonVariant;
   size?: ButtonSize;
+  /** `solid` (padrão) preenche o botão; `outline` deixa só a borda e o texto na cor do tom (vibe-code). */
+  appearance?: ButtonAppearance;
   /** Sombra tátil que "afunda" no clique (pobre-lingo). */
   press?: boolean;
   /** Mostra spinner, desabilita e marca `aria-busy`. */
@@ -28,6 +31,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
   {
     variant = "primary",
     size = "md",
+    appearance = "solid",
     press = false,
     loading = false,
     iconStart,
@@ -48,6 +52,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
     "sn-button",
     `sn-button--${variant}`,
     `sn-button--${size}`,
+    appearance === "outline" && "sn-button--outline",
     press && "sn-button--press",
     className,
   );

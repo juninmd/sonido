@@ -7,7 +7,7 @@ export type BadgeTone = "neutral" | "accent" | "violet" | "aqua" | "gold" | "suc
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   tone?: BadgeTone;
   /** `soft` = pílula tingida; `solid` = preenchida. */
-  appearance?: "soft" | "solid";
+  appearance?: "soft" | "solid" | "count";
   /** Mostra um ponto de status antes do texto. */
   dot?: boolean;
   /** Estado ao vivo: o ponto emite um pulso (StatusPill do mika). */
