@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/juninmd/sonido/compare/v2.5.0...v2.6.0) (2026-11-28)
+
+
+### Features
+
+* **components:** cobre as lacunas apontadas pelas migracoes ([#18](https://github.com/juninmd/sonido/issues/18)) ([5989475](https://github.com/juninmd/sonido/commit/5989475b4ea0a44b24b6fe6c44bd37f768bb7381))
+
 # [2.5.0](https://github.com/juninmd/sonido/compare/v2.4.0...v2.5.0) (2026-11-27)
 
 
