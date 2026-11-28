@@ -38,6 +38,10 @@ const code = `function Demo() {
           </Button>
         </CardFooter>
       </Card>
+      <Card as="section" aria-label="Resumo da semana">
+        <CardTitle>Seção semântica</CardTitle>
+        <CardBody>Com a prop as, a superfície vira section, article, form ou li sem perder o estilo.</CardBody>
+      </Card>
     </div>
   );
 }

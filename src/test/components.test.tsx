@@ -2,13 +2,19 @@ import { act, fireEvent, render, screen } from "@testing-library/react";
 import { useState } from "react";
 import { describe, expect, it, vi } from "vitest";
 import {
+  Artwork,
   accentStyle,
   Badge,
   Button,
+  Card,
   Checkbox,
   ConfirmButton,
+  DataTable,
+  Dialog,
+  FilterChips,
   hueFrom,
   initials,
+  NavRail,
   PageHeader,
   SubTabs,
   Switch,
@@ -260,5 +266,156 @@ describe("PageHeader", () => {
   it("sem accent fica na superfície padrão", () => {
     const { container } = render(<PageHeader title="Simples" />);
     expect(container.querySelector(".sn-pagehead")).not.toHaveClass("sn-pagehead--accent");
+  });
+});
+
+describe("Toast com mídia", () => {
+  it("renderiza a mídia à esquerda do texto", () => {
+    function Trigger() {
+      const toast = useToast();
+      return <Button onClick={() => toast({ title: "Clipe", media: <img alt="" src="data:," /> })}>Disparar</Button>;
+    }
+    const { container } = render(
+      <ToastProvider>
+        <Trigger />
+      </ToastProvider>,
+    );
+    act(() => fireEvent.click(screen.getByRole("button", { name: "Disparar" })));
+    expect(container.querySelector(".sn-toast__media img")).not.toBeNull();
+  });
+});
+
+describe("DataTable extras", () => {
+  type Row = { id: string; name: string };
+  const columns = [{ key: "name", label: "Nome", render: (r: Row) => r.name }];
+
+  it("aplica rowProps por linha", () => {
+    render(
+      <DataTable
+        label="Itens"
+        rows={[{ id: "1", name: "A" }]}
+        rowKey={(r) => r.id}
+        columns={columns}
+        rowProps={(r) => ({ "aria-selected": true, className: `row-${r.id}` })}
+      />,
+    );
+    const row = screen.getByRole("row", { name: "A" });
+    expect(row).toHaveAttribute("aria-selected", "true");
+    expect(row).toHaveClass("row-1");
+  });
+
+  it("mostra o slot vazio quando não há linhas", () => {
+    render(<DataTable label="Vazia" rows={[] as Row[]} rowKey={(r) => r.id} columns={columns} empty="Nada aqui" />);
+    expect(screen.getByText("Nada aqui")).toBeInTheDocument();
+  });
+});
+
+describe("FilterChips", () => {
+  it("modo simples alterna o chip", () => {
+    function Demo() {
+      const [v, setV] = useState<"a" | "b" | null>("a");
+      return (
+        <FilterChips
+          label="Filtro"
+          value={v}
+          onChange={setV}
+          chips={[
+            { key: "a", label: "A" },
+            { key: "b", label: "B" },
+          ]}
+        />
+      );
+    }
+    render(<Demo />);
+    fireEvent.click(screen.getByRole("button", { name: "B" }));
+    expect(screen.getByRole("button", { name: "B" })).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(screen.getByRole("button", { name: "B" }));
+    expect(screen.getByRole("button", { name: "B" })).toHaveAttribute("aria-pressed", "false");
+  });
+
+  it("modo múltiplo acumula e 'todos' limpa", () => {
+    function Demo() {
+      const [v, setV] = useState<("a" | "b")[]>(["a"]);
+      return (
+        <FilterChips
+          multiple
+          label="Filtro"
+          values={v}
+          onChangeValues={setV}
+          allLabel="Todos"
+          chips={[
+            { key: "a", label: "A" },
+            { key: "b", label: "B" },
+          ]}
+        />
+      );
+    }
+    render(<Demo />);
+    fireEvent.click(screen.getByRole("button", { name: "B" }));
+    expect(screen.getByRole("button", { name: "A" })).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByRole("button", { name: "B" })).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(screen.getByRole("button", { name: "Todos" }));
+    expect(screen.getByRole("button", { name: "A" })).toHaveAttribute("aria-pressed", "false");
+  });
+});
+
+describe("Artwork fallback", () => {
+  it("troca para a próxima imagem quando a atual falha", () => {
+    const { container } = render(
+      <Artwork title="Capa" src="https://a.invalid/1.png" fallbackSrc="https://a.invalid/2.png" />,
+    );
+    const img = container.querySelector("img");
+    expect(img?.getAttribute("src")).toBe("https://a.invalid/1.png");
+    if (img) fireEvent.error(img);
+    expect(container.querySelector("img")?.getAttribute("src")).toBe("https://a.invalid/2.png");
+  });
+});
+
+describe("Card como", () => {
+  it("troca a tag da superfície", () => {
+    const { container } = render(<Card as="section">Conteúdo</Card>);
+    expect(container.querySelector("section.sn-card")).not.toBeNull();
+  });
+});
+
+describe("Dialog trigger e portal", () => {
+  it("o gatilho abre e anuncia o estado", () => {
+    render(<Dialog trigger={(p) => <Button {...p}>Abrir</Button>} title="Oi" />);
+    const btn = screen.getByRole("button", { name: "Abrir" });
+    expect(btn).toHaveAttribute("aria-expanded", "false");
+    fireEvent.click(btn);
+    expect(btn).toHaveAttribute("aria-expanded", "true");
+  });
+
+  it("portal monta o dialog no body", () => {
+    const { container } = render(<Dialog defaultOpen portal title="Portal" />);
+    expect(container.querySelector("dialog")).toBeNull();
+    expect(document.body.querySelector("dialog")).not.toBeNull();
+  });
+});
+
+describe("NavRail grupos", () => {
+  it("grupo recolhível esconde e mostra os itens", () => {
+    render(
+      <NavRail
+        label="Menu"
+        value="a"
+        onChange={() => {}}
+        groups={[
+          {
+            title: "Grupo",
+            collapsible: true,
+            items: [{ key: "a", label: "A", icon: <span aria-hidden>•</span> }],
+          },
+        ]}
+      />,
+    );
+    const toggle = screen.getByRole("button", { name: "Grupo" });
+    expect(toggle).toHaveAttribute("aria-expanded", "true");
+    fireEvent.click(toggle);
+    expect(toggle).toHaveAttribute("aria-expanded", "false");
+    expect(screen.queryByRole("button", { name: "A" })).toBeNull();
+    fireEvent.click(toggle);
+    expect(screen.getByRole("button", { name: "A" })).toBeInTheDocument();
   });
 });

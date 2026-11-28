@@ -71,3 +71,9 @@
 .sn-table__arrow[data-dir="ascending"] {
   transform: translateY(-2px) rotate(180deg);
 }
+.sn-table__empty {
+  padding: var(--sn-space-5) var(--sn-space-4);
+  text-align: center;
+  color: var(--sn-color-text-dim);
+  font-size: var(--sn-text-sm);
+}

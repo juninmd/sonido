@@ -4,7 +4,9 @@ import { FilterChips } from "../index";
 
 const code = `function Demo() {
   const [value, setValue] = useState("pc");
+  const [multi, setMulti] = useState(["rpg"]);
   return (
+    <div style={{ display: "grid", gap: 12 }}>
     <FilterChips
       label="Plataforma"
       value={value}
@@ -18,6 +20,20 @@ const code = `function Demo() {
         { key: "retro", label: "Retrô", count: 15 },
       ]}
     />
+    <FilterChips
+      multiple
+      label="Gêneros"
+      values={multi}
+      onChangeValues={setMulti}
+      allLabel="Todos"
+      chips={[
+        { key: "rpg", label: "RPG", count: 42 },
+        { key: "acao", label: "Ação", count: 31 },
+        { key: "puzzle", label: "Puzzle", count: 18 },
+        { key: "indie", label: "Indie", count: 27 },
+      ]}
+    />
+    </div>
   );
 }
 
@@ -31,7 +47,7 @@ const meta: Meta<typeof FilterChips> = {
     sonido: { code },
     docs: {
       description: {
-        component: `Grupo de filtro de seleção única com \`aria-pressed\`. Clicar no chip ativo volta a \`null\` (todos). Use \`allLabel\` para o chip "Todos"; cada chip aceita um \`icon\` decorativo.`,
+        component: `Grupo de filtro com \`aria-pressed\`. No modo simples, clicar no chip ativo volta a \`null\` (todos); com \`multiple\`, cada chip liga/desliga sozinho e "Todos" limpa a seleção. Use \`allLabel\` para o chip "Todos"; cada chip aceita um \`icon\` decorativo.`,
       },
     },
   },

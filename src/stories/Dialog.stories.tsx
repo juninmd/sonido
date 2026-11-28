@@ -62,6 +62,18 @@ const code = `function Demo() {
           72%
         </ProgressRing>
       </Dialog>
+      <Dialog
+        portal
+        trigger={(p) => (
+          <Button variant="secondary" {...p}>
+            Abrir com trigger
+          </Button>
+        )}
+        title="Trigger e portal"
+        description="O gatilho recebe onClick e os atributos ARIA; o <dialog> é montado no body."
+      >
+        <p style={{ margin: 0, fontSize: 13 }}>Sem estado controlado: abrir, Esc e o X fecham sozinhos.</p>
+      </Dialog>
     </div>
   );
 }

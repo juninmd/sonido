@@ -28,6 +28,14 @@ const code = `function Demo() {
           <span style={{ fontSize: 13, fontWeight: 600 }}>{x}</span>
         </div>
       ))}
+      <div style={{ display: "grid", gap: 8 }}>
+        <Artwork
+          title="Fallback"
+          src="https://exemplo.invalid/capa-que-falha.png"
+          fallbackSrc="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Crect width='10' height='10' fill='%237c5cff'/%3E%3C/svg%3E"
+        />
+        <span style={{ fontSize: 13, fontWeight: 600 }}>Fallback em cadeia</span>
+      </div>
     </div>
   );
 }
