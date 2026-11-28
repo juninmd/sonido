@@ -8,6 +8,8 @@ export interface ToastOptions {
   /** ms até sumir. 0 = fica até fechar. */
   duration?: number;
   action?: { label: string; onClick: () => void };
+  /** Mídia à esquerda (miniatura, snapshot de câmera, capa). */
+  media?: ReactNode;
 }
 
 interface Item extends ToastOptions {
@@ -32,6 +34,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
       <section className="sn-toasts" aria-live="polite" aria-label="Notificações">
         {items.map((t) => (
           <div key={t.id} className={`sn-toast sn-toast--${t.tone ?? "neutral"}`}>
+            {t.media && <div className="sn-toast__media">{t.media}</div>}
             <div className="sn-toast__text">
               <p className="sn-toast__title">{t.title}</p>
               {t.description && <p className="sn-toast__desc">{t.description}</p>}

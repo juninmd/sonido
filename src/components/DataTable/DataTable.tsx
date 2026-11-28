@@ -1,4 +1,4 @@
-import { type ReactNode, useMemo, useState } from "react";
+import { type HTMLAttributes, type ReactNode, useMemo, useState } from "react";
 import { cx } from "../../utils/cx";
 import "./DataTable.css";
 
@@ -18,13 +18,26 @@ export interface DataTableProps<T> {
   rows: T[];
   rowKey: (row: T) => string;
   onRowClick?: (row: T) => void;
+  /** Atributos por linha: classe, `aria-selected`, `aria-pressed`, `data-*`. */
+  rowProps?: (row: T) => HTMLAttributes<HTMLTableRowElement>;
+  /** Conteúdo quando não há linhas (uma célula ocupando todas as colunas). */
+  empty?: ReactNode;
   className?: string;
 }
 
 type Dir = "ascending" | "descending";
 
 /** Tabela com cabeçalho fixo e ordenação por coluna (`aria-sort`). */
-export function DataTable<T>({ label, columns, rows, rowKey, onRowClick, className }: DataTableProps<T>) {
+export function DataTable<T>({
+  label,
+  columns,
+  rows,
+  rowKey,
+  onRowClick,
+  rowProps,
+  empty,
+  className,
+}: DataTableProps<T>) {
   const [sort, setSort] = useState<{ key: string; dir: Dir } | null>(null);
 
   const sorted = useMemo(() => {
@@ -73,19 +86,30 @@ export function DataTable<T>({ label, columns, rows, rowKey, onRowClick, classNa
           </tr>
         </thead>
         <tbody>
-          {sorted.map((r) => (
-            <tr
-              key={rowKey(r)}
-              className={onRowClick ? "sn-table__row--click" : undefined}
-              onClick={onRowClick ? () => onRowClick(r) : undefined}
-            >
-              {columns.map((c) => (
-                <td key={c.key} className={`sn-table__cell--${c.align ?? "start"}`}>
-                  {c.render(r)}
-                </td>
-              ))}
+          {sorted.length === 0 && empty && (
+            <tr>
+              <td className="sn-table__empty" colSpan={columns.length}>
+                {empty}
+              </td>
             </tr>
-          ))}
+          )}
+          {sorted.map((r) => {
+            const extra = rowProps?.(r);
+            return (
+              <tr
+                key={rowKey(r)}
+                {...extra}
+                className={cx(onRowClick && "sn-table__row--click", extra?.className)}
+                onClick={onRowClick ? () => onRowClick(r) : extra?.onClick}
+              >
+                {columns.map((c) => (
+                  <td key={c.key} className={`sn-table__cell--${c.align ?? "start"}`}>
+                    {c.render(r)}
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

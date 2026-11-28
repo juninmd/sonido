@@ -9,39 +9,37 @@ const code = `const rows = [
   { id: "4", t: "Disco Elysium", h: 41, r: 4.6, s: "Pausado" },
 ];
 const tone = { Zerado: "success", Jogando: "aqua", Pausado: "warning" };
+const cols = [
+  { key: "t", label: "Título", render: (r) => r.t, sort: (r) => r.t },
+  {
+    key: "s",
+    label: "Status",
+    render: (r) => (
+      <Badge tone={tone[r.s]} dot>
+        {r.s}
+      </Badge>
+    ),
+  },
+  {
+    key: "h",
+    label: "Horas",
+    align: "end",
+    render: (r) => r.h + "h",
+    sort: (r) => r.h,
+  },
+];
 function Demo() {
   return (
-    <DataTable
-      label="Jogos"
-      rows={rows}
-      rowKey={(r) => r.id}
-      columns={[
-        { key: "t", label: "Título", render: (r) => r.t, sort: (r) => r.t },
-        {
-          key: "s",
-          label: "Status",
-          render: (r) => (
-            <Badge tone={tone[r.s]} dot>
-              {r.s}
-            </Badge>
-          ),
-        },
-        {
-          key: "h",
-          label: "Horas",
-          align: "end",
-          render: (r) => r.h + "h",
-          sort: (r) => r.h,
-        },
-        {
-          key: "r",
-          label: "Nota",
-          align: "end",
-          render: (r) => r.r.toFixed(1),
-          sort: (r) => r.r,
-        },
-      ]}
-    />
+    <div style={{ display: "grid", gap: 16 }}>
+      <DataTable
+        label="Jogos"
+        rows={rows}
+        rowKey={(r) => r.id}
+        rowProps={(r) => ({ "aria-selected": r.s === "Jogando", className: r.s === "Jogando" ? "is-active" : "" })}
+        columns={cols}
+      />
+      <DataTable label="Sem jogos" rows={[]} rowKey={(r) => r.id} empty="Nenhum jogo no filtro." columns={cols} />
+    </div>
   );
 }
 

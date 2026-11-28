@@ -34,6 +34,21 @@ const code = `function Inner() {
       >
         Erro
       </Button>
+      <Button
+        variant="secondary"
+        onClick={() => {
+          t({
+            title: "Movimento detectado",
+            description: "Câmera da sala gravou um clipe.",
+            tone: "danger",
+            media: (
+              <div style={{ width: "100%", height: "100%", background: "linear-gradient(135deg, #7c5cff, #ff3d6e)" }} />
+            ),
+          });
+        }}
+      >
+        Com mídia
+      </Button>
     </div>
   );
 }

@@ -10,11 +10,8 @@ export interface Chip<K extends string> {
   icon?: ReactNode;
 }
 
-export interface FilterChipsProps<K extends string> {
+interface BaseProps<K extends string> {
   chips: Chip<K>[];
-  /** Chave ativa; `null` = todos. */
-  value: K | null;
-  onChange: (value: K | null) => void;
   /** Rótulo acessível do grupo. */
   label: string;
   /** Texto do chip "todos". Omitido = sem chip "todos". */
@@ -23,27 +20,77 @@ export interface FilterChipsProps<K extends string> {
   className?: string;
 }
 
-/** Grupo de filtros com `aria-pressed`. Clicar no ativo desliga o filtro. */
-export function FilterChips<K extends string>({
-  chips,
-  value,
-  onChange,
-  label,
-  allLabel,
-  allCount,
-  className,
-}: FilterChipsProps<K>) {
+export type FilterChipsProps<K extends string> =
+  | (BaseProps<K> & {
+      multiple?: false;
+      /** Chave ativa; `null` = todos. */
+      value: K | null;
+      onChange: (value: K | null) => void;
+      values?: never;
+      onChangeValues?: never;
+    })
+  | (BaseProps<K> & {
+      /** Vários filtros ligados ao mesmo tempo. */
+      multiple: true;
+      /** Chaves ativas; vazio = todos. */
+      values: readonly K[];
+      onChangeValues: (values: K[]) => void;
+      value?: never;
+      onChange?: never;
+    });
+
+/**
+ * Grupo de filtros com `aria-pressed`. No modo simples, clicar no ativo desliga o filtro;
+ * no modo `multiple`, cada chip liga/desliga sozinho e "todos" limpa a seleção.
+ */
+export function FilterChips<K extends string>(props: FilterChipsProps<K>) {
+  const { chips, label, allLabel, allCount, className } = props;
+  if (props.multiple) {
+    const selected = props.values;
+    const toggle = (key: K) => {
+      const next = selected.includes(key) ? selected.filter((v) => v !== key) : [...selected, key];
+      props.onChangeValues(next);
+    };
+    return (
+      <fieldset className={cx("sn-chips", className)}>
+        <legend className="sn-visually-hidden">{label}</legend>
+        {allLabel && (
+          <ChipButton
+            active={selected.length === 0}
+            onClick={() => props.onChangeValues([])}
+            label={allLabel}
+            count={allCount}
+          />
+        )}
+        {chips.map((c) => (
+          <ChipButton
+            key={c.key}
+            active={selected.includes(c.key)}
+            onClick={() => toggle(c.key)}
+            label={c.label}
+            count={c.count}
+            icon={c.icon}
+          />
+        ))}
+      </fieldset>
+    );
+  }
   return (
     <fieldset className={cx("sn-chips", className)}>
       <legend className="sn-visually-hidden">{label}</legend>
       {allLabel && (
-        <ChipButton active={value === null} onClick={() => onChange(null)} label={allLabel} count={allCount} />
+        <ChipButton
+          active={props.value === null}
+          onClick={() => props.onChange(null)}
+          label={allLabel}
+          count={allCount}
+        />
       )}
       {chips.map((c) => (
         <ChipButton
           key={c.key}
-          active={value === c.key}
-          onClick={() => onChange(value === c.key ? null : c.key)}
+          active={props.value === c.key}
+          onClick={() => props.onChange(props.value === c.key ? null : c.key)}
           label={c.label}
           count={c.count}
           icon={c.icon}

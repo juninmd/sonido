@@ -22,6 +22,7 @@ const code = `function Demo() {
     },
     {
       title: "Descobrir",
+      collapsible: true,
       items: [
         { key: "deals", label: "Ofertas", icon: <Icon name="tag" />, badge: 3 },
         { key: "stats", label: "Estatísticas", icon: <Icon name="chart" /> },

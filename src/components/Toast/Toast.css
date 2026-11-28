@@ -43,6 +43,22 @@
   flex: 1;
   min-width: 0;
 }
+.sn-toast__media {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: var(--sn-radius-sm);
+  background: var(--sn-color-surface-2);
+}
+.sn-toast__media img,
+.sn-toast__media video,
+.sn-toast__media canvas,
+.sn-toast__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .sn-toast__title {
   margin: 0;
   font: 700 var(--sn-text-sm) / 1.3 var(--sn-font);
